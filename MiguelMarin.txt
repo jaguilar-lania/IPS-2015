@@ -1,1 +1,5 @@
 Hola github
+
+java 8,  j2ee, netbeans 8
+diagrama de  clases
+modelo de datos trasladable a db2
