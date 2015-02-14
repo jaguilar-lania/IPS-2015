@@ -5,7 +5,7 @@
  * @version 1.0
  * @created 14-feb.-2015 14:35:31
  */
-public class DAO Comentarios {
+public interface DAO Comentarios {
 
 	public Comentarios m_Comentarios;
 

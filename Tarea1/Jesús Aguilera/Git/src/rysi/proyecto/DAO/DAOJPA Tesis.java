@@ -1,4 +1,10 @@
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+
 
 /**
  * @author jaguilera
@@ -7,8 +13,10 @@
  */
 public class DAOJPA Tesis implements DAO Tesis {
 
+        private EntityManagerFactory emf;
+        
 	public DAOJPA Tesis(){
-
+            emf = Persistence.createEntityManagerFactory("TesisDatosPU");
 	}
 
 	public void finalize() throws Throwable {
@@ -20,7 +28,10 @@ public class DAOJPA Tesis implements DAO Tesis {
 	 * @param titulo
 	 */
 	public List<Tesis> buscarNombre(String titulo){
-		return null;
+        EntityManager em = emf.createEntityManager();
+        return em.createQuery("SELECT tes FROM Tesis art WHERE nombre LIKE :nombre")
+                .setParameter("nombre", "%" + titulo + "%")
+                .getResultList();
 	}
 
 	/**
@@ -36,7 +47,8 @@ public class DAOJPA Tesis implements DAO Tesis {
 	 * @param tes
 	 */
 	public void deleteTesis(Tesis tes){
-
+            EntityManager em = emf.createEntityManager();
+            em.remove(tes);
 	}
 
 	/**
@@ -56,7 +68,8 @@ public class DAOJPA Tesis implements DAO Tesis {
 	 * @param tes
 	 */
 	public void updateTesis(Tesis tes){
-
+            EntityManager em = emf.createEntityManager();
+            em.merge(tes);
 	}
 
 	/**
@@ -64,7 +77,17 @@ public class DAOJPA Tesis implements DAO Tesis {
 	 * @param tes
 	 */
 	public void addTesis(Tesis tes){
-
+            EntityManager em = emf.createEntityManager();
+            EntityTransaction trans = em.getTransaction();
+            trans.begin();
+            try {
+                em.persist(tes);
+                trans.commit();
+                return tes.getIdTesis();
+            } catch (Exception ex) {
+                trans.rollback();
+                throw new RuntimeException("Error al crear tesis");
+            }
 	}
 
 }

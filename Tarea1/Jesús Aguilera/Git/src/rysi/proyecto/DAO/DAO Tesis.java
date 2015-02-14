@@ -5,7 +5,7 @@
  * @version 1.0
  * @created 14-feb.-2015 15:04:26
  */
-public class DAO Tesis {
+public interface DAO Tesis {
 
 	public Tesis m_Tesis;
 

@@ -5,7 +5,7 @@
  * @version 1.0
  * @created 14-feb.-2015 14:35:38
  */
-public class DAOJPA Comentarios extends DAO Comentarios {
+public class DAOJPA Comentarios implements DAO Comentarios {
 
 	public DAOJPA Comentarios(){
 
