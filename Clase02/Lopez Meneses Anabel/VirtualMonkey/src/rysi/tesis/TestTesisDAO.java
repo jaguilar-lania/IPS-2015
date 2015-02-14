@@ -22,18 +22,8 @@ public class TestTesisDAO {
         sesion1.setFechaingreso("14/02/2015");
         sesion1.setHoraingreso("08:00:00");
         sesion1.
+                
         
-        
-        Articulo art1 = new Articulo();
-        art1.setNombre("Java en 21 Días");
-        art1.setDescripcion("Libro para aprender Java");
-        art1.setPrecio(new BigDecimal("349.95"));
-
-        ArticulosOAD artsOAD = new ArticulosOADJPA();
-        artsOAD.crear(art1);
-        
-        System.out.println(String.format("Hay %d artículos", 
-                artsOAD.getConteoArticulos()));
     }
     
 }
