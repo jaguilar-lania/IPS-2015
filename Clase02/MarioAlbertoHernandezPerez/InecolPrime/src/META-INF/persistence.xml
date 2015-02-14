@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="InecolPrimePU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>inecolprime.pojos.Parametro</class>
+    <class>inecolprime.pojos.Entidadfederativa</class>
+    <class>inecolprime.pojos.Tipodocumento</class>
+    <class>inecolprime.pojos.Director</class>
+    <class>inecolprime.pojos.Permiso</class>
+    <class>inecolprime.pojos.Comentario</class>
+    <class>inecolprime.pojos.Persona</class>
+    <class>inecolprime.pojos.Usuario</class>
+    <class>inecolprime.pojos.Rol</class>
+    <class>inecolprime.pojos.Catalogo</class>
+    <class>inecolprime.pojos.Sugerencia</class>
+    <class>inecolprime.pojos.Calificacion</class>
+    <class>inecolprime.pojos.Documento</class>
+    <class>inecolprime.pojos.Pais</class>
+    <class>inecolprime.pojos.Tesis</class>
+    <class>inecolprime.pojos.Municipio</class>
+    <class>inecolprime.pojos.Visita</class>
+    <class>inecolprime.pojos.Autor</class>
+    <class>inecolprime.pojos.Menu</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/inecolprime"/>
+      <property name="javax.persistence.jdbc.password" value="00000"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>
