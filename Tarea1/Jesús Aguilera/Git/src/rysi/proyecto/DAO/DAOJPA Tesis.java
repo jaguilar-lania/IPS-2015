@@ -56,7 +56,8 @@ public class DAOJPA Tesis implements DAO Tesis {
 	 * @param idTesis
 	 */
 	public Tesis getIdTesis(int idTesis){
-		return null;
+        EntityManager em = emf.createEntityManager();
+        return em.find(Tesis.class, idTesis);
 	}
 
 	public List<Tesis> getTodos(){
