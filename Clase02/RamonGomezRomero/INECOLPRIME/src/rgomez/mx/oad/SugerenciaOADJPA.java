@@ -47,22 +47,27 @@ public class SugerenciaOADJPA implements SugerenciaOAD{
 
     @Override
     public void borrar(Sugerencia sugerencia) {
-        
+        EntityManager emanager = entity.createEntityManager();
+        emanager.remove(sugerencia);
     }
 
     @Override
     public void borrar(int idSugerencia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<Sugerencia> buscarPorSugerencia(String sugerencia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       EntityManager emanager = entity.createEntityManager();
+       return emanager.createQuery("SELECT sug FROM Sugerencia sug WHERE sugerencia LIKE :sugerencia")
+               .setParameter("sugerencia", "%" + sugerencia + "%")
+               .getResultList();
     }
 
     @Override
     public Sugerencia getById(int idSugerencia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // EntityManager emanager = entity.createEntityManager();
+        return null;
     }
 
     @Override
