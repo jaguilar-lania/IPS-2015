@@ -40,6 +40,7 @@ public class Sesion implements Serializable {
     @Column(name = "HORASALIDA")
     @Temporal(TemporalType.DATE)
     private Date horasalida;
+           
 
     public Sesion() {
     }
