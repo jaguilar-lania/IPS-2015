@@ -10,59 +10,59 @@ import rysi.articulos.entidades.Articulo;
  */
 public class ArticulosOADJPA implements ArticulosOAD {
 
-	public ArticulosOADJPA(){
+    public ArticulosOADJPA() {
 
-	}
+    }
 
-        /*
-	 * 
-	 * @param art
-	 */
-	public void actualizar(Articulo art){
+    /*
+     * 
+     * @param art
+     */
+    public void actualizar(Articulo art) {
 
-	}
+    }
 
-	/**
-	 * 
-	 * @param art
-	 */
-	public void borrar(Articulo art){
+    /**
+     *
+     * @param art
+     */
+    public void borrar(Articulo art) {
 
-	}
+    }
 
-	/**
-	 * 
-	 * @param idArticulo
-	 */
-	public void borrar(int idArticulo){
+    /**
+     *
+     * @param idArticulo
+     */
+    public void borrar(int idArticulo) {
 
-	}
+    }
 
-	/**
-	 * 
-	 * @param nombre
-	 */
-	public List<Articulo> buscarPorNombre(String nombre){
-		return null;
-	}
+    /**
+     *
+     * @param nombre
+     */
+    public List<Articulo> buscarPorNombre(String nombre) {
+        return null;
+    }
 
-	/**
-	 * 
-	 * @param art
-	 */
-	public int crear(Articulo art){
-		return 0;
-	}
+    /**
+     *
+     * @param art
+     */
+    public int crear(Articulo art) {
+        return 0;
+    }
 
-	/**
-	 * 
-	 * @param idArticulo
-	 */
-	public Articulo getPorId(int idArticulo){
-		return null;
-	}
+    /**
+     *
+     * @param idArticulo
+     */
+    public Articulo getPorId(int idArticulo) {
+        return null;
+    }
 
-	public List<Articulo> getTodos(){
-		return null;
-	}
+    public List<Articulo> getTodos() {
+        return null;
+    }
 }//end ArticulosOADJPA
