@@ -31,11 +31,12 @@ public class TesisDAO {
             try{
                 em.persist(tes);
                 trans.commit();
+                return tes.getIdtesis();
             }catch(Exception ex){
                 trans.rollback();
                 throw new RuntimeException("Error al crear la tesis");
             }
-            return tes.getIdtesis();
+           
 	}
 
 	/**

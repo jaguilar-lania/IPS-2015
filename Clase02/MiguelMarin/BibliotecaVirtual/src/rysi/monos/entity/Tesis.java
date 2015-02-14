@@ -77,12 +77,12 @@ public class Tesis implements Serializable {
     @JoinColumn(name = "IDDISCIPLINA", referencedColumnName = "IDDISCIPLINA")
     @ManyToOne(optional = false)
     private Disciplina disciplina;
-//    @JoinColumn(name = "IDINSTITUCION_ADSCRIPCION", referencedColumnName = "IDISTITUCION_ADSCRIPCION")
-//    @ManyToOne(optional = false)
-//    private InstitucionAdscripcion institucionAdscripcion;
-//    @JoinColumn(name = "IDSUBDISCIPLINA", referencedColumnName = "IDSUBDISCIPLINA")
-//    @ManyToOne(optional = false)
-//    private Subdisciplina subdisciplina;
+    @JoinColumn(name = "IDINSTITUCION_ADSCRIPCION", referencedColumnName = "IDISTITUCION_ADSCRIPCION")
+    @ManyToOne(optional = true)
+    private InstitucionAdscripcion institucionAdscripcion;
+   @JoinColumn(name = "IDSUBDISCIPLINA", referencedColumnName = "IDSUBDISCIPLINA")
+   @ManyToOne(optional = false)
+    private Subdisciplina subdisciplina;
 //    @OneToMany(mappedBy = "tesis")
 //    private List<Bitacora> bitacoraList;
 //    @OneToMany(mappedBy = "tesis")
