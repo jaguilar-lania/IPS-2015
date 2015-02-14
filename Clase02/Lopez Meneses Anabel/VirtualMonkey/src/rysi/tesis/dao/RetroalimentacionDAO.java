@@ -1,4 +1,7 @@
+package rysi.tesis.dao;
 
+import java.util.List;
+import rysi.tesis.entidades.Retroalimentacion;
 
 /**
  * @author Anny
