@@ -1,11 +1,9 @@
-package rysi.proyecto.DAO;
-
 
 
 /**
  * @author jaguilera
  * @version 1.0
- * @created 14-feb.-2015 14:35:03
+ * @created 14-feb.-2015 14:53:20
  */
 public class DAO Tesis {
 

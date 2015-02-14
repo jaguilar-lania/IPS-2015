@@ -5,7 +5,7 @@
  * @version 1.0
  * @created 14-feb.-2015 14:35:37
  */
-public class DAOJPA Tesis extends DAO Tesis {
+public class DAOJPA Tesis implements DAO Tesis {
 
 	public DAOJPA Tesis(){
 
