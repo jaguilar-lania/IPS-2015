@@ -1,6 +1,10 @@
 package rysi.articulos.oad;
 
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import rysi.articulos.entidades.Articulo;
 
 /**
@@ -10,8 +14,10 @@ import rysi.articulos.entidades.Articulo;
  */
 public class ArticulosOADJPA implements ArticulosOAD {
 
-    public ArticulosOADJPA() {
+    private EntityManagerFactory emf;
 
+    public ArticulosOADJPA() {
+        emf = Persistence.createEntityManagerFactory("ArticulosDatosPU");
     }
 
     /*
@@ -19,7 +25,8 @@ public class ArticulosOADJPA implements ArticulosOAD {
      * @param art
      */
     public void actualizar(Articulo art) {
-
+        EntityManager em = emf.createEntityManager();
+        em.merge(art);
     }
 
     /**
@@ -27,7 +34,8 @@ public class ArticulosOADJPA implements ArticulosOAD {
      * @param art
      */
     public void borrar(Articulo art) {
-
+        EntityManager em = emf.createEntityManager();
+        em.remove(art);
     }
 
     /**
@@ -40,10 +48,13 @@ public class ArticulosOADJPA implements ArticulosOAD {
 
     /**
      *
-     * @param nombre
+     * @param cadena
      */
-    public List<Articulo> buscarPorNombre(String nombre) {
-        return null;
+    public List<Articulo> buscarPorNombre(String cadena) {
+        EntityManager em = emf.createEntityManager();
+        return em.createQuery("SELECT art FROM Articulo art WHERE nombre LIKE :nombre")
+                .setParameter("nombre", "%" + cadena + "%")
+                .getResultList();
     }
 
     /**
@@ -51,7 +62,17 @@ public class ArticulosOADJPA implements ArticulosOAD {
      * @param art
      */
     public int crear(Articulo art) {
-        return 0;
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        trans.begin();
+        try {
+            em.persist(art);
+            trans.commit();
+            return art.getIdArticulo();
+        } catch (Exception ex) {
+            trans.rollback();
+            throw new RuntimeException("Error al crear articulo");
+        }
     }
 
     /**
@@ -59,10 +80,26 @@ public class ArticulosOADJPA implements ArticulosOAD {
      * @param idArticulo
      */
     public Articulo getPorId(int idArticulo) {
-        return null;
+        EntityManager em = emf.createEntityManager();
+        return em.find(Articulo.class, idArticulo);
     }
 
     public List<Articulo> getTodos() {
-        return null;
+        EntityManager em = emf.createEntityManager();
+        return em.createQuery("SELECT art FROM Articulo art").getResultList();
+    }
+
+    @Override
+    public long getConteoArticulos() {
+        EntityManager em = emf.createEntityManager();
+        return (long) em.createQuery("SELECT COUNT(art) FROM Articulo art")
+                .getSingleResult();
     }
 }//end ArticulosOADJPA
+
+
+
+
+
+
+

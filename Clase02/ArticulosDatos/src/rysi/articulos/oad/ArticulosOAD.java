@@ -14,37 +14,45 @@ public interface ArticulosOAD {
      *
      * @param art
      */
-    public abstract void actualizar(Articulo art);
+    public void actualizar(Articulo art);
 
     /**
      *
      * @param art
      */
-    public abstract void borrar(Articulo art);
+    public void borrar(Articulo art);
 
     /**
      *
      * @param idArticulo
      */
-    public abstract void borrar(int idArticulo);
+    public void borrar(int idArticulo);
 
     /**
      *
      * @param nombre
      */
-    public abstract List<Articulo> buscarPorNombre(String nombre);
+    public List<Articulo> buscarPorNombre(String nombre);
 
     /**
      *
      * @param art
      */
-    public abstract int crear(Articulo art);
+    public int crear(Articulo art);
 
     /**
      *
      * @param idArticulo
      */
-    public abstract Articulo getPorId(int idArticulo);
+    public Articulo getPorId(int idArticulo);
 
-    public abstract List<Articulo> getTodos();
+    public List<Articulo> getTodos();
+    
+    public long getConteoArticulos();
 }//end ArticulosOAD
+
+
+
+
+
+
