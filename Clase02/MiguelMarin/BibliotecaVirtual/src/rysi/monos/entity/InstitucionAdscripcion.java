@@ -37,8 +37,8 @@ public class InstitucionAdscripcion implements Serializable {
     @Basic(optional = false)
     @Column(name = "NOMBRE")
     private String nombre;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucionAdscripcion")
-    private List<Tesis> tesisList;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucionAdscripcion")
+//    private List<Tesis> tesisList;
 
     public InstitucionAdscripcion() {
     }
@@ -68,14 +68,14 @@ public class InstitucionAdscripcion implements Serializable {
         this.nombre = nombre;
     }
 
-    @XmlTransient
-    public List<Tesis> getTesisList() {
-        return tesisList;
-    }
-
-    public void setTesisList(List<Tesis> tesisList) {
-        this.tesisList = tesisList;
-    }
+//    @XmlTransient
+//    public List<Tesis> getTesisList() {
+//        return tesisList;
+//    }
+//
+//    public void setTesisList(List<Tesis> tesisList) {
+//        this.tesisList = tesisList;
+//    }
 
     @Override
     public int hashCode() {

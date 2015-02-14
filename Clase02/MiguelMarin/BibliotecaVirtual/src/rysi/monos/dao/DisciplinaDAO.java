@@ -32,7 +32,7 @@ public class DisciplinaDAO {
                 trans.commit();
             }catch(Exception ex){
                 trans.rollback();
-                throw new RuntimeException("Error al crear la tesis");
+                throw new RuntimeException("Error al crear la disciplina");
             }
             return disc.getIddisciplina();
 	}
