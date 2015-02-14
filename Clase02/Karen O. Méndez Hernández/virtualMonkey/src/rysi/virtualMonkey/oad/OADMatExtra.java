@@ -4,11 +4,34 @@
  * and open the template in the editor.
  */
 package rysi.virtualMonkey.oad;
-
+import rysi.virtualMonkey.entidades.Materialextra; 
 /**
  *
- * @author user
+ * @author mat
  */
-public class OADMatExtra {
+public interface OADMatExtra {
+
+    /**
+     *
+     * @param mat
+     */
+    public abstract void registrar(Materialextra mat);
+
+    /**
+     *
+     * @param mat
+     */
+    public abstract void editar(Materialextra mat);
+
+    /**
+     *
+     * @param idMatExtra
+     */
+    public abstract void eliminar(int idMatExtra);
+
     
-}
+   
+
+    
+}//end OADUsuarios
+
