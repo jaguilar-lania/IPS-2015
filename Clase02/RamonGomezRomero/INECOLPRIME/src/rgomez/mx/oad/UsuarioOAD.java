@@ -19,10 +19,6 @@ public interface UsuarioOAD {
 
     public void borrar(Usuario usu);
 
-    public void borrar(int idUsuario);
-
-    public List<Usuario> buscarPorFechaRegistro(Date fecha);
-
     public int crear(Usuario usu);
 
     public Usuario getById(int idUsuario);

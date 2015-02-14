@@ -52,11 +52,6 @@ public class SugerenciaOADJPA implements SugerenciaOAD{
     }
 
     @Override
-    public void borrar(int idSugerencia) {
-        //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public List<Sugerencia> buscarPorSugerencia(String sugerencia) {
        EntityManager emanager = entity.createEntityManager();
        return emanager.createQuery("SELECT sug FROM Sugerencia sug WHERE sugerencia LIKE :sugerencia")
@@ -67,17 +62,21 @@ public class SugerenciaOADJPA implements SugerenciaOAD{
     @Override
     public Sugerencia getById(int idSugerencia) {
         // EntityManager emanager = entity.createEntityManager();
-        return null;
+         EntityManager emanager = entity.createEntityManager();
+        return emanager.find(Sugerencia.class, idSugerencia);
     }
 
     @Override
     public List<Sugerencia> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager emanager = entity.createEntityManager();
+        return emanager.createQuery("SELECT surg FROM Sugerencia surg").getResultList();
     }
 
     @Override
     public long getCountSugerencias() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager emanager = entity.createEntityManager();
+        return (long) emanager.createQuery("SELECT COUNT(surg) FROM Sugerencia surg")
+                .getSingleResult();
     }
     
 }

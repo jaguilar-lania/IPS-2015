@@ -17,8 +17,6 @@ public interface SugerenciaOAD {
 
     public void borrar(Sugerencia sugerencia);
 
-    public void borrar(int idSugerencia);
-
     public List<Sugerencia> buscarPorSugerencia(String sugerencia);
 
     public int crear(Sugerencia sugerencia);

@@ -7,6 +7,10 @@ package rgomez.mx.oad;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import rgomez.mx.entidades.Usuario;
 
 /**
@@ -15,44 +19,58 @@ import rgomez.mx.entidades.Usuario;
  */
 public class UsuarioOADJPA implements UsuarioOAD{
 
+    private EntityManagerFactory entity;
+    
+    public UsuarioOADJPA(){
+        entity = Persistence.createEntityManagerFactory("INECOLPRIMEPU");
+    }
+    
     @Override
     public void actualizar(Usuario usu) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager emanager = entity.createEntityManager();
+        emanager.merge(usu);
     }
 
     @Override
     public void borrar(Usuario usu) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         EntityManager emanager = entity.createEntityManager();
+        emanager.remove(usu);
     }
 
-    @Override
-    public void borrar(int idUsuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Usuario> buscarPorFechaRegistro(Date fecha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     @Override
     public int crear(Usuario usu) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager emanager = entity.createEntityManager();
+         EntityTransaction transaccion = emanager.getTransaction();
+         transaccion.begin();
+         try{
+             emanager.persist(usu);
+             transaccion.commit();
+             return usu.getIdusuario();
+         }catch(Exception e){
+             transaccion.rollback();
+             throw new RuntimeException("Error al crear el usuario");
+         }
     }
 
     @Override
     public Usuario getById(int idUsuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager emanager = entity.createEntityManager();
+        return emanager.find(Usuario.class, idUsuario);
     }
 
     @Override
     public List<Usuario> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager emanager = entity.createEntityManager();
+        return emanager.createQuery("SELECT us FROM Usuario us").getResultList();
     }
 
     @Override
     public long getCountUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager emanager = entity.createEntityManager();
+        return (long) emanager.createQuery("SELECT COUNT(us) FROM Usuario us")
+                .getSingleResult();
     }
     
 }
