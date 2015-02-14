@@ -27,6 +27,7 @@ public class TesisDAO {
         public int insert(Tesis tes) {
             EntityManager em = emf.createEntityManager();
             EntityTransaction trans = em.getTransaction();
+            trans.begin();
             try{
                 em.persist(tes);
                 trans.commit();

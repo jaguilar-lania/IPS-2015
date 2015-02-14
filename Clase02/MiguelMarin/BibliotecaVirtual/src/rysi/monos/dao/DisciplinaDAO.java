@@ -27,6 +27,7 @@ public class DisciplinaDAO {
         public int insert(Disciplina disc) {
             EntityManager em = emf.createEntityManager();
             EntityTransaction trans = em.getTransaction();
+            trans.begin();
             try{
                 em.persist(disc);
                 trans.commit();
