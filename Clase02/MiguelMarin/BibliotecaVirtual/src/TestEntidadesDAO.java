@@ -1,6 +1,7 @@
 
-import rysi.monos.dao.TesisDAO;
-import rysi.monos.entity.Tesis;
+import java.util.Date;
+import rysi.monos.dao.*;
+import rysi.monos.entity.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +14,7 @@ import rysi.monos.entity.Tesis;
  */
 public class TestEntidadesDAO {
     
-    public void main(String[] args)
+    public static void main(String[] args)
     {
         TesisDAO tesisDao = new TesisDAO();
         Tesis tes= new Tesis();
@@ -22,9 +23,19 @@ public class TestEntidadesDAO {
         tes.setAutorTesis("Miguel Marin");
         tes.setCondicionSitio("Condicion del sitio");
         tes.setDirectorTesis("JUAN LOPEZ");
-        Disciplina dis = new Disciplina();
-        
-        tes.setDisciplina(null);
+        tes.setEstatus(1);
+        tes.setFechaReg(new Date());
+        tes.setGradoObtenido(1);//licenciatura
+        tes.setIdestado(0);
+        tes.setTitulo("MONOS ACROBATICOS");
+        Disciplina dis= new Disciplina();
+        dis.setDisciplina("MONOS AULLADORES");
+        DisciplinaDAO discDAO = new DisciplinaDAO();
+        discDAO.insert(dis);
+//        Disciplina dis = new Disciplina();
+//        dis.setDisciplina("MONOS ESOTERICOS");
+//        
+        //tes.setDisciplina(tes);
         
         tesisDao.insert(tes);
     }

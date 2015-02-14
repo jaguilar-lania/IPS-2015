@@ -40,9 +40,7 @@ public class Disciplina implements Serializable {
     @Basic(optional = false)
     @Column(name = "DISCIPLINA")
     private String disciplina;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "disciplina")
-    private List<Tesis> tesisList;
-
+    
     public Disciplina() {
     }
 
@@ -71,14 +69,14 @@ public class Disciplina implements Serializable {
         this.disciplina = disciplina;
     }
 
-    @XmlTransient
-    public List<Tesis> getTesisList() {
-        return tesisList;
-    }
-
-    public void setTesisList(List<Tesis> tesisList) {
-        this.tesisList = tesisList;
-    }
+//    @XmlTransient
+//    public List<Tesis> getTesisList() {
+//        return tesisList;
+//    }
+//
+//    public void setTesisList(List<Tesis> tesisList) {
+//        this.tesisList = tesisList;
+//    }
 
     @Override
     public int hashCode() {
