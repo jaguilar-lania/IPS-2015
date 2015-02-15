@@ -28,17 +28,21 @@ import javax.persistence.Table;
     @NamedQuery(name = "Rol.findAll", query = "SELECT r FROM Rol r")})
 public class Rol implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
     @Basic(optional = false)
     @Column(name = "IDROL")
     private Integer idrol;
+    
     @Column(name = "NOMBRE")
     private String nombre;
+    
     @OneToMany(mappedBy = "idrol")
     private List<Usuario> usuarioList;
+    
     @JoinColumn(name = "IDPERMISO", referencedColumnName = "IDPERMISO")
     @ManyToOne
-    private Permiso idpermiso;
+    private Integer idpermiso;
 
     public Rol() {
     }
@@ -71,11 +75,11 @@ public class Rol implements Serializable {
         this.usuarioList = usuarioList;
     }
 
-    public Permiso getIdpermiso() {
+    public Integer getIdpermiso() {
         return idpermiso;
     }
 
-    public void setIdpermiso(Permiso idpermiso) {
+    public void setIdpermiso(Integer idpermiso) {
         this.idpermiso = idpermiso;
     }
 

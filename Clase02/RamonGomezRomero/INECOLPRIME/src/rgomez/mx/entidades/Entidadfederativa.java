@@ -26,14 +26,18 @@ import javax.persistence.Table;
     @NamedQuery(name = "Entidadfederativa.findAll", query = "SELECT e FROM Entidadfederativa e")})
 public class Entidadfederativa implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
     @Basic(optional = false)
     @Column(name = "IDENTIDADFEDERATIVA")
     private Integer identidadfederativa;
+    
     @Column(name = "NOMBRE")
     private String nombre;
+    
     @OneToMany(mappedBy = "identidadfederativa")
     private List<Persona> personaList;
+    
     @OneToMany(mappedBy = "identidadfederativa")
     private List<Tesis> tesisList;
 

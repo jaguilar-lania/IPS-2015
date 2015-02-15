@@ -26,20 +26,27 @@ import javax.persistence.Table;
     @NamedQuery(name = "Permiso.findAll", query = "SELECT p FROM Permiso p")})
 public class Permiso implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
     @Basic(optional = false)
     @Column(name = "IDPERMISO")
     private Integer idpermiso;
+    
     @Column(name = "NOMBRE")
     private String nombre;
+    
     @Column(name = "CREAR")
     private Integer crear;
+    
     @Column(name = "EDITAR")
     private Integer editar;
+    
     @Column(name = "ELIMINAR")
     private Integer eliminar;
+    
     @Column(name = "BUSCAR")
     private Integer buscar;
+    
     @OneToMany(mappedBy = "idpermiso")
     private List<Rol> rolList;
 

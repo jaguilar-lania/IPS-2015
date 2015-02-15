@@ -22,7 +22,11 @@ public class UsuarioOADJPA implements UsuarioOAD{
     private EntityManagerFactory entity;
     
     public UsuarioOADJPA(){
-        entity = Persistence.createEntityManagerFactory("INECOLPRIMEPU");
+        try{
+            entity = Persistence.createEntityManagerFactory("INECOLPRIMEPU");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
     @Override

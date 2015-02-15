@@ -7,8 +7,11 @@ package rgomez.principal;
 
 import java.util.Date;
 import rgomez.mx.entidades.Sugerencia;
+import rgomez.mx.entidades.Usuario;
 import rgomez.mx.oad.SugerenciaOAD;
 import rgomez.mx.oad.SugerenciaOADJPA;
+import rgomez.mx.oad.UsuarioOAD;
+import rgomez.mx.oad.UsuarioOADJPA;
 
 /**
  *
@@ -17,17 +20,29 @@ import rgomez.mx.oad.SugerenciaOADJPA;
 public class PruebaOAD {
  
      public static void main(String[] args) {
-        Sugerencia sug1 = new Sugerencia();
+       /* Sugerencia sug1 = new Sugerencia();
         sug1.setSugerencia("Cambiar portada");
         Date fecha = new Date();
         fecha.getDate();
         sug1.setFechacreacion(fecha);
-        sug1.setIdusuario(null);
+        sug1.setIdusuario(0); */
 
-        SugerenciaOAD surOAD = new SugerenciaOADJPA();
-        surOAD.crear(sug1);
+        //SugerenciaOAD surOAD = new SugerenciaOADJPA();
+        //surOAD.crear(sug1);
         
-        System.out.println(String.format("Hay %d sugerencias", 
-                surOAD.getCountSugerencias()));
+        Date fecha = new Date();
+        fecha.getDate(); 
+         
+        Usuario usu = new Usuario();
+        usu.setIdpersona(1);
+        usu.setFecharegistro(fecha);
+        usu.setIdrol(1);
+        usu.setIdpersona(1);
+        
+        UsuarioOADJPA usuarioOAD = new UsuarioOADJPA();
+        usuarioOAD.crear(usu);
+         
+        System.out.println(String.format("Hay %d usuario(s)", 
+                usuarioOAD.getCountUsuarios()));
     }
 }

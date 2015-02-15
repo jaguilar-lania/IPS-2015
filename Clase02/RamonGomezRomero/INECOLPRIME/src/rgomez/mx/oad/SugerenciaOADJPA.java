@@ -18,9 +18,10 @@ import rgomez.mx.entidades.Sugerencia;
  */
 public class SugerenciaOADJPA implements SugerenciaOAD{
 
-    private EntityManagerFactory entity;
+   private EntityManagerFactory entity;
     
     public SugerenciaOADJPA(){
+        //entity = Persistence.createEntityManagerFactory("INECOLPRIMEPU");
         entity = Persistence.createEntityManagerFactory("INECOLPRIMEPU");
     }
     

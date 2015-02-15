@@ -33,16 +33,19 @@ public class Sugerencia implements Serializable {
     @Basic(optional = false)
     @Column(name = "IDSUGERENCIA")
     private Integer idsugerencia;
+    
     @Basic(optional = false)
     @Column(name = "SUGERENCIA")
     private String sugerencia;
+    
     @Basic(optional = false)
     @Column(name = "FECHACREACION")
     @Temporal(TemporalType.DATE)
     private Date fechacreacion;
+    
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")
     @ManyToOne
-    private Usuario idusuario;
+    private Integer idusuario;
 
     public Sugerencia() {
     }
@@ -81,11 +84,11 @@ public class Sugerencia implements Serializable {
         this.fechacreacion = fechacreacion;
     }
 
-    public Usuario getIdusuario() {
+    public Integer getIdusuario() {
         return idusuario;
     }
 
-    public void setIdusuario(Usuario idusuario) {
+    public void setIdusuario(Integer idusuario) {
         this.idusuario = idusuario;
     }
 

@@ -35,21 +35,29 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "IDUSUARIO")
     private Integer idusuario;
+    
     @Column(name = "FECHAREGISTRO")
     @Temporal(TemporalType.DATE)
     private Date fecharegistro;
+    
+    
     @OneToMany(mappedBy = "idusuario")
     private List<Contadorvisitas> contadorvisitasList;
+    
     @OneToMany(mappedBy = "idusuario")
     private List<Comentario> comentarioList;
+    
     @JoinColumn(name = "IDROL", referencedColumnName = "IDROL")
     @ManyToOne
-    private Rol idrol;
+    private Integer idrol;
+    
     @JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
     @ManyToOne
-    private Persona idpersona;
+    private Integer idpersona;
+    
     @OneToMany(mappedBy = "idusuario")
     private List<Calificacion> calificacionList;
+    
     @OneToMany(mappedBy = "idusuario")
     private List<Sugerencia> sugerenciaList;
 
@@ -92,19 +100,19 @@ public class Usuario implements Serializable {
         this.comentarioList = comentarioList;
     }
 
-    public Rol getIdrol() {
+    public Integer getIdrol() {
         return idrol;
     }
 
-    public void setIdrol(Rol idrol) {
+    public void setIdrol(Integer idrol) {
         this.idrol = idrol;
     }
 
-    public Persona getIdpersona() {
+    public Integer getIdpersona() {
         return idpersona;
     }
 
-    public void setIdpersona(Persona idpersona) {
+    public void setIdpersona(Integer idpersona) {
         this.idpersona = idpersona;
     }
 

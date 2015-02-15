@@ -31,27 +31,36 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")})
 public class Persona implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
     @Basic(optional = false)
     @Column(name = "IDPERSONA")
     private Integer idpersona;
+    
     @Column(name = "NOMBRE")
     private String nombre;
+    
     @Column(name = "APELLIDOS")
     private String apellidos;
+    
     @Column(name = "FECHANACIMIENTO")
     @Temporal(TemporalType.DATE)
     private Date fechanacimiento;
+    
     @OneToMany(mappedBy = "idpersona")
     private List<Autor> autorList;
+    
     @JoinColumn(name = "IDPAIS", referencedColumnName = "IDPAIS")
     @ManyToOne
-    private Pais idpais;
+    private Integer idpais;
+    
     @JoinColumn(name = "IDENTIDADFEDERATIVA", referencedColumnName = "IDENTIDADFEDERATIVA")
     @ManyToOne
-    private Entidadfederativa identidadfederativa;
+    private Integer identidadfederativa;
+    
     @OneToMany(mappedBy = "idpersona")
     private List<Director> directorList;
+    
     @OneToMany(mappedBy = "idpersona")
     private List<Usuario> usuarioList;
 
@@ -102,19 +111,19 @@ public class Persona implements Serializable {
         this.autorList = autorList;
     }
 
-    public Pais getIdpais() {
+    public Integer getIdpais() {
         return idpais;
     }
 
-    public void setIdpais(Pais idpais) {
+    public void setIdpais(Integer idpais) {
         this.idpais = idpais;
     }
 
-    public Entidadfederativa getIdentidadfederativa() {
+    public Integer getIdentidadfederativa() {
         return identidadfederativa;
     }
 
-    public void setIdentidadfederativa(Entidadfederativa identidadfederativa) {
+    public void setIdentidadfederativa(Integer identidadfederativa) {
         this.identidadfederativa = identidadfederativa;
     }
 
