@@ -16,6 +16,8 @@ public class TestUsuariosOAD {
         usr.setCorreoelectronico(("karenmh91"));
         usr.setGenero(("femenino"));
         usr.setOcupacion(("empleada"));
+        usr.setContrasena("w");
+        usr.getRol();
 
         OADUsuarios artsOAD = new OADJPAUsuarios();
         artsOAD.registrar(usr);

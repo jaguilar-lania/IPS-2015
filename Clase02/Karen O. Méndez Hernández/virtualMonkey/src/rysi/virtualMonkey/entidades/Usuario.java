@@ -55,13 +55,16 @@ public class Usuario implements Serializable {
         this.idusuario = idusuario;
     }
 
-    public Usuario(Integer idusuario, String nombre, String correoelectronico, String genero, String ocupacion, String rol) {
+    public Usuario(Integer idusuario, String nombre, String contrasena, String gradoacademico ,String correoelectronico, String facebook, String genero, String ocupacion, String rol) {
         this.idusuario = idusuario;
         this.nombre = nombre;
         this.correoelectronico = correoelectronico;
         this.genero = genero;
+        this.facebook = facebook;
+        this.gradoacademico = gradoacademico;
         this.ocupacion = ocupacion;
         this.rol=rol;
+        this.contrasena = contrasena;
     }
 
     public Integer getIdusuario() {
@@ -78,6 +81,22 @@ public class Usuario implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.nombre = contrasena;
+    }
+    
+     public String getGradoacademico() {
+        return gradoacademico;
+    }
+
+    public void setGradoacademico(String gradoacademico) {
+        this.gradoacademico = gradoacademico;
     }
 
     public String getCorreoelectronico() {
@@ -104,14 +123,7 @@ public class Usuario implements Serializable {
         this.ocupacion = ocupacion;
     }
 
-    public String getGradoacademico() {
-        return gradoacademico;
-    }
-
-    public void setGradoacademico(String gradoacademico) {
-        this.gradoacademico = gradoacademico;
-    }
-
+  
     public String getFacebook() {
         return facebook;
     }
@@ -120,13 +132,7 @@ public class Usuario implements Serializable {
         this.facebook = facebook;
     }
 
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
+   
 
     
 
