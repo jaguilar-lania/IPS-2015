@@ -6,15 +6,12 @@
 package rysi.virtualMonkey.entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,8 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "USUARIO")
-@NamedQueries({
-    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
+
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,10 +45,8 @@ public class Usuario implements Serializable {
     private String facebook;
     @Column(name = "CONTRASENA")
     private String contrasena;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-    private List<Registroestadisticas> registroestadisticasList;
-    @OneToMany(mappedBy = "usuario")
-    private List<Rol> rolList;
+    @Column(name = "ROL")
+    private String rol;
 
     public Usuario() {
     }
@@ -61,12 +55,13 @@ public class Usuario implements Serializable {
         this.idusuario = idusuario;
     }
 
-    public Usuario(Integer idusuario, String nombre, String correoelectronico, String genero, String ocupacion) {
+    public Usuario(Integer idusuario, String nombre, String correoelectronico, String genero, String ocupacion, String rol) {
         this.idusuario = idusuario;
         this.nombre = nombre;
         this.correoelectronico = correoelectronico;
         this.genero = genero;
         this.ocupacion = ocupacion;
+        this.rol=rol;
     }
 
     public Integer getIdusuario() {
@@ -133,20 +128,14 @@ public class Usuario implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public List<Registroestadisticas> getRegistroestadisticasList() {
-        return registroestadisticasList;
+    
+
+    public String getRol() {
+        return rol;
     }
 
-    public void setRegistroestadisticasList(List<Registroestadisticas> registroestadisticasList) {
-        this.registroestadisticasList = registroestadisticasList;
-    }
-
-    public List<Rol> getRolList() {
-        return rolList;
-    }
-
-    public void setRolList(List<Rol> rolList) {
-        this.rolList = rolList;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     @Override

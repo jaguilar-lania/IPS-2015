@@ -22,8 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "MATERIALEXTRA")
-@NamedQueries({
-    @NamedQuery(name = "Materialextra.findAll", query = "SELECT m FROM Materialextra m")})
+
 public class Materialextra implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -33,9 +32,7 @@ public class Materialextra implements Serializable {
     @Basic(optional = false)
     @Column(name = "TITULO")
     private String titulo;
-    @JoinColumn(name = "IDTESIS", referencedColumnName = "IDTESIS")
-    @ManyToOne
-    private Catalogotesis catalogotesis;
+    
 
     public Materialextra() {
     }
@@ -65,13 +62,7 @@ public class Materialextra implements Serializable {
         this.titulo = titulo;
     }
 
-    public Catalogotesis getCatalogotesis() {
-        return catalogotesis;
-    }
-
-    public void setCatalogotesis(Catalogotesis catalogotesis) {
-        this.catalogotesis = catalogotesis;
-    }
+   
 
     @Override
     public int hashCode() {

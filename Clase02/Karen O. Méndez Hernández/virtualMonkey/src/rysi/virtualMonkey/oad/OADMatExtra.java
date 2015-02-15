@@ -15,7 +15,7 @@ public interface OADMatExtra {
      *
      * @param mat
      */
-    public abstract void registrar(Materialextra mat);
+    public abstract void registrar(Materialextra art);
 
     /**
      *

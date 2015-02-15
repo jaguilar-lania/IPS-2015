@@ -1,41 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rysi.virtualMonkey.oad;
-import rysi.virtualMonkey.entidades.Usuario; 
+
+import java.util.List;
+import rysi.virtualMonkey.entidades.Usuario;
+
 /**
- *
- * @author user
+ * @author jaguilar
+ * @version 1.0
+ * @created 14-feb.-2015 11:39:53
  */
 public interface OADUsuarios {
-
-    /**
+ /**
      *
      * @param usr
      */
-    public abstract void registrar(Usuario usr);
+    public void registrar(Usuario usr);
 
-    /**
-     *
-     * @param usr
-     */
-    public abstract void editar(Usuario usr);
-
-    /**
+/**
      *
      * @param idUsuario
      */
-    public abstract void eliminar(int idUsuario);
-
+    public void eliminar(int idUsuario);
     
     /**
      *
      * @param usr
      */
-    public abstract void cambiarContrasena(Usuario usr);
-
-    
-}//end OADUsuarios
-
+    public void editar(Usuario usr);
+}//end ArticulosOAD
