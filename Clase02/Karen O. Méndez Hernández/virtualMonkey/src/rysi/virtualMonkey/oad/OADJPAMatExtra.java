@@ -22,7 +22,7 @@ public class OADJPAMatExtra implements DAOMatExtra {
      * 
      * @param mat
      */
-    public void actualizar(Materialextra mat) {
+    public void editar(Materialextra mat) {
         EntityManager em = emf.createEntityManager();
         em.merge(mat);
     }

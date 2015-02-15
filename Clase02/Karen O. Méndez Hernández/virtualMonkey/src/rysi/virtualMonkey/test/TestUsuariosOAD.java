@@ -6,7 +6,7 @@ import rysi.virtualMonkey.oad.OADJPAUsuarios;
 
 /**
  *
- * @author jaguilar
+ * @author KMENDEZ
  */
 public class TestUsuariosOAD {
     public static void main(String[] args) {

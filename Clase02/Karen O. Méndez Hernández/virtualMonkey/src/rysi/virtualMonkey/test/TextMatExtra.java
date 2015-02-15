@@ -15,7 +15,7 @@ public class TextMatExtra {
         mat.setTitulo("Karen");
         
 
-        OADJPAMatExtra artsOAD = new OADMatExtra();
+        OADJPAMatExtra artsOAD = new OADJPAMatExtra();
         artsOAD.registrar(mat);
         
         System.out.println(String.format("InserccionCorrecta")); 
