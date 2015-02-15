@@ -1,6 +1,5 @@
 package rysi.virtualMonkey.oad;
 
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -8,11 +7,11 @@ import javax.persistence.Persistence;
 import rysi.virtualMonkey.entidades.Materialextra;
 
 /**
- * @author jaguilar
+ * @author kmendez
  * @version 1.0
  * @created 14-feb.-2015 11:39:55
  */
-public class OADJPAMatExtra implements OADMatExtra {
+public class OADJPAMatExtra implements DAOMatExtra {
      private EntityManagerFactory emf;
 
     public OADJPAMatExtra() {

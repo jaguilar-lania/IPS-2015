@@ -9,7 +9,7 @@ import rysi.virtualMonkey.entidades.Materialextra;
  *
  * @author mat
  */
-public interface OADMatExtra {
+public interface DAOMatExtra {
 
     /**
      *
