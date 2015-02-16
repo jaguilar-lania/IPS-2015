@@ -1,6 +1,7 @@
 package rysi.tesis.dao;
 
 import java.util.List;
+import javax.persistence.EntityManager;
 import rysi.tesis.entidades.Sesion;
 import rysi.tesis.entidades.Usuario;
 
@@ -16,18 +17,24 @@ public interface SesionDAO {
 	 * 
 	 * @param art
 	 */
-	public abstract void registrarFinal(Usuario art);
+	public abstract void registrarFinal(Sesion art);
 
 	/**
 	 * 
 	 * @param art
 	 */
-	public abstract void registrarInicio(Usuario art);
+	public abstract int registrarInicio(Sesion art);
 
 	/**
 	 * 
 	 * @param art
 	 */
 	public abstract boolean validarUsuario(Usuario art);
+        
+          /**
+        *
+        * @param idSesion
+        */
+        public Sesion getSesionPorId(int idSesion);
 
 }

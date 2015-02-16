@@ -7,9 +7,12 @@ package rysi.tesis.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -26,8 +29,14 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Sesion.findAll", query = "SELECT s FROM Sesion s")})
 public class Sesion implements Serializable {
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected SesionPK sesionPK;
+    @Basic(optional = false)
+    @Column(name = "IDUSUARIO")
+    private int idusuario;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "ID")
+    private Integer id;
     @Column(name = "FECHAINGRESO")
     @Temporal(TemporalType.DATE)
     private Date fechaingreso;
@@ -38,27 +47,35 @@ public class Sesion implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechasalida;
     @Column(name = "HORASALIDA")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIME)
     private Date horasalida;
-           
 
     public Sesion() {
     }
 
-    public Sesion(SesionPK sesionPK) {
-        this.sesionPK = sesionPK;
+    public Sesion(Integer id) {
+        this.id = id;
     }
 
-    public Sesion(int idusuario, int id) {
-        this.sesionPK = new SesionPK(idusuario, id);
+    public Sesion(Integer id, int idusuario) {
+        this.id = id;
+        this.idusuario = idusuario;
     }
 
-    public SesionPK getSesionPK() {
-        return sesionPK;
+    public int getIdusuario() {
+        return idusuario;
     }
 
-    public void setSesionPK(SesionPK sesionPK) {
-        this.sesionPK = sesionPK;
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Date getFechaingreso() {
@@ -96,7 +113,7 @@ public class Sesion implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (sesionPK != null ? sesionPK.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -107,7 +124,7 @@ public class Sesion implements Serializable {
             return false;
         }
         Sesion other = (Sesion) object;
-        if ((this.sesionPK == null && other.sesionPK != null) || (this.sesionPK != null && !this.sesionPK.equals(other.sesionPK))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -115,7 +132,7 @@ public class Sesion implements Serializable {
 
     @Override
     public String toString() {
-        return "rysi.tesis.entidades.Sesion[ sesionPK=" + sesionPK + " ]";
+        return "rysi.tesis.entidades.Sesion[ id=" + id + " ]";
     }
     
 }

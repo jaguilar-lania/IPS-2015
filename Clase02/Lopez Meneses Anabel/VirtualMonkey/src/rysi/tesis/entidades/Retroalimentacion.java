@@ -6,9 +6,10 @@
 package rysi.tesis.entidades;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -23,30 +24,48 @@ import javax.persistence.Table;
     @NamedQuery(name = "Retroalimentacion.findAll", query = "SELECT r FROM Retroalimentacion r")})
 public class Retroalimentacion implements Serializable {
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected RetroalimentacionPK retroalimentacionPK;
+    @Basic(optional = false)
+    @Column(name = "IDUSUARIO")
+    private int idusuario;
+    @Basic(optional = false)
+    @Column(name = "IDTESIS")
+    private int idtesis;
     @Column(name = "CALIFICACION")
     private Integer calificacion;
     @Column(name = "COMENTARIO")
     private String comentario;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "ID")
+    private Integer id;
 
     public Retroalimentacion() {
     }
 
-    public Retroalimentacion(RetroalimentacionPK retroalimentacionPK) {
-        this.retroalimentacionPK = retroalimentacionPK;
+    public Retroalimentacion(Integer id) {
+        this.id = id;
     }
 
-    public Retroalimentacion(int idusuario, int idtesis) {
-        this.retroalimentacionPK = new RetroalimentacionPK(idusuario, idtesis);
+    public Retroalimentacion(Integer id, int idusuario, int idtesis) {
+        this.id = id;
+        this.idusuario = idusuario;
+        this.idtesis = idtesis;
     }
 
-    public RetroalimentacionPK getRetroalimentacionPK() {
-        return retroalimentacionPK;
+    public int getIdusuario() {
+        return idusuario;
     }
 
-    public void setRetroalimentacionPK(RetroalimentacionPK retroalimentacionPK) {
-        this.retroalimentacionPK = retroalimentacionPK;
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
+    }
+
+    public int getIdtesis() {
+        return idtesis;
+    }
+
+    public void setIdtesis(int idtesis) {
+        this.idtesis = idtesis;
     }
 
     public Integer getCalificacion() {
@@ -65,10 +84,18 @@ public class Retroalimentacion implements Serializable {
         this.comentario = comentario;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (retroalimentacionPK != null ? retroalimentacionPK.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -79,7 +106,7 @@ public class Retroalimentacion implements Serializable {
             return false;
         }
         Retroalimentacion other = (Retroalimentacion) object;
-        if ((this.retroalimentacionPK == null && other.retroalimentacionPK != null) || (this.retroalimentacionPK != null && !this.retroalimentacionPK.equals(other.retroalimentacionPK))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -87,7 +114,7 @@ public class Retroalimentacion implements Serializable {
 
     @Override
     public String toString() {
-        return "rysi.tesis.entidades.Retroalimentacion[ retroalimentacionPK=" + retroalimentacionPK + " ]";
+        return "rysi.tesis.entidades.Retroalimentacion[ id=" + id + " ]";
     }
     
 }

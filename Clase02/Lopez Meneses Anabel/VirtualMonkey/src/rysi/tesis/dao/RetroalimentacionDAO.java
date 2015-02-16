@@ -1,7 +1,9 @@
 package rysi.tesis.dao;
 
 import java.util.List;
+import javax.persistence.EntityManager;
 import rysi.tesis.entidades.Retroalimentacion;
+import rysi.tesis.entidades.Usuario;
 
 /**
  * @author Anny
@@ -22,5 +24,7 @@ public interface RetroalimentacionDAO {
 	 * @param art
 	 */
 	public abstract void registrarRetroalimentacion(Retroalimentacion art);
+        
+              
 
 }

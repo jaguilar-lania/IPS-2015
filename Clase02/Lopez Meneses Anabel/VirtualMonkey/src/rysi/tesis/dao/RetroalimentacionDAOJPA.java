@@ -6,6 +6,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import rysi.tesis.entidades.Retroalimentacion;
+import rysi.tesis.entidades.Tesis;
+import rysi.tesis.entidades.Usuario;
 
 /**
  * @author Anny
@@ -16,14 +18,14 @@ public class RetroalimentacionDAOJPA implements RetroalimentacionDAO {
     
     private EntityManagerFactory emf;
 
-	public RetroalimentacionDAOJPA(){
-            emf = Persistence.createEntityManagerFactory("TesisRetroalimentacion");
+    public RetroalimentacionDAOJPA(){
+        emf = Persistence.createEntityManagerFactory("VirtualMonkeyPU");
+    }
+       
+        
+	//public void finalize() throws Throwable {
 
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+	//}
 
 	/**
 	 * 
@@ -40,16 +42,23 @@ public class RetroalimentacionDAOJPA implements RetroalimentacionDAO {
 	public void registrarRetroalimentacion(Retroalimentacion art){
             EntityManager em = emf.createEntityManager();
             EntityTransaction trans = em.getTransaction();
+            //art.setTesis(em.find(Tesis.class, 1));
+            //art.setUsuario(em.find(Usuario.class, 1));
             trans.begin();
             try {
+                
                 em.persist(art);
                 trans.commit();
-                return art.getIdArticulo();
+                //return art;
             } catch (Exception ex) {
                 trans.rollback();
             throw new RuntimeException("Error al registrar la retroalimentacion");
             }
 
 	}
+       
+        
+           
+        
 
 }

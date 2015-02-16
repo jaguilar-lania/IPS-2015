@@ -6,10 +6,22 @@
 package rysi.tesis;
 
 import java.math.BigDecimal;
-import rysi.articulos.entidades.Articulo;
-import rysi.articulos.oad.ArticulosOAD;
-import rysi.articulos.oad.ArticulosOADJPA;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+import java.util.HashSet;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import rysi.tesis.dao.RetroalimentacionDAO;
+import rysi.tesis.dao.RetroalimentacionDAOJPA;
+import rysi.tesis.dao.SesionDAO;
+import rysi.tesis.dao.SesionDAOJPA;
+//import rysi.tesis.entidades.Retroalimentacion;
 import rysi.tesis.entidades.Sesion;
+import rysi.tesis.entidades.Tesis;
+import rysi.tesis.entidades.Usuario;
 
 /**
  *
@@ -18,12 +30,43 @@ import rysi.tesis.entidades.Sesion;
 public class TestTesisDAO {
     
     public static void main(String[] args) {
-        Sesion sesion1 = new sesion();
-        sesion1.setFechaingreso("14/02/2015");
-        sesion1.setHoraingreso("08:00:00");
-        sesion1.
-                
         
+        /*//Iniciar sesion
+        Date fecha = new Date();
+        int IdSesion = 0; 
+               
+        Sesion sesion1 = new Sesion();
+        
+        sesion1.setIdusuario(1);
+        sesion1.setFechaingreso(fecha);
+        sesion1.setHoraingreso(fecha);
+        //sesion1.setId(1);
+        
+        SesionDAO sesDAO = new SesionDAOJPA();
+        
+        IdSesion=sesDAO.registrarInicio(sesion1);
+                            
+        System.out.println(String.format("Id de la sesion: %d ", 
+                IdSesion));
+        
+        //Final Iniciar Sesion*/
+    //--------------------------------------------------------------------------    
+      
+        //Terminar sesion
+        Date fecha = new Date();
+        int IdSesion = 2; 
+        //Sesion sesion1 = new Sesion();
+        SesionDAO sesDAO = new SesionDAOJPA();
+        Sesion sesion1= sesDAO.getSesionPorId(IdSesion);
+                
+        sesion1.setFechasalida(fecha);
+        sesion1.setHorasalida(fecha);
+        sesDAO.registrarFinal(sesion1);
+                                    
+        System.out.println(String.format("Se cerro correctamente la sesion: %d",
+                IdSesion));
+        
+        //Final Iniciar Sesion
     }
     
 }
