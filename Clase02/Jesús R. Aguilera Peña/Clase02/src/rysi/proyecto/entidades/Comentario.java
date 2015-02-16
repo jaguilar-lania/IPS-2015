@@ -26,16 +26,20 @@ import javax.persistence.Table;
     @NamedQuery(name = "Comentario.findAll", query = "SELECT c FROM Comentario c")})
 public class Comentario implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "IDCOMENTARIO")
     private Integer idcomentario;
+
     @Basic(optional = false)
     @Column(name = "IDTESIS")
     private int idtesis;
+
     @Column(name = "COMENTARIO")
     private String comentario;
+
     @Column(name = "CALIFICACION")
     private Integer calificacion;
 
