@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,6 +26,11 @@ import javax.persistence.Table;
     @NamedQuery(name = "Retroalimentacion.findAll", query = "SELECT r FROM Retroalimentacion r")})
 public class Retroalimentacion implements Serializable {
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "ID")
+    private Integer id;
     @Basic(optional = false)
     @Column(name = "IDUSUARIO")
     private int idusuario;
@@ -34,10 +41,8 @@ public class Retroalimentacion implements Serializable {
     private Integer calificacion;
     @Column(name = "COMENTARIO")
     private String comentario;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "ID")
-    private Integer id;
+    @Column(name = "PUBLICAR")
+    private Boolean publicar;
 
     public Retroalimentacion() {
     }
@@ -50,6 +55,14 @@ public class Retroalimentacion implements Serializable {
         this.id = id;
         this.idusuario = idusuario;
         this.idtesis = idtesis;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getIdusuario() {
@@ -84,12 +97,12 @@ public class Retroalimentacion implements Serializable {
         this.comentario = comentario;
     }
 
-    public Integer getId() {
-        return id;
+    public Boolean getPublicar() {
+        return publicar;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPublicar(Boolean publicar) {
+        this.publicar = publicar;
     }
 
     @Override

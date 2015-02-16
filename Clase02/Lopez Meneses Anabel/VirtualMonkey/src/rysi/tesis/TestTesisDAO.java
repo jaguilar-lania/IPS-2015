@@ -18,6 +18,7 @@ import rysi.tesis.dao.RetroalimentacionDAO;
 import rysi.tesis.dao.RetroalimentacionDAOJPA;
 import rysi.tesis.dao.SesionDAO;
 import rysi.tesis.dao.SesionDAOJPA;
+import rysi.tesis.entidades.Retroalimentacion;
 //import rysi.tesis.entidades.Retroalimentacion;
 import rysi.tesis.entidades.Sesion;
 import rysi.tesis.entidades.Tesis;
@@ -51,7 +52,7 @@ public class TestTesisDAO {
         
         //Final Iniciar Sesion*/
     //--------------------------------------------------------------------------    
-      
+     /* 
         //Terminar sesion
         Date fecha = new Date();
         int IdSesion = 2; 
@@ -67,6 +68,40 @@ public class TestTesisDAO {
                 IdSesion));
         
         //Final Iniciar Sesion
+             */
+        
+        //-------------------------------------------------------------------
+        /*
+        //Registrar retroalimentacion
+        
+        Retroalimentacion retro1 = new Retroalimentacion();
+        
+        retro1.setCalificacion(5);
+        retro1.setComentario("La tesis esta muy completa e interesante");
+        retro1.setIdtesis(1);
+        retro1.setIdusuario(1);
+        
+        RetroalimentacionDAO retroDAO = new RetroalimentacionDAOJPA();
+        retroDAO.registrarRetroalimentacion(retro1);
+        
+        System.out.println(String.format("Se registro el comentario y calificacion"));
+         
+        //Termina registrar retroalimetacion
+        //------------------------------------------------------------------------------
+        */
+        //Inicia validar comentario para publicar
+        
+        RetroalimentacionDAO retroDAO = new RetroalimentacionDAOJPA();
+        
+        int idComentario = 1;
+         Retroalimentacion retro1 = retroDAO.getComentarioPorId(idComentario);
+        
+        retro1.setPublicar(true);
+        retroDAO.publicarComentario(retro1);
+                
+        System.out.println(String.format("El comentario aparecerá publicado"));
+        
+        // Termina validar comentario para publicar
     }
     
 }

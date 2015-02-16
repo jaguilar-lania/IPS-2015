@@ -25,6 +25,12 @@ public interface RetroalimentacionDAO {
 	 */
 	public abstract void registrarRetroalimentacion(Retroalimentacion art);
         
+        /**
+	 * 
+	 * @param idComentario
+	 */
+        public Retroalimentacion getComentarioPorId(int idComentario);
+        
               
 
 }

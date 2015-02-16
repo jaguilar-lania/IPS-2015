@@ -6,8 +6,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import rysi.tesis.entidades.Retroalimentacion;
-import rysi.tesis.entidades.Tesis;
-import rysi.tesis.entidades.Usuario;
 
 /**
  * @author Anny
@@ -32,7 +30,16 @@ public class RetroalimentacionDAOJPA implements RetroalimentacionDAO {
 	 * @param art
 	 */
 	public void publicarComentario(Retroalimentacion art){
-
+            EntityManager em = emf.createEntityManager();
+            EntityTransaction trans = em.getTransaction();
+            trans.begin();
+            try {
+                em.merge(art);
+                trans.commit();
+            } catch (Exception ex) {
+                trans.rollback();
+                throw new RuntimeException(ex);
+            }
 	}
 
 	/**
@@ -42,8 +49,6 @@ public class RetroalimentacionDAOJPA implements RetroalimentacionDAO {
 	public void registrarRetroalimentacion(Retroalimentacion art){
             EntityManager em = emf.createEntityManager();
             EntityTransaction trans = em.getTransaction();
-            //art.setTesis(em.find(Tesis.class, 1));
-            //art.setUsuario(em.find(Usuario.class, 1));
             trans.begin();
             try {
                 
@@ -56,6 +61,15 @@ public class RetroalimentacionDAOJPA implements RetroalimentacionDAO {
             }
 
 	}
+        
+          /**
+     *
+     * @param idComentario
+     */
+    public Retroalimentacion getComentarioPorId(int idComentario) {
+        EntityManager em = emf.createEntityManager();
+        return em.find(Retroalimentacion.class, idComentario);
+    }
        
         
            
