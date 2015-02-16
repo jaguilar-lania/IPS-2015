@@ -15,39 +15,35 @@ public abstract class TesisOAD {
 	}
 
 	/**
-	 * 
 	 * @param tes
 	 */
 	public abstract void actualizar(Tesis tes);
 
 	/**
-	 * 
 	 * @param tes
 	 */
 	public abstract void borrar(Tesis tes);
 
 	/**
-	 * 
 	 * @param int
 	 */
 	public abstract Tesis consultarPorId(int IdTesis);
 
 	/**
-	 * 
 	 * @param nombre
 	 */
 	public abstract List<Tesis> consultarPorNombre(String nombre);
 
 	/**
-	 * 
 	 * @param tes
 	 */
 	public abstract List<Tesis> consultarTodos(Tesis tes);
 
 	/**
-	 * 
 	 * @param tes
 	 */
 	public abstract int crear(Tesis tes);
+        
+        public abstract long contarTesis();
 
 }

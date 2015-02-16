@@ -27,7 +27,6 @@ public class TesisOADJPA extends TesisOAD {
 	}
 
 	/**
-	 * 
 	 * @param tes
 	 */
 	public void actualizar(Tesis tes){
@@ -36,7 +35,6 @@ public class TesisOADJPA extends TesisOAD {
 	}
 
 	/**
-	 * 
 	 * @param tes
 	 */
 	public void borrar(Tesis tes){
@@ -45,31 +43,32 @@ public class TesisOADJPA extends TesisOAD {
 	}
 
 	/**
-	 * 
 	 * @param int
 	 */
 	public Tesis consultarPorId(int IdTesis){
-		return null;
+		EntityManager em = emf.createEntityManager();
+                return em.find(Tesis.class, IdTesis);
 	}
 
 	/**
-	 * 
 	 * @param nombre
 	 */
 	public List<Tesis> consultarPorNombre(String nombre){
-		return null;
+		EntityManager em = emf.createEntityManager();
+                return em.createQuery("SELECT tes FROM Tesis tes WHERE nombre LIKE :nombre")
+                    .setParameter("nombre", "%" + nombre + "%")
+                    .getResultList();
 	}
 
 	/**
-	 * 
 	 * @param tes
 	 */
 	public List<Tesis> consultarTodos(Tesis tes){
-		return null;
+		EntityManager em = emf.createEntityManager();
+                return em.createQuery("SELECT tes FROM Tesis tes").getResultList();
 	}
 
 	/**
-	 * 
 	 * @param tes
          * @return 
 	 */
@@ -87,5 +86,12 @@ public class TesisOADJPA extends TesisOAD {
                 throw new RuntimeException("Error al crear tesis");
             }
 	}
+
+    @Override
+    public long contarTesis() {
+        EntityManager em = emf.createEntityManager();
+        return (long) em.createQuery("SELECT COUNT(tes) FROM Tesis tes")
+                .getSingleResult();
+    }
 
 }
