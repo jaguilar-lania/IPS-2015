@@ -3,7 +3,6 @@
   <persistence-unit name="virtualMonkeyPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>rysi.virtualMonkey.entidades.Usuario</class>
-    <class>rysi.virtualMonkey.entidades.Rol</class>
     <class>rysi.virtualMonkey.entidades.Calificacion</class>
     <class>rysi.virtualMonkey.entidades.Registroestadisticas</class>
     <class>rysi.virtualMonkey.entidades.Comentario</class>
