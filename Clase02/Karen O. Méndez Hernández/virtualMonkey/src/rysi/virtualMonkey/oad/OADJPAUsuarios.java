@@ -17,7 +17,7 @@ public class OADJPAUsuarios implements OADUsuarios {
     private EntityManagerFactory emf;
 
     public OADJPAUsuarios() {
-        emf = Persistence.createEntityManagerFactory("Usuarios");
+        emf = Persistence.createEntityManagerFactory("virtualMonkeyPU");
     }
 
     /*
@@ -45,13 +45,15 @@ public class OADJPAUsuarios implements OADUsuarios {
      *
      * @param usr
      */
-    public void registrar(Usuario usr) {
+    public int registrar(Usuario usr) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction trans = em.getTransaction();
         trans.begin();
         try {
             em.persist(usr);
             trans.commit();
+                        return usr.getIdusuario();
+
         } catch (Exception ex) {
             trans.rollback();
             throw new RuntimeException("Error registrar usuario");

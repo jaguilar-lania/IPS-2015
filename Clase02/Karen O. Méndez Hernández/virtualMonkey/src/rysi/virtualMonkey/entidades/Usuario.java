@@ -45,8 +45,7 @@ public class Usuario implements Serializable {
     private String facebook;
     @Column(name = "CONTRASENA")
     private String contrasena;
-    @Column(name = "ROL")
-    private String rol;
+  
 
     public Usuario() {
     }
@@ -55,7 +54,7 @@ public class Usuario implements Serializable {
         this.idusuario = idusuario;
     }
 
-    public Usuario(Integer idusuario, String nombre, String contrasena, String gradoacademico ,String correoelectronico, String facebook, String genero, String ocupacion, String rol) {
+    public Usuario(Integer idusuario, String nombre, String contrasena, String gradoacademico ,String correoelectronico, String facebook, String genero, String ocupacion) {
         this.idusuario = idusuario;
         this.nombre = nombre;
         this.correoelectronico = correoelectronico;
@@ -63,7 +62,6 @@ public class Usuario implements Serializable {
         this.facebook = facebook;
         this.gradoacademico = gradoacademico;
         this.ocupacion = ocupacion;
-        this.rol=rol;
         this.contrasena = contrasena;
     }
 
@@ -133,16 +131,6 @@ public class Usuario implements Serializable {
     }
 
    
-
-    
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
 
     @Override
     public int hashCode() {

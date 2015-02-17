@@ -22,8 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "CATALOGOTESIS")
-@NamedQueries({
-    @NamedQuery(name = "Catalogotesis.findAll", query = "SELECT c FROM Catalogotesis c")})
+
 public class Catalogotesis implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,15 +44,7 @@ public class Catalogotesis implements Serializable {
     @Basic(optional = false)
     @Column(name = "SUBDISCIPLINA")
     private String subdisciplina;
-    @OneToMany(mappedBy = "catalogotesis")
-    private List<Calificacion> calificacionList;
-    @OneToMany(mappedBy = "catalogotesis")
-    private List<Comentario> comentarioList;
-    @OneToMany(mappedBy = "catalogotesis")
-    private List<Registroestadisticas> registroestadisticasList;
-    @OneToMany(mappedBy = "catalogotesis")
-    private List<Materialextra> materialextraList;
-
+    
     public Catalogotesis() {
     }
 
@@ -118,37 +109,8 @@ public class Catalogotesis implements Serializable {
         this.subdisciplina = subdisciplina;
     }
 
-    public List<Calificacion> getCalificacionList() {
-        return calificacionList;
-    }
-
-    public void setCalificacionList(List<Calificacion> calificacionList) {
-        this.calificacionList = calificacionList;
-    }
-
-    public List<Comentario> getComentarioList() {
-        return comentarioList;
-    }
-
-    public void setComentarioList(List<Comentario> comentarioList) {
-        this.comentarioList = comentarioList;
-    }
-
-    public List<Registroestadisticas> getRegistroestadisticasList() {
-        return registroestadisticasList;
-    }
-
-    public void setRegistroestadisticasList(List<Registroestadisticas> registroestadisticasList) {
-        this.registroestadisticasList = registroestadisticasList;
-    }
-
-    public List<Materialextra> getMaterialextraList() {
-        return materialextraList;
-    }
-
-    public void setMaterialextraList(List<Materialextra> materialextraList) {
-        this.materialextraList = materialextraList;
-    }
+   
+   
 
     @Override
     public int hashCode() {

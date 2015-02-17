@@ -11,12 +11,14 @@ import rysi.virtualMonkey.entidades.Materialextra;
  * @version 1.0
  * @created 14-feb.-2015 11:39:55
  */
-public class OADJPAMatExtra implements DAOMatExtra {
+public class OADJPAMatExtra implements OADMatExtra {
      private EntityManagerFactory emf;
 
     public OADJPAMatExtra() {
-        emf = Persistence.createEntityManagerFactory("Materialextra");
+        emf = Persistence.createEntityManagerFactory("virtualMonkeyPU");
     }
+
+   
 
     /*
      * 
@@ -50,6 +52,7 @@ public class OADJPAMatExtra implements DAOMatExtra {
         try {
             em.persist(mat);
             trans.commit();
+
         } catch (Exception ex) {
             trans.rollback();
             throw new RuntimeException("Error registrar material extra");

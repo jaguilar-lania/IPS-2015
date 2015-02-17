@@ -34,9 +34,7 @@ public class Calificacion implements Serializable {
     private Integer calificacion;
     @Column(name = "IDUSUARIO")
     private Integer idusuario;
-    @JoinColumn(name = "IDTESIS", referencedColumnName = "IDTESIS")
-    @ManyToOne
-    private Catalogotesis catalogotesis;
+   
 
     public Calificacion() {
     }
@@ -69,13 +67,7 @@ public class Calificacion implements Serializable {
         this.idusuario = idusuario;
     }
 
-    public Catalogotesis getCatalogotesis() {
-        return catalogotesis;
-    }
 
-    public void setCatalogotesis(Catalogotesis catalogotesis) {
-        this.catalogotesis = catalogotesis;
-    }
 
     @Override
     public int hashCode() {

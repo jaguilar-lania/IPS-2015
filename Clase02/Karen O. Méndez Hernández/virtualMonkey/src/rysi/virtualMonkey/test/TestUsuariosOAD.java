@@ -6,18 +6,19 @@ import rysi.virtualMonkey.oad.OADJPAUsuarios;
 
 /**
  *
- * @author KMENDEZ
+ * @author KMENDEZm
  */
 public class TestUsuariosOAD {
     public static void main(String[] args) {
         Usuario usr = new Usuario();
-        usr.setIdusuario(1);
+        usr.setIdusuario(6);
         usr.setNombre("Karen");
         usr.setCorreoelectronico(("karenmh91"));
         usr.setGenero(("femenino"));
         usr.setOcupacion(("empleada"));
-        usr.setContrasena("w");
-        usr.getRol();
+        usr.setContrasena(("wml"));
+        usr.setFacebook("wml");
+        usr.setGradoacademico("wml");
 
         OADUsuarios artsOAD = new OADJPAUsuarios();
         artsOAD.registrar(usr);

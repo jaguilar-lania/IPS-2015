@@ -38,6 +38,14 @@ public class Materialextra implements Serializable {
     @Column(name = "TITULO")
     private String titulo;
     
+    @Basic(optional = false)
+    @Column(name = "IDTESIS")
+    private Integer idtesis;
+    
+//    @JoinColumn(name = "IDTESIS", referencedColumnName = "IDTESIS")
+//    @ManyToOne
+//    private Catalogotesis catalogotesis;
+    
 
     public Materialextra() {
     }
@@ -46,9 +54,10 @@ public class Materialextra implements Serializable {
         this.idmaterialextra = idmaterialextra;
     }
 
-    public Materialextra(Integer idmaterialextra, String titulo) {
+    public Materialextra(Integer idmaterialextra, String titulo, Integer idtesis) {
         this.idmaterialextra = idmaterialextra;
         this.titulo = titulo;
+        this.idtesis = idtesis;
     }
 
     public Integer getIdmaterialextra() {
@@ -67,8 +76,21 @@ public class Materialextra implements Serializable {
         this.titulo = titulo;
     }
 
+//    public Catalogotesis getCatalogotesis() {
+//        return catalogotesis;
+//    }
    
+//    public void setCatalogotesis(Catalogotesis catalogotesis) {
+//        this.catalogotesis = catalogotesis;
+//    }
 
+    public Integer getIdtesis() {
+        return idtesis;
+    }
+
+    public void setIdtesis(Integer idtesis) {
+        this.idtesis = idtesis;
+    }
     @Override
     public int hashCode() {
         int hash = 0;

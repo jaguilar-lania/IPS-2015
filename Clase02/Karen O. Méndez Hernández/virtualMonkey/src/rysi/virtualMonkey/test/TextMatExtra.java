@@ -6,16 +6,17 @@ import rysi.virtualMonkey.oad.OADJPAMatExtra;
 
 /**
  *
- * @author kmendez
+ * @author kmendez 
  */
 public class TextMatExtra {
     public static void main(String[] args) {
         Materialextra mat = new Materialextra();
         mat.setIdmaterialextra(1);
         mat.setTitulo("Karen");
+        mat.setIdtesis(2);
         
 
-        OADJPAMatExtra artsOAD = new OADJPAMatExtra();
+        OADMatExtra artsOAD = new OADJPAMatExtra();
         artsOAD.registrar(mat);
         
         System.out.println(String.format("InserccionCorrecta")); 

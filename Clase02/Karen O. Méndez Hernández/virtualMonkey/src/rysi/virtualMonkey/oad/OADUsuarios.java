@@ -13,7 +13,7 @@ public interface OADUsuarios {
      *
      * @param usr
      */
-    public void registrar(Usuario usr);
+    public int registrar(Usuario usr);
 
 /**
      *
