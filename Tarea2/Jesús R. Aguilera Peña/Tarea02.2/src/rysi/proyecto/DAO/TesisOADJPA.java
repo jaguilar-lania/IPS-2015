@@ -18,7 +18,6 @@ public class TesisOADJPA implements TesisDAO {
 
 	public TesisOADJPA(){
             emf = Persistence.createEntityManagerFactory("ExamenPU");
-
 	}
 
 	/**
@@ -63,8 +62,7 @@ public class TesisOADJPA implements TesisDAO {
             } catch (Exception ex) {
                 trans.rollback();
                 throw new RuntimeException("Error al crear Tesis");
-            }
-            
+            }         
 	}
 
 	/**
