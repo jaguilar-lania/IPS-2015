@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="BibliotecaVirtualPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>rysi.monos.entity.Especie</class>
+    <class>rysi.monos.entity.InstitucionAdscripcion</class>
+    <class>rysi.monos.entity.Estado</class>
+    <class>rysi.monos.entity.Usuario</class>
+    <class>rysi.monos.entity.Rol</class>
+    <class>rysi.monos.entity.Subdisciplina</class>
+    <class>rysi.monos.entity.Tesis</class>
+    <class>rysi.monos.entity.Contador</class>
+    <class>rysi.monos.entity.MaterialAdicional</class>
+    <class>rysi.monos.entity.Disciplina</class>
+    <class>rysi.monos.entity.Comentario</class>
+    <class>rysi.monos.entity.EspecieTesis</class>
+    <class>rysi.monos.entity.Calificacion</class>
+    <class>rysi.monos.entity.Pais</class>
+    <class>rysi.monos.entity.Bitacora</class>
+    <class>rysi.monos.entity.Permiso</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/bibliotecavirtual"/>
+      <property name="javax.persistence.jdbc.user" value="mike"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.password" value="123"/>
+    </properties>
+  </persistence-unit>
+</persistence>
