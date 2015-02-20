@@ -21,7 +21,7 @@ public class PaisOADJPA implements PaisOAD{
     private EntityManagerFactory emf;
     
     public PaisOADJPA() {
-        emf = Persistence.createEntityManagerFactory("ArticulosDatosPU");
+        emf = Persistence.createEntityManagerFactory("PaisDatosPU");
     }
     
     public void actualizar(MdPais pais) {
@@ -40,5 +40,28 @@ public class PaisOADJPA implements PaisOAD{
                 .setParameter("nombre", "%" + cadena + "%")
                 .getResultList();
     }
+    
+    public int crear(MdPais pais) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        trans.begin();
+        try {
+            em.persist(pais);
+            trans.commit();
+            return pais.getIdPais();
+        } catch (Exception ex) {
+            trans.rollback();
+            throw new RuntimeException("Error al crear articulo");
+        }
+    }
+    
+    
+    @Override
+    public long getConteoArticulos() {
+        EntityManager em = emf.createEntityManager();
+        return (long) em.createQuery("SELECT COUNT(pais) FROM MdPais pais")
+                .getSingleResult();
+    }
+    
     
 }

@@ -5,10 +5,17 @@
  */
 package bvirtual.oad;
 
+import bvirtual.entidades.MdPais;
+
 /**
  *
  * @author Chrys
  */
 public interface PaisOAD {
+    
+    
+    public int crear(MdPais art);
+    
+    public long getConteoArticulos();
     
 }
