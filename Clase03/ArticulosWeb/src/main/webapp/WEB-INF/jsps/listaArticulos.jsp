@@ -7,11 +7,19 @@
         <title>Articulos</title>
     </head>
     <body>
-        <h1>Lista de Artículos</h1>
+        <h2>Lista de Artículos</h2>
 
+        <div>
+            <form action="buscarArticulos" method>
+            <input type='text' name='cadena'/>
+            <input type='submit' name='filtrar' value='Filtrar:'>
+            </form>
+                   
+        </div>
         <ol>
+            
             <c:forEach items="${articulos}" var="art">
-                <li>${art.nombre}</li>
+                <li>${art.nombre}</li> <a href="editarArticulo?id=${art.idArticulo}">Editar </a>
             </c:forEach>
         </ol>
     </body>
