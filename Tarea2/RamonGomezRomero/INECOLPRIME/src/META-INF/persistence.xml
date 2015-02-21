@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="INECOLPRIMEPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>rgomez.mx.entidades.Profesion</class>
+    <class>rgomez.mx.entidades.Subdisciplina</class>
+    <class>rgomez.mx.entidades.Pais</class>
+    <class>rgomez.mx.entidades.Rol</class>
+    <class>rgomez.mx.entidades.Documentomultimedia</class>
+    <class>rgomez.mx.entidades.Usuario</class>
+    <class>rgomez.mx.entidades.Autor</class>
+    <class>rgomez.mx.entidades.Calificacion</class>
+    <class>rgomez.mx.entidades.Sugerencia</class>
+    <class>rgomez.mx.entidades.Catalogo</class>
+    <class>rgomez.mx.entidades.Disciplina</class>
+    <class>rgomez.mx.entidades.Permiso</class>
+    <class>rgomez.mx.entidades.Comentario</class>
+    <class>rgomez.mx.entidades.Entidadfederativa</class>
+    <class>rgomez.mx.entidades.Persona</class>
+    <class>rgomez.mx.entidades.Gradoacademico</class>
+    <class>rgomez.mx.entidades.Institucion</class>
+    <class>rgomez.mx.entidades.Contadorvisitas</class>
+    <class>rgomez.mx.entidades.Especie</class>
+    <class>rgomez.mx.entidades.Tesis</class>
+    <class>rgomez.mx.entidades.Director</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/InecolBD"/>
+      <property name="javax.persistence.jdbc.password" value="00000"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>
