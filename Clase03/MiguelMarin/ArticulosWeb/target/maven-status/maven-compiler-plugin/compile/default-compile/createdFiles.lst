@@ -1,0 +1,12 @@
+com\mycompany\articulosweb\control\ArticuloControlador.class
+com\mycompany\articulosweb\entidades\ComprasDetalles.class
+com\mycompany\articulosweb\entidades\Articulo_.class
+com\mycompany\articulosweb\entidades\Cliente_.class
+com\mycompany\articulosweb\entidades\Compra.class
+com\mycompany\articulosweb\entidades\ComprasDetallesPK.class
+com\mycompany\articulosweb\entidades\Compra_.class
+com\mycompany\articulosweb\entidades\Articulo.class
+com\mycompany\articulosweb\entidades\Cliente.class
+com\mycompany\articulosweb\oad\ArticulosOad.class
+com\mycompany\articulosweb\entidades\ComprasDetallesPK_.class
+com\mycompany\articulosweb\entidades\ComprasDetalles_.class
