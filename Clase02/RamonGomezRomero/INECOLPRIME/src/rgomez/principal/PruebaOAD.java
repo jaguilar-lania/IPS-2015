@@ -6,8 +6,12 @@
 package rgomez.principal;
 
 import java.util.Date;
+import rgomez.mx.entidades.Entidadfederativa;
+import rgomez.mx.entidades.Pais;
 import rgomez.mx.entidades.Sugerencia;
 import rgomez.mx.entidades.Usuario;
+import rgomez.mx.oad.EntidadFederativaOADJPA;
+import rgomez.mx.oad.PaisOADJPA;
 import rgomez.mx.oad.SugerenciaOAD;
 import rgomez.mx.oad.SugerenciaOADJPA;
 import rgomez.mx.oad.UsuarioOAD;
@@ -25,7 +29,7 @@ public class PruebaOAD {
         Date fecha = new Date();
         fecha.getDate();
         sug1.setFechacreacion(fecha);
-        sug1.setIdusuario(0); */
+        sug1.setIdusuario(0); 
 
         //SugerenciaOAD surOAD = new SugerenciaOADJPA();
         //surOAD.crear(sug1);
@@ -43,6 +47,27 @@ public class PruebaOAD {
         usuarioOAD.crear(usu);
          
         System.out.println(String.format("Hay %d usuario(s)", 
-                usuarioOAD.getCountUsuarios()));
+                usuarioOAD.getCountUsuarios()));  */
+        
+        
+        Pais pais = new Pais();
+        pais.setIdpais(3);
+        pais.setNombre("Canada");
+        
+        PaisOADJPA paisOAD = new PaisOADJPA();
+        paisOAD.crear(pais);
+         
+        System.out.println(String.format("Hay %d pais(es)", 
+                paisOAD.getCountPais()));
+        
+         Entidadfederativa ef = new Entidadfederativa();
+         ef.setIdentidadfederativa(2);
+         ef.setNombre("Baja California");
+         
+         EntidadFederativaOADJPA entidadOAD = new EntidadFederativaOADJPA();
+         entidadOAD.crear(ef);
+         
+         System.out.println(String.format("Hay %d Estado(s)", 
+                entidadOAD.getCountEntidades()));
     }
 }
