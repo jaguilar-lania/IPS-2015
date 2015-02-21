@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="omarpruebaPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>omarprueba.entidades.Calificacion</class>
+    <class>omarprueba.entidades.Visitas</class>
+    <class>omarprueba.entidades.Director</class>
+    <class>omarprueba.entidades.Comentario</class>
+    <class>omarprueba.entidades.Autor</class>
+    <class>omarprueba.entidades.Usuario</class>
+    <class>omarprueba.entidades.Tesis</class>
+    <class>omarprueba.entidades.Pais</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/libros"/>
+      <property name="javax.persistence.jdbc.user" value="terron"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.password" value="rterron"/>
+    </properties>
+  </persistence-unit>
+</persistence>
