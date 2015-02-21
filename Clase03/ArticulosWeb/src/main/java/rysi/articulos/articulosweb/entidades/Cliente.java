@@ -23,6 +23,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,6 +34,7 @@ import javax.validation.constraints.Size;
 @Table(name = "CLIENTES")
 @NamedQueries({
     @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c")})
+@XmlRootElement
 public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -118,6 +121,7 @@ public class Cliente implements Serializable {
         this.fechaRegistro = fechaRegistro;
     }
 
+    @XmlTransient
     public List<Compra> getCompraList() {
         return compraList;
     }

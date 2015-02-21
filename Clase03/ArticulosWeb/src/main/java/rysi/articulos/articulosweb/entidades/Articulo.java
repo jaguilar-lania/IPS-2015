@@ -21,6 +21,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,6 +32,7 @@ import javax.validation.constraints.Size;
 @Table(name = "ARTICULOS")
 @NamedQueries({
     @NamedQuery(name = "Articulo.findAll", query = "SELECT a FROM Articulo a")})
+@XmlRootElement
 public class Articulo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -98,6 +101,7 @@ public class Articulo implements Serializable {
         this.precio = precio;
     }
 
+    @XmlTransient
     public List<DetalleCompra> getDetalleCompraList() {
         return detalleCompraList;
     }

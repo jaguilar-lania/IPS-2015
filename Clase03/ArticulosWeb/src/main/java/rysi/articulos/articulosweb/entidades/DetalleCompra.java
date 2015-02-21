@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -26,6 +27,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "COMPRAS_DETALLES")
 @NamedQueries({
     @NamedQuery(name = "DetalleCompra.findAll", query = "SELECT d FROM DetalleCompra d")})
+@XmlRootElement
 public class DetalleCompra implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
