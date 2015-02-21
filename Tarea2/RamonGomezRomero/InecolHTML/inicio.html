@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US"><head><!-- Created by Artisteer v4.0.0.58475 -->
+    <meta charset="utf-8">
+    <title>Inicio</title>
+    <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="style.css" media="screen">
+    <!--[if lte IE 7]><link rel="stylesheet" href="style.ie7.css" media="screen" /><![endif]-->
+    <link rel="stylesheet" href="style.responsive.css" media="all">
+
+
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <script src="script.responsive.js"></script>
+
+
+<script>jQuery(function($) {
+    'use strict';
+    if ($.fn.slider) {
+        $(".art-slidecontainerinecol_small").each(function () {
+            var slideContainer = $(this), tmp;
+            var inner = $(".art-slider-inner", slideContainer);
+            var helper = null;
+
+
+            inner.children().eq(0).addClass("active");
+            slideContainer.slider({
+                pause: 2600,
+                speed: 600,
+                repeat: true,
+                animation: "fade",
+                direction: "next",
+                navigator: slideContainer.siblings(".art-slidenavigatorinecol_small"),
+                helper: helper
+                            });
+        });
+    }
+});
+</script><style>.art-content .art-postcontent-0 .layout-item-0 { margin-top: 10px;margin-bottom: 10px;  }
+.art-content .art-postcontent-0 .layout-item-1 { border-spacing: 10px 0px; border-collapse: separate;  }
+.art-content .art-postcontent-0 .layout-item-2 { color: #737373; background: #2F89B6; padding: 0px;  }
+.art-content .art-postcontent-0 .layout-item-3 { color: #737373; background: #A04661; padding-right: 10px;padding-left: 10px;  }
+.art-content .art-postcontent-0 .layout-item-4 { color: #737373; background: #5B9121; padding-right: 10px;padding-left: 10px;  }
+.art-content .art-postcontent-0 .layout-item-5 { color: #737373; background: #EB9500; padding-right: 10px;padding-left: 10px;  }
+.art-content .art-postcontent-0 .layout-item-6 { padding-right: 10px;padding-left: 10px;  }
+.art-content .art-postcontent-0 .layout-item-7 { background: ; padding-right: 10px;padding-left: 10px;  }
+.art-content .art-postcontent-0 .layout-item-8 { margin-top: 0px;margin-right: 10px;margin-bottom: 20px;margin-left: 10px;  }
+.art-content .art-postcontent-0 .layout-item-9 {  border-collapse: separate;  }
+.ie7 .post .layout-cell {border:none !important; padding:0 !important; }
+.ie6 .post .layout-cell {border:none !important; padding:0 !important; }
+
+.art-slidecontainerinecol_small {
+    position: relative;
+        width: 250px;
+    height: 163px;
+        }
+
+.art-slidecontainerinecol_small .art-slide-item
+{
+
+}
+
+
+
+.art-slidecontainerinecol_small .art-slide-item {
+    -webkit-transition: 600ms ease-in-out opacity;
+    -moz-transition: 600ms ease-in-out opacity;
+    -ms-transition: 600ms ease-in-out opacity;
+    -o-transition: 600ms ease-in-out opacity;
+    transition: 600ms ease-in-out opacity;
+    position: absolute;
+    display: none;
+	left: 0;
+	top: 0;
+	opacity: 0;
+    width:  100%;
+    height: 100%;
+}
+
+.art-slidecontainerinecol_small .active, .art-slidecontainerinecol_small .next, .art-slidecontainerinecol_small .prev {
+    display: block;
+}
+
+.art-slidecontainerinecol_small .active {
+    opacity: 1;
+}
+
+.art-slidecontainerinecol_small .next, .art-slidecontainerinecol_small .prev {
+    width: 100%;
+}
+
+.art-slidecontainerinecol_small .next.forward, .art-slidecontainerinecol_small .prev.back {
+    opacity: 1;
+}
+
+.art-slidecontainerinecol_small .active.forward {
+    opacity: 0;
+}
+
+.art-slidecontainerinecol_small .active.back {
+    opacity: 0;
+}
+
+
+.art-slideinecol_small0 {
+    background-image:  url('images/slideinecol_small0.jpg');
+    background-position:  0 0;
+    background-repeat: no-repeat;
+}
+.art-slideinecol_small1 {
+    background-image:  url('images/slideinecol_small1.jpg');
+    background-position:  0 0;
+    background-repeat: no-repeat;
+}
+.art-slideinecol_small2 {
+    background-image:  url('images/slideinecol_small2.jpg');
+    background-position:  0 0;
+    background-repeat: no-repeat;
+}
+
+
+.art-slidenavigatorinecol_small {
+  display: inline-block;
+  position: absolute;
+  direction: ltr !important;
+  top: 139px;
+  left: 74.4%;
+  z-index: 101;
+  line-height: 0 !important;
+  -webkit-background-origin: border !important;
+  -moz-background-origin: border !important;
+  background-origin: border-box !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+    white-space: nowrap;
+    }
+.art-slidenavigatorinecol_small
+{
+background: #B9E58B;background: linear-gradient(top, rgba(225, 244, 205, 0.6) 0, rgba(145, 213, 72, 0.6) 100%) no-repeat;background: -webkit-linear-gradient(top, rgba(225, 244, 205, 0.6) 0, rgba(145, 213, 72, 0.6) 100%) no-repeat;background: -moz-linear-gradient(top, rgba(225, 244, 205, 0.6) 0, rgba(145, 213, 72, 0.6) 100%) no-repeat;background: -o-linear-gradient(top, rgba(225, 244, 205, 0.6) 0, rgba(145, 213, 72, 0.6) 100%) no-repeat;background: -ms-linear-gradient(top, rgba(225, 244, 205, 0.6) 0, rgba(145, 213, 72, 0.6) 100%) no-repeat;background: linear-gradient(top, rgba(225, 244, 205, 0.6) 0, rgba(145, 213, 72, 0.6) 100%) no-repeat;-svg-background: linear-gradient(top, rgba(225, 244, 205, 0.6) 0, rgba(145, 213, 72, 0.6) 100%) no-repeat;
+-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;
+
+
+padding:7px;
+
+
+
+
+
+}
+.art-slidenavigatorinecol_small > a
+{
+background: #6DAF28;
+-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;
+
+
+
+margin:0 10px 0 0;
+
+width: 10px;
+
+height: 10px;
+}
+.art-slidenavigatorinecol_small > a.active
+{
+background: #B6F47C;
+-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;
+
+
+
+margin:0 10px 0 0;
+
+width: 10px;
+
+height: 10px;
+}
+.art-slidenavigatorinecol_small > a:hover
+{
+background: #61B710;
+-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;
+
+
+
+margin:0 10px 0 0;
+
+width: 10px;
+
+height: 10px;
+}
+
+</style></head>
+<body>
+<div id="art-main">
+<nav class="art-nav clearfix">
+    <ul class="art-hmenu"><li><a href="inicio.html" class="active">Inicio</a></li><li><a href="tesis.html">Tesis</a></li><li><a href="disciplina.html">Disciplina</a></li><li><a href="usuarios.html">Usuarios</a></li></ul> 
+    </nav>
+<header class="art-header clearfix">
+
+
+    <div class="art-shapes">
+<h1 class="art-headline" data-left="2.6%">
+    <a href="#">Inecol</a>
+</h1>
+<h2 class="art-slogan" data-left="2.45%">El instituto de Ecología</h2>
+
+<div class="art-object1401770752" data-left="90.71%"></div>
+
+            </div>
+
+                        
+                    
+</header>
+<div class="art-sheet clearfix">
+            <div class="art-layout-wrapper clearfix">
+                <div class="art-content-layout">
+                    <div class="art-content-layout-row">
+                        <div class="art-layout-cell art-content clearfix"><article class="art-post art-article">
+                                
+                                <div class="art-postcontent art-postcontent-0 clearfix"><div class="art-content-layout-wrapper layout-item-0">
+<div class="art-content-layout layout-item-1">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-2" style="width: 25%" >
+        <h4>InecoL<br></h4>
+    </div><div class="art-layout-cell layout-item-3" style="width: 25%" >
+        <p style="text-align: center;"><span style="color: rgb(255, 255, 255); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-transform: uppercase;">Tesis</span><br></p>
+    </div><div class="art-layout-cell layout-item-4" style="width: 25%" >
+        <p style="text-align: center;"><span style="color: rgb(255, 255, 255); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-transform: uppercase;">Disciplinas</span><br></p>
+    </div><div class="art-layout-cell layout-item-5" style="width: 25%" >
+        <p style="text-align: center;"><span style="color: rgb(255, 255, 255); font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-transform: uppercase;">Usuarios</span><br></p>
+    </div>
+    </div>
+</div>
+</div>
+<div class="art-content-layout layout-item-1">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-6" style="width: 25%" >
+        <p style="text-align: justify;"><br></p>
+    </div><div class="art-layout-cell layout-item-6" style="width: 25%" >
+        <p><br></p>
+    </div><div class="art-layout-cell layout-item-6" style="width: 25%" >
+        <p><br></p>
+    </div><div class="art-layout-cell layout-item-7" style="width: 25%" >
+        <p><br></p>
+    </div>
+    </div>
+</div>
+<div class="art-content-layout-wrapper layout-item-8">
+<div class="art-content-layout layout-item-9">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-6" style="width: 100%" >
+        <p><span style="text-align: justify;"></span></p>
+        <h1 style="text-align: center;"><div id="inecol_small" style="position: relative; display: inline-block; z-index: 0; margin: 0px;  border-style: solid; border-color: #E5EBE6; border-width: 1px;  " class="art-collage">
+<div class="art-slider art-slidecontainerinecol_small">
+    <div class="art-slider-inner">
+<div class="art-slide-item art-slideinecol_small0">
+
+</div>
+<div class="art-slide-item art-slideinecol_small1">
+
+</div>
+<div class="art-slide-item art-slideinecol_small2">
+
+</div>
+
+    </div>
+</div>
+<div class="art-slidenavigator art-slidenavigatorinecol_small">
+<a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a>
+</div>
+
+
+
+    </div>
+<br></h1>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+</article></div>
+                    </div>
+                </div>
+            </div>
+    </div>
+<footer class="art-footer clearfix">
+  <div class="art-footer-inner">
+<p>Copyright © 2015, Inecol.<br>
+<br></p>
+  </div>
+</footer>
+
+</div>
+
+
+</body></html>
