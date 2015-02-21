@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="VirtualMonkeyPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>rysi.tesis.entidades.Genero</class>
+    <class>rysi.tesis.entidades.Retroalimentacion</class>
+    <class>rysi.tesis.entidades.Tesis</class>
+    <class>rysi.tesis.entidades.Rol</class>
+    <class>rysi.tesis.entidades.Materialextra</class>
+    <class>rysi.tesis.entidades.Personaltesis</class>
+    <class>rysi.tesis.entidades.Subdisciplina</class>
+    <class>rysi.tesis.entidades.Especieprimate</class>
+    <class>rysi.tesis.entidades.Usuario</class>
+    <class>rysi.tesis.entidades.Disciplinaestudio</class>
+    <class>rysi.tesis.entidades.Gradoacademico</class>
+    <class>rysi.tesis.entidades.Consulta</class>
+    <class>rysi.tesis.entidades.Pais</class>
+    <class>rysi.tesis.entidades.Estado</class>
+    <class>rysi.tesis.entidades.Sesion</class>
+    <class>rysi.tesis.entidades.Condicionsitio</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/VirtualMonkey"/>
+      <property name="javax.persistence.jdbc.user" value="administrador"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.password" value="admin"/>
+    </properties>
+  </persistence-unit>
+</persistence>

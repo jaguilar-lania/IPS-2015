@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Virtual Monkey</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    
+</head>
+
+<body>
+    <h1>Administrar Disciplinas</h1>
+
+    <div>
+        <div class="row">
+           <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                    <input type="submit" class="btn btn-primary " name="name" value="Buscar " />
+                </span>
+            </div>
+        </div>
+        </div>
+    
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Disciplina</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td>disciplina</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-warning">Editar</button>
+
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger">Eliminar</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <input type="button" id="btnAgregar" name="btnAgregar" class="btn btn-primary" value="Crear Tesis" />
+        
+    </div>
+
+    
+    <div class="container" id="divAdmonDatos">
+        <div class="jumbotron">
+            
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class=" form-group">
+                            <label>Id</label>
+                            <input type="text" class="form-control" name="" />
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Disciplina</label>
+                            <input type="text" class="form-control" name="" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success" value="Guardar" />
+                            <input type="submit" class="btn btn-danger" value="Cancelar" />
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
