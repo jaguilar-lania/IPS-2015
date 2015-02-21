@@ -11,4 +11,6 @@ import rysi.articulos.articulosweb.entidades.Articulo;
 public interface ArticulosOad extends JpaRepository<Articulo, Integer> {
     
     List<Articulo> findByNombreContaining(String cadena);
+    
+    List<Articulo> findByNombreStartingWith(String cadena);
 }
