@@ -8,10 +8,12 @@ package lania.rysy.ips2015.bibliotecavirtualweb.entidades;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -20,8 +22,10 @@ import javax.validation.constraints.Size;
  *
  * @author miguel
  */
-@MappedSuperclass
+@Entity
 @Table(name = "ESTADO")
+@NamedQueries({
+    @NamedQuery(name = "Estado.findAll", query = "SELECT e FROM Estado e")})
 public class Estado implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

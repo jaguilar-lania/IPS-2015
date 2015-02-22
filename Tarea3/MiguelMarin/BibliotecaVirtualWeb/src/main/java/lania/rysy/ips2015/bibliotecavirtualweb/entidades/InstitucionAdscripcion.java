@@ -6,9 +6,7 @@
 package lania.rysy.ips2015.bibliotecavirtualweb.entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -27,40 +24,39 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "INSTITUCION_ADSCRIPCION")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "InstitucionAdscripcion.findAll", query = "SELECT i FROM InstitucionAdscripcion i")})
 public class InstitucionAdscripcion implements Serializable {
     private static final long serialVersionUID = 1L;
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "IDISTITUCION_ADSCRIPCION")
-    private Integer idistitucionAdscripcion;
+    @Column(name = "IDINSTITUCION_ADSCRIPCION")
+    private Integer idinstitucionAdscripcion;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
     @Column(name = "NOMBRE")
     private String nombre;
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institucionAdscripcion")
-//    private List<Tesis> tesisList;
 
     public InstitucionAdscripcion() {
     }
 
-    public InstitucionAdscripcion(Integer idistitucionAdscripcion) {
-        this.idistitucionAdscripcion = idistitucionAdscripcion;
+    public InstitucionAdscripcion(Integer idinstitucionAdscripcion) {
+        this.idinstitucionAdscripcion = idinstitucionAdscripcion;
     }
 
-    public InstitucionAdscripcion(Integer idistitucionAdscripcion, String nombre) {
-        this.idistitucionAdscripcion = idistitucionAdscripcion;
+    public InstitucionAdscripcion(Integer idinstitucionAdscripcion, String nombre) {
+        this.idinstitucionAdscripcion = idinstitucionAdscripcion;
         this.nombre = nombre;
     }
 
-    public Integer getIdistitucionAdscripcion() {
-        return idistitucionAdscripcion;
+    public Integer getIdinstitucionAdscripcion() {
+        return idinstitucionAdscripcion;
     }
 
-    public void setIdistitucionAdscripcion(Integer idistitucionAdscripcion) {
-        this.idistitucionAdscripcion = idistitucionAdscripcion;
+    public void setIdinstitucionAdscripcion(Integer idinstitucionAdscripcion) {
+        this.idinstitucionAdscripcion = idinstitucionAdscripcion;
     }
 
     public String getNombre() {
@@ -71,19 +67,10 @@ public class InstitucionAdscripcion implements Serializable {
         this.nombre = nombre;
     }
 
-//    @XmlTransient
-//    public List<Tesis> getTesisList() {
-//        return tesisList;
-//    }
-//
-//    public void setTesisList(List<Tesis> tesisList) {
-//        this.tesisList = tesisList;
-//    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idistitucionAdscripcion != null ? idistitucionAdscripcion.hashCode() : 0);
+        hash += (idinstitucionAdscripcion != null ? idinstitucionAdscripcion.hashCode() : 0);
         return hash;
     }
 
@@ -94,7 +81,7 @@ public class InstitucionAdscripcion implements Serializable {
             return false;
         }
         InstitucionAdscripcion other = (InstitucionAdscripcion) object;
-        if ((this.idistitucionAdscripcion == null && other.idistitucionAdscripcion != null) || (this.idistitucionAdscripcion != null && !this.idistitucionAdscripcion.equals(other.idistitucionAdscripcion))) {
+        if ((this.idinstitucionAdscripcion == null && other.idinstitucionAdscripcion != null) || (this.idinstitucionAdscripcion != null && !this.idinstitucionAdscripcion.equals(other.idinstitucionAdscripcion))) {
             return false;
         }
         return true;
@@ -102,7 +89,7 @@ public class InstitucionAdscripcion implements Serializable {
 
     @Override
     public String toString() {
-        return "rysi.monos.entity.InstitucionAdscripcion[ idistitucionAdscripcion=" + idistitucionAdscripcion + " ]";
+        return "lania.rysy.ips2015.bibliotecavirtualweb.entidades.InstitucionAdscripcion[ idinstitucionAdscripcion=" + idinstitucionAdscripcion + " ]";
     }
     
 }

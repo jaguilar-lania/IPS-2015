@@ -8,10 +8,12 @@ package lania.rysy.ips2015.bibliotecavirtualweb.entidades;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -19,8 +21,10 @@ import javax.validation.constraints.NotNull;
  *
  * @author miguel
  */
-@MappedSuperclass
+@Entity
 @Table(name = "ESPECIE_TESIS")
+@NamedQueries({
+    @NamedQuery(name = "EspecieTesis.findAll", query = "SELECT e FROM EspecieTesis e")})
 public class EspecieTesis implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -34,7 +38,7 @@ public class EspecieTesis implements Serializable {
     private int idtesis;
     @JoinColumn(name = "IDESPACIE", referencedColumnName = "IDESPECIE")
     @ManyToOne(optional = false)
-    private Especie idespacie;
+    private Especie especie;
 
     public EspecieTesis() {
     }
@@ -64,12 +68,12 @@ public class EspecieTesis implements Serializable {
         this.idtesis = idtesis;
     }
 
-    public Especie getIdespacie() {
-        return idespacie;
+    public Especie getEspecie() {
+        return especie;
     }
 
-    public void setIdespacie(Especie idespacie) {
-        this.idespacie = idespacie;
+    public void setEspecie(Especie especie) {
+        this.especie = especie;
     }
 
     @Override

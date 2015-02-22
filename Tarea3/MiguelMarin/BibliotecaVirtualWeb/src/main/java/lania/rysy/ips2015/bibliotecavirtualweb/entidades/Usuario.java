@@ -11,12 +11,14 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -28,8 +30,10 @@ import javax.validation.constraints.Size;
  *
  * @author miguel
  */
-@MappedSuperclass
+@Entity
 @Table(name = "USUARIO")
+@NamedQueries({
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -66,17 +70,17 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 40)
     @Column(name = "CORREO")
     private String correo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Calificacion> calificacionList;
     @JoinColumn(name = "IDPAIS", referencedColumnName = "IDPAIS")
     @ManyToOne(optional = false)
-    private Pais idpais;
+    private Pais pais;
     @JoinColumn(name = "IDROL", referencedColumnName = "IDROL")
     @ManyToOne(optional = false)
-    private Rol idrol;
-    @OneToMany(mappedBy = "idusuario")
+    private Rol rol;
+    @OneToMany(mappedBy = "usuario")
     private List<Bitacora> bitacoraList;
-    @OneToMany(mappedBy = "idusuario")
+    @OneToMany(mappedBy = "usuario")
     private List<Comentario> comentarioList;
 
     public Usuario() {
@@ -160,20 +164,20 @@ public class Usuario implements Serializable {
         this.calificacionList = calificacionList;
     }
 
-    public Pais getIdpais() {
-        return idpais;
+    public Pais getPais() {
+        return pais;
     }
 
-    public void setIdpais(Pais idpais) {
-        this.idpais = idpais;
+    public void setPais(Pais pais) {
+        this.pais = pais;
     }
 
-    public Rol getIdrol() {
-        return idrol;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setIdrol(Rol idrol) {
-        this.idrol = idrol;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     public List<Bitacora> getBitacoraList() {

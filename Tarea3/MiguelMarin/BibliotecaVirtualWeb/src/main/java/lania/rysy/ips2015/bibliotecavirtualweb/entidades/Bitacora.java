@@ -9,12 +9,14 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,8 +27,10 @@ import javax.validation.constraints.Size;
  *
  * @author miguel
  */
-@MappedSuperclass
+@Entity
 @Table(name = "BITACORA")
+@NamedQueries({
+    @NamedQuery(name = "Bitacora.findAll", query = "SELECT b FROM Bitacora b")})
 public class Bitacora implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -48,10 +52,10 @@ public class Bitacora implements Serializable {
     private Integer idtesis;
     @JoinColumn(name = "IDPAIS", referencedColumnName = "IDPAIS")
     @ManyToOne(optional = false)
-    private Pais idpais;
+    private Pais pais;
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")
     @ManyToOne
-    private Usuario idusuario;
+    private Usuario usuario;
 
     public Bitacora() {
     }
@@ -98,20 +102,20 @@ public class Bitacora implements Serializable {
         this.idtesis = idtesis;
     }
 
-    public Pais getIdpais() {
-        return idpais;
+    public Pais getPais() {
+        return pais;
     }
 
-    public void setIdpais(Pais idpais) {
-        this.idpais = idpais;
+    public void setPais(Pais pais) {
+        this.pais = pais;
     }
 
-    public Usuario getIdusuario() {
-        return idusuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdusuario(Usuario idusuario) {
-        this.idusuario = idusuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override

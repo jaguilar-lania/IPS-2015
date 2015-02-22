@@ -6,9 +6,7 @@
 package lania.rysy.ips2015.bibliotecavirtualweb.entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -27,7 +24,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "DISCIPLINA")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Disciplina.findAll", query = "SELECT d FROM Disciplina d")})
 public class Disciplina implements Serializable {
@@ -38,9 +34,11 @@ public class Disciplina implements Serializable {
     @Column(name = "IDDISCIPLINA")
     private Integer iddisciplina;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 60)
     @Column(name = "DISCIPLINA")
     private String disciplina;
-    
+
     public Disciplina() {
     }
 
@@ -69,15 +67,6 @@ public class Disciplina implements Serializable {
         this.disciplina = disciplina;
     }
 
-//    @XmlTransient
-//    public List<Tesis> getTesisList() {
-//        return tesisList;
-//    }
-//
-//    public void setTesisList(List<Tesis> tesisList) {
-//        this.tesisList = tesisList;
-//    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -100,7 +89,7 @@ public class Disciplina implements Serializable {
 
     @Override
     public String toString() {
-        return "rysi.monos.entity.Disciplina[ iddisciplina=" + iddisciplina + " ]";
+        return "lania.rysy.ips2015.bibliotecavirtualweb.entidades.Disciplina[ iddisciplina=" + iddisciplina + " ]";
     }
     
 }

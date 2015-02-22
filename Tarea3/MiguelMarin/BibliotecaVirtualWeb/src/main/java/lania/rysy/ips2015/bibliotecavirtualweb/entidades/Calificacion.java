@@ -9,12 +9,14 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,8 +26,10 @@ import javax.validation.constraints.NotNull;
  *
  * @author miguel
  */
-@MappedSuperclass
+@Entity
 @Table(name = "CALIFICACION")
+@NamedQueries({
+    @NamedQuery(name = "Calificacion.findAll", query = "SELECT c FROM Calificacion c")})
 public class Calificacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -48,7 +52,7 @@ public class Calificacion implements Serializable {
     private Date fechaReg;
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")
     @ManyToOne(optional = false)
-    private Usuario idusuario;
+    private Usuario usuario;
 
     public Calificacion() {
     }
@@ -96,12 +100,12 @@ public class Calificacion implements Serializable {
         this.fechaReg = fechaReg;
     }
 
-    public Usuario getIdusuario() {
-        return idusuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdusuario(Usuario idusuario) {
-        this.idusuario = idusuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
