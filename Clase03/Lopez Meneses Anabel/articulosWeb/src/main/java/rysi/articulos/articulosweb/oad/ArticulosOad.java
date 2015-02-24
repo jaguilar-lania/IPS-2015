@@ -7,6 +7,7 @@ package rysi.articulos.articulosweb.oad;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.servlet.ModelAndView;
 import rysi.articulos.articulosweb.Articulo;
 
 /**
@@ -18,5 +19,9 @@ public interface ArticulosOad extends JpaRepository<Articulo,Integer> {
     List<Articulo> findByNombreContaining(String cadena);
     
     List<Articulo> findByNombreStartingWith(String cadena);
+    
+  
+    
+    
     
 }

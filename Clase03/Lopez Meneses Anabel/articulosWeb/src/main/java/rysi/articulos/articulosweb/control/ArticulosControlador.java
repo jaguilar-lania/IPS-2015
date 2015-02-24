@@ -49,4 +49,5 @@ public class ArticulosControlador {
     public List<Articulo> buscarArticulosComenzandoCon(@RequestParam("cadena") String Cadena){
     return artsOad.findByNombreStartingWith(Cadena);
     }
+        
 }
