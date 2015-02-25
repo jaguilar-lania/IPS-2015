@@ -19,7 +19,6 @@ public class TestBvirtual {
     public static void main(String[] args) {
         MdPais p1 = new MdPais();
         p1.setIdPais(01);
-        p1.setIdEstado(01);
         p1.setNomPais("México");
         
         PaisOAD paisOAD = new PaisOADJPA();

@@ -24,9 +24,6 @@ import javax.persistence.Table;
     @NamedQuery(name = "MdPais.findAll", query = "SELECT m FROM MdPais m")})
 public class MdPais implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Basic(optional = false)
-    @Column(name = "ID_ESTADO")
-    private int idEstado;
     @Id
     @Basic(optional = false)
     @Column(name = "ID_PAIS")
@@ -44,17 +41,9 @@ public class MdPais implements Serializable {
 
     public MdPais(Integer idPais, int idEstado, String nomPais) {
         this.idPais = idPais;
-        this.idEstado = idEstado;
         this.nomPais = nomPais;
     }
 
-    public int getIdEstado() {
-        return idEstado;
-    }
-
-    public void setIdEstado(int idEstado) {
-        this.idEstado = idEstado;
-    }
 
     public Integer getIdPais() {
         return idPais;
