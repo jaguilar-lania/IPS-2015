@@ -3,6 +3,7 @@ package rysi.articulos.articulosweb.control;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +36,20 @@ public class ArticulosControlador {
         List<Articulo> lista = artsOad.findByNombreContaining(cadena);
         mav.addObject("articulos", lista);
         return mav;
+    }
+    
+    // Conveniente presentar el forumario desde
+    @RequestMapping(value="/agregarArticuloF")
+    public ModelAndView mostrarFormaAgregarArticulo() {
+        ModelAndView mav = new ModelAndView("formArticulo");
+        mav.addObject("articulo", new Articulo());
+        return mav;
+    }
+    
+    @RequestMapping(value="/agregarArticulo", method = RequestMethod.POST)
+    public String agregarArticulo(@ModelAttribute("articulo") Articulo nuevoArticulo) {
+        artsOad.save(nuevoArticulo);
+        return "redirect:/articulos";
     }
 
     

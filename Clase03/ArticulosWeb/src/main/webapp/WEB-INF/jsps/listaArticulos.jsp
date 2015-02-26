@@ -8,13 +8,14 @@
     </head>
     <body>
         <h2>Lista de Artículos</h2>
-
         <div>
+            <a href="agregarArticuloF">Agregar</a>
+        </div>
+        <div class="filtro">
             <form action="buscarArticulos" method>
             <input type='text' name='cadena'/>
             <input type='submit' name='filtrar' value='Filtrar:'>
             </form>
-                   
         </div>
         <ol>
             
