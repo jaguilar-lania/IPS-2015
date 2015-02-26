@@ -18,5 +18,6 @@
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
           p:prefix="/WEB-INF/jsps/" 
           p:suffix=".jsp"/>
+    <mvc:view-controller path="/subirArchivo" view-name="formArchivo"/>
     <mvc:view-controller path="/index"/>
 </beans>
