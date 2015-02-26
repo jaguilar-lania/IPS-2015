@@ -13,10 +13,16 @@
     
     <mvc:annotation-driven/>
     <mvc:resources location="/, classpath:/META-INF/web-resources/" mapping="/resources/**"/>
+   
     <mvc:default-servlet-handler/>
     <bean id="viewResolver" 
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
           p:prefix="/WEB-INF/jsps/" 
+          
           p:suffix=".jsp"/>
+    <bean id="viewResolver2" 
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"  
+          p:prefix="/WEB-INF/css/" 
+          />
     <mvc:view-controller path="/index"/>
 </beans>
