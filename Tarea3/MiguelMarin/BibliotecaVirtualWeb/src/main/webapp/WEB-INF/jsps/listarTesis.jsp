@@ -7,7 +7,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -48,10 +48,7 @@
             </tr>
             <tr> 
               <td width="180">ESPECIE:</td>
-              <td><form:select class="inputs" path="phone" name="select3">
-                  <form:option value="0">Seleccione especie</form:option>
-                  <form:options items="${phonesMap}" />
-                </form:select> </td>
+              <td></td>
               <td>ESTADO:</td>
               <td><select class="inputs" name="select4">
                   <option value="1">VERACRUZ</option>

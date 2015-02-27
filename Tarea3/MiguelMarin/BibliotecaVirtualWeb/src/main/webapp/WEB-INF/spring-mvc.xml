@@ -18,12 +18,12 @@
     <bean id="viewResolver" 
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
           p:prefix="/WEB-INF/jsps/" 
-          
-          p:suffix=".jsp"/>
-    <bean id="viewResolver2" 
+          p:suffix=".jsp"  
+          />
+    <bean id="viewResolver3" 
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"  
           p:prefix="/WEB-INF/css/" 
           />
-    <mvc:view-controller path="/index"/>
+    <mvc:view-controller path="/"/>
    
 </beans>

@@ -14,21 +14,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/css/styles.css'/>" /> 
          
         <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script type="javascript" >
-            $(window).load(function(){
-            var url = document.location.href;  // Getting the url
-            var str = url.substr(0, url.lastIndexOf('/')); // get the specific url
-            var nUrl = url.substr(url.lastIndexOf('/')+1); // Get the page name from url
-
-            $('#menu li a').each(function(){
-                if( $(this).attr('href') === nUrl){ // Comparing if we on the same page or not
-                    alert($this.attr());
-                    $(this).addClass('active'); // applying the class on the active page
-                };
-            });
-            }
-        </script>       
+        
     </head>
     <body>
         <div id="encabezado"  >

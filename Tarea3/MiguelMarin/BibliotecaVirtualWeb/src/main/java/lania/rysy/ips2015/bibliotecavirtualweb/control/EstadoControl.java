@@ -32,46 +32,7 @@ public class EstadoControl {
     @Autowired
     EstadoOad estadoOad;
     
-     @RequestMapping("/tesis2")
-    public ModelAndView estadoG(ModelMap model){
-       
-        List<Estado> lista = estadoOad.findAll();
-        model.put("estados", lista);
-        return new ModelAndView("contact",model);
-    }
     
-    @RequestMapping("/obtenerEstados")
-    @ResponseBody
-    public List<Estado> obtenerEstados() {
-        List<Estado> lista = estadoOad.findAll();
-        return lista;
-    }
-    
-    @RequestMapping(method = RequestMethod.GET)
-    public  List<Estado> initForm(Model model) {
-//        Colour colour = new Colour();
-//        model.addAttribute("colour", colour);
-//        initModelList(model);
-//        return "colour";
-        List<Estado> lista = estadoOad.findAll();
-        return lista;
-        
-    }
-    
-    @ModelAttribute("numberList")
-    public List<Estado> documentNumberList(HttpServletRequest request){
-        List<Estado> lista = estadoOad.findAll();
-        return lista;
-    }
-
-    
-   @RequestMapping(value = "/countryList", method = RequestMethod.GET)
-    public String showHomePage(ModelMap model) {
-
-        List<Estado> lista = estadoOad.findAll();
-        model.put("countryList", lista);
-        return "home";
-    }
 
     
 }

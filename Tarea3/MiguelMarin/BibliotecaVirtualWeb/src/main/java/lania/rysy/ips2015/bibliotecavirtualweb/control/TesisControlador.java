@@ -45,16 +45,16 @@ public class TesisControlador {
     
 
     
-     @RequestMapping(value="/phone-options-page")  
-    private ModelAndView optionsTag() {  
-        ModelAndView mav = new ModelAndView("listarTesis");  
-          List<Estado> lista = estadoOad.findAll();
-       
-        mav.addObject("phonesMap", lista);  
-        mav.addObject("smartphone", new Estado());  
-          
-        return mav;  
-    }  
+//     @RequestMapping(value="/phone-options-page")  
+//    private ModelAndView optionsTag() {  
+//        ModelAndView mav = new ModelAndView("listarTesis");  
+//          List<Estado> lista = estadoOad.findAll();
+//       
+//        mav.addObject("phonesMap", lista);  
+//        mav.addObject("smartphone", new Estado());  
+//          
+//        return mav;  
+//    }  
     
 
     
