@@ -7,6 +7,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,6 +17,8 @@
     </head>
     <body>
         <h1>ADMINISTRAR TESIS</h1>
+        
+
          <table border="0" align="center" bgcolor="#CCCCCC" id="formulario">
             <tr> 
               <td width="180">TITULO TESIS:</td>
@@ -44,11 +48,10 @@
             </tr>
             <tr> 
               <td width="180">ESPECIE:</td>
-              <td><select class="inputs" name="select3">
-                  <option value="1">MONO ARAÑA</option>
-                  <option value="2">GORILA GOLLILA</option>
-                  <option value="3">CHIMPANCE</option>
-                </select> </td>
+              <td><form:select class="inputs" path="phone" name="select3">
+                  <form:option value="0">Seleccione especie</form:option>
+                  <form:options items="${phonesMap}" />
+                </form:select> </td>
               <td>ESTADO:</td>
               <td><select class="inputs" name="select4">
                   <option value="1">VERACRUZ</option>
@@ -91,6 +94,7 @@
               <td colspan="2" style="text-align:left"><input  name="btncancelar" type="button" value="Cancelar" ></td>
             </tr>
       </table>
+     
       <table id="tabla">		
             <tr> 
                  <td class="tdagregar" colspan="4">

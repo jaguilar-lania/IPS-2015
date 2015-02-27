@@ -6,11 +6,15 @@
 package lania.rysy.ips2015.bibliotecavirtualweb.control;
 
 import java.util.List;
+import lania.rysy.ips2015.bibliotecavirtualweb.dao.EstadoOad;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.TesisOad;
+import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Estado;
 import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Tesis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,8 +27,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class TesisControlador {
     
     
-     @Autowired
+    @Autowired
     TesisOad tesisOad ;
+     
+    @Autowired
+    EstadoOad estadoOad;
+    
+    
     
     @RequestMapping("/tesis")
     public ModelAndView listarTesis(){
@@ -33,6 +42,19 @@ public class TesisControlador {
         mav.addObject("tesis", lista);
         return mav;
     }
+    
+
+    
+     @RequestMapping(value="/phone-options-page")  
+    private ModelAndView optionsTag() {  
+        ModelAndView mav = new ModelAndView("listarTesis");  
+          List<Estado> lista = estadoOad.findAll();
+       
+        mav.addObject("phonesMap", lista);  
+        mav.addObject("smartphone", new Estado());  
+          
+        return mav;  
+    }  
     
 
     

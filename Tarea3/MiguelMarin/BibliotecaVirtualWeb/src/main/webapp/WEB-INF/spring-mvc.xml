@@ -25,4 +25,5 @@
           p:prefix="/WEB-INF/css/" 
           />
     <mvc:view-controller path="/index"/>
+   
 </beans>
