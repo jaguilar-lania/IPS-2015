@@ -9,7 +9,7 @@
 
     <name>ATesis</name>
 
-    <properties>
+     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.0.6.RELEASE</spring.version>

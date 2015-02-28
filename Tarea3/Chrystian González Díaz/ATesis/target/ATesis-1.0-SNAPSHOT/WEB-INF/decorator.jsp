@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Articulos \ <sitemesh:write property='title'/></title>
+        <title>Pais \ <sitemesh:write property='title'/></title>
         <style>
             #encabezado {
                 background-color: #e8fbc4;
