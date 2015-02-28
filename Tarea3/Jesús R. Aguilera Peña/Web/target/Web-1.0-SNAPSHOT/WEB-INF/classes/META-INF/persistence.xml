@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="TesisPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>mrysi.proyecto.web.entidades.Visita</class>
+    <class>mrysi.proyecto.web.entidades.Comentario</class>
+    <class>mrysi.proyecto.web.entidades.Tesis</class>
+    <class>mrysi.proyecto.web.entidades.Usuario</class>
+    <class>mrysi.proyecto.web.entidades.Disciplina</class>
+    <class>mrysi.proyecto.web.entidades.Materialadicional</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/Tarea01"/>
+      <property name="javax.persistence.jdbc.user" value="github"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.password" value="github"/>
+    </properties>
+  </persistence-unit>
+</persistence>
