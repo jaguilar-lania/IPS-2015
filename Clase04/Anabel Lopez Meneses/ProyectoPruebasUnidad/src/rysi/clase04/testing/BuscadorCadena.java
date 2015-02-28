@@ -30,6 +30,7 @@ public class BuscadorCadena {
      * @return 
      */
     public boolean buscarCadenaComoSubsecuencia(String agujas, String pajar){
+        
         return false;
     }
 }
