@@ -6,13 +6,13 @@
         <title>Tesis \ <sitemesh:write property='title'/></title>
         <style>
             #encabezado {
-                background-color: #e8fbc4;
+                background-color: #3333ff;
                 clear: both;
                 width: 100%;
                 height: 80px;
             }
             #menu {
-                background-color: #3c6e3f;
+                background-color: #666600;
                 border: 1px solid black;
                 float: left;
                 width: 80px;
