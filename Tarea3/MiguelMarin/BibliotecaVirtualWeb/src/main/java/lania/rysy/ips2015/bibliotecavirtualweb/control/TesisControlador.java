@@ -135,7 +135,7 @@ public class TesisControlador {
     }
     
     @RequestMapping(value="/agregarTesis", method = RequestMethod.POST)
-    public String agregarArticulo(@ModelAttribute("tesisEnt") Tesis nuevaTesis) {
+    public String agregarTesis(@ModelAttribute("tesisEnt") Tesis nuevaTesis) {
         try{
             
             nuevaTesis.setFechaReg(new Date());

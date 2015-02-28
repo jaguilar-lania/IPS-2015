@@ -5,6 +5,7 @@
  */
 package lania.rysy.ips2015.bibliotecavirtualweb.dao;
 
+import java.util.List;
 import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Disciplina;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -14,4 +15,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface DisciplinaOad extends JpaRepository<Disciplina,Integer> {
     
+    public List<Disciplina> findBydisciplinaContaining(String cadena);
 }

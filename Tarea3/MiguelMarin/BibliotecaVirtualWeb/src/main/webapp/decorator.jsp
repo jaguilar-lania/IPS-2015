@@ -24,7 +24,7 @@
 		  <ul >
                       <li  ><a href='#' >Inicio</a></li>
 			<li ><a href='tesis'  >Tesis</a></li>
-			<li ><a href='admindisciplina.html'  >Disciplina</a></li>
+			<li ><a href='disciplina'  >Disciplina</a></li>
 		  </ul>
 		</div>
 		<div id="datos">

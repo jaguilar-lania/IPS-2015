@@ -64,7 +64,7 @@ public class Disciplina implements Serializable {
     }
 
     public void setDisciplina(String disciplina) {
-        this.disciplina = disciplina;
+        this.disciplina = disciplina.toUpperCase();
     }
 
     @Override
