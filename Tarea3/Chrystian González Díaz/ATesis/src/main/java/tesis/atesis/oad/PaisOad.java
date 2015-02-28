@@ -13,8 +13,7 @@ import tesis.atesis.entidades.Pais;
  *
  * @author Chrys
  */
-
-public interface PaisOad extends JpaRepository<Pais, Integer> {
+public interface PaisOad extends JpaRepository<Pais, Integer>{
     
     List<Pais> findAll(Pais pais);
     
