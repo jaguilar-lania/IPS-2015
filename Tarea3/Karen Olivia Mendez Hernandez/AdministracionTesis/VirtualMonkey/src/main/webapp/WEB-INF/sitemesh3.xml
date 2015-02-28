@@ -1,0 +1,4 @@
+<sitemesh>
+    <mapping path="/*" decorator="/WEB-INF/decorator.jsp"/>
+    <mapping path="/salir.jsp" exclude="true"/>
+</sitemesh>
