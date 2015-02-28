@@ -8,7 +8,7 @@ import rysi.articulos.articulosweb2.entidades.Articulo;
 import rysi.articulos.articulosweb2.entidades.Compra;
 import rysi.articulos.articulosweb2.entidades.DetalleCompraPK;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-02-25T16:36:13")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-02-27T19:31:37")
 @StaticMetamodel(DetalleCompra.class)
 public class DetalleCompra_ { 
 

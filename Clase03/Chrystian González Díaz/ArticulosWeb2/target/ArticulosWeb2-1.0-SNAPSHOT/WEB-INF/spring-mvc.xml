@@ -16,7 +16,7 @@
     <mvc:default-servlet-handler/>
     <bean id="viewResolver" 
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
-          p:prefix="/WEB-INF/decorator/" 
+          p:prefix="/WEB-INF/jsps/" 
           p:suffix=".jsp"/>
     <mvc:view-controller path="/index"/>
 </beans>

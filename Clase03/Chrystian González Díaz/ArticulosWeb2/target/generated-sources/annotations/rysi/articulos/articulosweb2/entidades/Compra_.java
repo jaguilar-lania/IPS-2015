@@ -9,7 +9,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import rysi.articulos.articulosweb2.entidades.Cliente;
 import rysi.articulos.articulosweb2.entidades.DetalleCompra;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-02-25T16:36:13")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-02-27T19:31:37")
 @StaticMetamodel(Compra.class)
 public class Compra_ { 
 
