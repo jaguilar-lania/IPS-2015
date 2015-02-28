@@ -20,7 +20,7 @@
         <ol>
             
             <c:forEach items="${articulos}" var="art">
-                <li>${art.nombre}</li> <a href="editarArticulo?id=${art.idArticulo}">Editar </a>
+                <li>${art.nombre}</li> <a href="editarArticuloF?id=${art.idArticulo}">Editar </a>
             </c:forEach>
         </ol>
     </body>

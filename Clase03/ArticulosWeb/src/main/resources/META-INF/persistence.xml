@@ -9,9 +9,9 @@
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/articulos"/>
-      <property name="javax.persistence.jdbc.user" value="arts"/>
+      <property name="javax.persistence.jdbc.user" value="articulos"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="javax.persistence.jdbc.password" value="arts"/>
+      <property name="javax.persistence.jdbc.password" value="articulos"/>
     </properties>
   </persistence-unit>
 </persistence>

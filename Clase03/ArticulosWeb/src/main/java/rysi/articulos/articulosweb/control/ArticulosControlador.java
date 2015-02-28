@@ -39,16 +39,23 @@ public class ArticulosControlador {
     }
     
     // Conveniente presentar el forumario desde
-    @RequestMapping(value="/agregarArticuloF")
+    @RequestMapping("/agregarArticuloF")
     public ModelAndView mostrarFormaAgregarArticulo() {
         ModelAndView mav = new ModelAndView("formArticulo");
         mav.addObject("articulo", new Articulo());
         return mav;
     }
     
+    @RequestMapping("/editarArticuloF")
+    public ModelAndView mostrarFormaAgregarArticulo(@RequestParam("id") Integer id) {
+        ModelAndView mav = new ModelAndView("formArticulo");
+        mav.addObject("articulo", artsOad.findOne(id));
+        return mav;
+    }
+    
     @RequestMapping(value="/agregarArticulo", method = RequestMethod.POST)
-    public String agregarArticulo(@ModelAttribute("articulo") Articulo nuevoArticulo) {
-        artsOad.save(nuevoArticulo);
+    public String agregarArticulo(@ModelAttribute("articulo") Articulo art) {
+        artsOad.save(art);
         return "redirect:/articulos";
     }
 
