@@ -5,8 +5,11 @@
  */
 package lania.rysy.ips2015.bibliotecavirtualweb.control;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.DisciplinaOad;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.EspecieOad;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.EstadoOad;
@@ -67,11 +70,29 @@ public class TesisControlador {
         List<InstitucionAdscripcion> listaIns = institucionOad.findAll();
         List<Disciplina> listaDis = disciplinaOad.findAll();
         List<Subdisciplina> listaSub = subDisciplinaOad.findAll();
-        mav.addObject("especies", listaEsp);
-        mav.addObject("estados", listaEst);
-        mav.addObject("institucionadscripcion", listaIns);
-        mav.addObject("disciplinas", listaDis);
-        mav.addObject("subdisciplinas", listaSub);
+       
+        Map<String,String> institucion = new LinkedHashMap<String,String>();
+        for (InstitucionAdscripcion doc : listaIns){
+            institucion.put(doc.getIdinstitucionAdscripcion().toString(), doc.getNombre());
+	
+        }
+         mav.addObject("institucionadscripcion", institucion);
+           
+        Map<String,String> estados = new LinkedHashMap<String,String>();
+        for (Estado doc : listaEst){
+            estados.put(doc.getIdestado().toString(), doc.getNombre());
+        }
+        mav.addObject("estados", estados);
+        Map<String,String> disciplinas = new LinkedHashMap<String,String>();
+        for (Disciplina doc : listaDis){
+            disciplinas.put(doc.getIddisciplina().toString(), doc.getDisciplina());
+        }
+        mav.addObject("disciplinas", disciplinas);
+         Map<String,String> subdisciplinas = new LinkedHashMap<String,String>();
+        for (Subdisciplina doc : listaSub){
+            subdisciplinas.put(doc.getIdsubdisciplina().toString(), doc.getNombre());
+        }
+        mav.addObject("subdisciplinas", subdisciplinas);
         mav.addObject("tesisEnt", new Tesis());
         mav.addObject("tesis", lista);
         return mav;
@@ -80,17 +101,34 @@ public class TesisControlador {
      @RequestMapping("/buscarTesis")
     public ModelAndView buscarTesis(@RequestParam("cadena") String cadena) {
         ModelAndView mav = new ModelAndView("listarTesis");
-        List<Tesis> lista = tesisOad.findBytituloContaining(cadena);
+        List<Tesis> lista = tesisOad.findBytituloContaining(cadena.toUpperCase());
         List<Especie> listaEsp = especieOad.findAll();
         List<Estado> listaEst = estadoOad.findAll();
         List<InstitucionAdscripcion> listaIns = institucionOad.findAll();
         List<Disciplina> listaDis = disciplinaOad.findAll();
         List<Subdisciplina> listaSub = subDisciplinaOad.findAll();
-        mav.addObject("especies", listaEsp);
-        mav.addObject("estados", listaEst);
-        mav.addObject("institucionadscripcion", listaIns);
-        mav.addObject("disciplinas", listaDis);
-        mav.addObject("subdisciplinas", listaSub);
+        Map<String,String> institucion = new LinkedHashMap<String,String>();
+        for (InstitucionAdscripcion doc : listaIns){
+            institucion.put(doc.getIdinstitucionAdscripcion().toString(), doc.getNombre());
+	
+        }
+         mav.addObject("institucionadscripcion", institucion);
+           
+        Map<String,String> estados = new LinkedHashMap<String,String>();
+        for (Estado doc : listaEst){
+            estados.put(doc.getIdestado().toString(), doc.getNombre());
+        }
+        mav.addObject("estados", estados);
+        Map<String,String> disciplinas = new LinkedHashMap<String,String>();
+        for (Disciplina doc : listaDis){
+            disciplinas.put(doc.getIddisciplina().toString(), doc.getDisciplina());
+        }
+        mav.addObject("disciplinas", disciplinas);
+         Map<String,String> subdisciplinas = new LinkedHashMap<String,String>();
+        for (Subdisciplina doc : listaSub){
+            subdisciplinas.put(doc.getIdsubdisciplina().toString(), doc.getNombre());
+        }
+        mav.addObject("subdisciplinas", subdisciplinas);
         mav.addObject("tesisEnt", new Tesis());
         mav.addObject("tesis", lista);
         return mav;
@@ -99,7 +137,7 @@ public class TesisControlador {
     @RequestMapping(value="/agregarTesis", method = RequestMethod.POST)
     public String agregarArticulo(@ModelAttribute("tesisEnt") Tesis nuevaTesis) {
         try{
-            nuevaTesis.setIdtesis(0);
+            
             nuevaTesis.setFechaReg(new Date());
             tesisOad.save(nuevaTesis);
         }catch(Exception e)
@@ -107,6 +145,55 @@ public class TesisControlador {
             System.out.println("Error- " + e.getMessage());
         }
         return "redirect:/tesis";
+    }
+    
+    @RequestMapping(value="/borrarTesis")
+    public String borrarTesis(@RequestParam("idtesis") int idtesis  ) {
+        try{
+            tesisOad.delete(idtesis);
+            //tesisOad.save(nuevaTesis);
+        }catch(Exception e)
+        {
+            System.out.println("Error- " + e.getMessage());
+        }
+        return "redirect:/tesis";
+    }
+    
+     @RequestMapping(value="/editarTesis")
+    public ModelAndView editarTesis(@RequestParam("idtesis") int idtesis  ) {
+        ModelAndView mav = new ModelAndView("listarTesis");
+        Tesis tesisEnt = tesisOad.findOne(idtesis);
+        List<Tesis> lista = tesisOad.findAll();
+        List<Especie> listaEsp = especieOad.findAll();
+        List<Estado> listaEst = estadoOad.findAll();
+        List<InstitucionAdscripcion> listaIns = institucionOad.findAll();
+        List<Disciplina> listaDis = disciplinaOad.findAll();
+        List<Subdisciplina> listaSub = subDisciplinaOad.findAll();
+        Map<String,String> institucion = new LinkedHashMap<String,String>();
+        for (InstitucionAdscripcion doc : listaIns){
+            institucion.put(doc.getIdinstitucionAdscripcion().toString(), doc.getNombre());
+	
+        }
+         mav.addObject("institucionadscripcion", institucion);
+           
+        Map<String,String> estados = new LinkedHashMap<String,String>();
+        for (Estado doc : listaEst){
+            estados.put(doc.getIdestado().toString(), doc.getNombre());
+        }
+        mav.addObject("estados", estados);
+        Map<String,String> disciplinas = new LinkedHashMap<String,String>();
+        for (Disciplina doc : listaDis){
+            disciplinas.put(doc.getIddisciplina().toString(), doc.getDisciplina());
+        }
+        mav.addObject("disciplinas", disciplinas);
+         Map<String,String> subdisciplinas = new LinkedHashMap<String,String>();
+        for (Subdisciplina doc : listaSub){
+            subdisciplinas.put(doc.getIdsubdisciplina().toString(), doc.getNombre());
+        }
+        mav.addObject("subdisciplinas", subdisciplinas);
+        mav.addObject("tesisEnt", tesisEnt);
+        mav.addObject("tesis", lista);
+        return mav;
     }
    
    

@@ -24,7 +24,9 @@
             <table border="0" align="center" bgcolor="#CCCCCC" id="formulario">
                <tr> 
                  <td width="250">TITULO TESIS:</td>
-                 <td width="384"><form:input path="titulo" type="text"/> </td>
+                 <td width="384">
+                     <form:hidden path="idtesis" />
+                     <form:input path="titulo" type="text"/> </td>
                  <td width="380">NOMBRE AUTOR : </td>
                  <td width="380"> <form:input path="autorTesis" type="text"/></td>
                <tr> 
@@ -42,12 +44,11 @@
                <tr> 
                  <td width="250">INSTITUCION ADSCRIPCION:</td>
                  <td> 
-                     <form:select class="inputs" path="idinstitucionAdscripcion" name="select2">
-                        <option value="0">SELECCIONE UNA INSTITUCION</option>
-                             <c:forEach items="${institucionadscripcion}" var="inst">
-                                  <option value="${inst.idinstitucionAdscripcion}">${inst.nombre}</option>
-                             </c:forEach>
-                       </form:select> 
+                     <form:select  class="inputs" path="idinstitucionAdscripcion">
+                        <form:option value="0" label="SELECCIONE UNA INSTITUCION"/>
+                        <form:options items="${institucionadscripcion}" />
+                     </form:select>
+                    
                 </td>
                  <td>DIRECTOR DE TESIS:</td>
                  <td><form:input path="directorTesis" type="text"/></td>
@@ -61,39 +62,38 @@
                 </td>
                  <td>ESTADO:</td>
                  <td>
-                      <form:select class="inputs" path="idestado"  name="select4">
-                     <option value="0">SELECCIONE UN ESTADO</option>
-                     <c:forEach items="${estados}" var="est">
-                              <option value="${est.idestado}">${est.nombre}</option>
-                     </c:forEach>
-                   </form:select> 
+                      <form:select  class="inputs" path="idestado">
+                        <form:option value="0" label="SELECCIONE UN ESTADO"/>
+                        <form:options items="${estados}" />
+                     </form:select>
+                     
                 </td>
                </tr>
                <tr> 
                  <td width="250">DISCIPLINA:</td>
-                 <td> <form:select class="inputs" path="iddisciplina"  name="select3">
-                        <option value="0">SELECCIONE UN DISCIPLINA</option>
-                        <c:forEach items="${disciplinas}" var="dis">
-                            <option value="${dis.iddisciplina}">${dis.disciplina}</option>
-                         </c:forEach>
-                     </form:select> 
+                 <td>
+                     <form:select  class="inputs" path="iddisciplina">
+                        <form:option value="0" label="SELECCIONE UN DISCIPLINA"/>
+                        <form:options items="${disciplinas}" />
+                     </form:select>
+                    
                 </td>
                  <td>SUBDISCIPLINA:</td>
-                 <td> <form:select class="inputs" path="idsubdisciplina"  name="select4">
-                        <option value="0">SELECCIONE UN SUBDISCIPLINA</option>
-                       <c:forEach items="${subdisciplinas}" var="sdis">
-                                <option value="${sdis.idsubdisciplina}">${sdis.nombre}</option>
-                       </c:forEach>
-                    </form:select> 
+                 <td>
+                      <form:select  class="inputs" path="idsubdisciplina">
+                        <form:option value="0" label="SELECCIONE UN SUBDISCIPLINA"/>
+                        <form:options items="${subdisciplinas}" />
+                     </form:select>
+                     
                 </td>
                </tr>
                <tr> 
                  <td width="250">CONDICION DE SITIO:</td>
                  <td>
-                     <form:input name="text322" path="archivoTesis"  type="text" value=""/> 
+                     <form:input name="text322"  path="condicionSitio"   type="text" value=""/> 
                  </td>
                  <td>ARCHIVO:</td>
-                 <td> <form:input path="condicionSitio" name="text3222" type="text" value="" /></td>
+                 <td> <form:input path="archivoTesis" name="text3222" type="text" value="" /></td>
                </tr>
               
                <tr> 
@@ -107,13 +107,14 @@
      
       <table id="tabla">		
             <tr> 
-                 <td class="tdagregar2" colspan="4">
+                 <td class="tdagregar2" colspan="3">
                         <!--<a href="#">
                         <img src="css/agregar.jpg" />Agregar Tesis</a>-->
                  </td>
-                 <td class="tdagregar">Buscar:</td>
-                 <td class="tdagregar"  colspan="2">  
+                 
+                 <td class="tdagregar" style="text-align: right;"  colspan="2">  
                      <form action="buscarTesis" method>
+                         Buscar:
                          <input type='text' name='cadena'/>
                          <input type='submit' name='filtrar' value='Buscar'>
                      </form>
@@ -122,8 +123,7 @@
             <tr>
                 <th>TITULO</th>
                 <th>AUTOR</th>
-                <th>DISCIPLINA</th>
-                <th>SUBDISCIPLINA</th>
+                
                 <th>AÑO</th>
                 <th>EDITAR</th>
                 <th>ELIMINAR</th>
@@ -143,20 +143,15 @@
                     <td>
                         ${tes.autorTesis}
                     </td>
-                    <td>
-                         ${tes.iddisciplina}
-                    </td>
-                    <td>
-                        ${tes.idsubdisciplina}
-                    </td>
+                   
                     <td>
                        ${tes.anioTitulacion}
                     </td>
                     <td>
-                       <a href="editarArticulo?id=${tes.idtesis}">Editar</a>
+                        <a href="editarTesis?idtesis=${tes.idtesis}"><img src="css/editar2.jpg"/></a>
                     </td>
                     <td>
-                       <a href="editarArticulo?id=${tes.idtesis}">Eliminar</a>
+                       <a href="borrarTesis?idtesis=${tes.idtesis}"><img src="css/eliminar2.jpg"/></a>
                     </td>
                  </tr>
                
