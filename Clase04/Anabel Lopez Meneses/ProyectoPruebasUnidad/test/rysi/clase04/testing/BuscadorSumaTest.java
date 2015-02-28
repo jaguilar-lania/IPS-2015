@@ -129,5 +129,19 @@ public class BuscadorSumaTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+     
+     @Test(expected = NullPointerException.class)
+     public void testBuscarSubconjuntoConSumaConExcepcion() {
+        System.out.println("buscarSubconjuntoConSumaConExcepcion");
+        List<Integer> conjunto = new ArrayList<Integer>();
+        conjunto=null;
+        Integer suma = null;
+        BuscadorSuma instance = new BuscadorSuma();
+        boolean expResult = false;
+        boolean result = instance.buscarSubconjuntoConSuma(conjunto, suma);
+        //assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
 }

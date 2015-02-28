@@ -96,4 +96,83 @@ public class BuscadorCadenaTest {
         //fail("The test case is a prototype.");
     }
     
+    //a partir de aqui son los 6 pruebas de la clase 04-----------------------------
+    
+    @Test(expected = NullPointerException.class)
+    public void testbuscarCadenaComoSubsecuenciaConExcepcion() {
+        System.out.println("buscarCadenaComoSubsecuenciaConExcepcion");
+        String aguja = null;
+        String pajar = null;
+        BuscadorCadena instance = new BuscadorCadena();
+        boolean expResult = false;
+        boolean result = instance.buscarCadenaComoSubsecuencia(aguja, pajar);
+        //assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    @Test(expected = NullPointerException.class)
+    public void testbuscarCadenaComoSubsecuenciaConExcepcion2() {
+        System.out.println("buscarCadenaComoSubsecuenciaConExcepcion2");
+        String aguja = null;
+        String pajar = "anastasia";
+        BuscadorCadena instance = new BuscadorCadena();
+        boolean expResult = false;
+        boolean result = instance.buscarCadenaComoSubsecuencia(aguja, pajar);
+        //assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testbuscarCadenaComoSubsecuenciaConExito() {
+        System.out.println("buscarCadenaComoSubsecuenciaConExito");
+        String aguja = "ana";
+        String pajar = "anita";
+        BuscadorCadena instance = new BuscadorCadena();
+        boolean expResult = true;
+        boolean result = instance.buscarCadenaComoSubsecuencia(aguja, pajar);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testbuscarCadenaComoSubsecuenciaConExito2() {
+        System.out.println("buscarCadenaComoSubsecuenciaConExito2");
+        String aguja = "ana";
+        String pajar = "Helena";
+        BuscadorCadena instance = new BuscadorCadena();
+        boolean expResult = false;
+        boolean result = instance.buscarCadenaComoSubsecuencia(aguja, pajar);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testbuscarCadenaComoSubsecuenciaSinExito() {
+        System.out.println("buscarCadenaComoSubsecuenciaSinExito");
+        String aguja = "";
+        String pajar = "";
+        BuscadorCadena instance = new BuscadorCadena();
+        boolean expResult = true;
+        boolean result = instance.buscarCadenaComoSubsecuencia(aguja, pajar);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testbuscarCadenaComoSubsecuenciaSinExito2() {
+        System.out.println("buscarCadenaComoSubsecuenciaSinExito2");
+        String aguja = "";
+        String pajar = "Polita";
+        BuscadorCadena instance = new BuscadorCadena();
+        boolean expResult = true;
+        boolean result = instance.buscarCadenaComoSubsecuencia(aguja, pajar);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
 }

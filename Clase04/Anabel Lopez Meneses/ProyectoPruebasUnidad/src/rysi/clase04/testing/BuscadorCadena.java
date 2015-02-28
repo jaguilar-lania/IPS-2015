@@ -22,7 +22,7 @@ public class BuscadorCadena {
         
            return (pajar.indexOf(aguja) != -1);
     }
-    /**esdrujula
+    /**
      * Busca una cadena dentro de otra como subsecuencia, es decir, deben aparecer
      * todos los caracteres de agujas en el mismo orden pero no necesariamente consecutivos.
      * @param agujas
