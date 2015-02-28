@@ -1,8 +1,10 @@
 package rysi.articulos.articulosweb.control;
 
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,7 +56,10 @@ public class ArticulosControlador {
     }
     
     @RequestMapping(value="/agregarArticulo", method = RequestMethod.POST)
-    public String agregarArticulo(@ModelAttribute("articulo") Articulo art) {
+    public String agregarArticulo(@Valid @ModelAttribute("articulo") Articulo art, BindingResult resultado) {
+        if (resultado.hasErrors()) {
+            return "formArticulo";
+        }
         artsOad.save(art);
         return "redirect:/articulos";
     }

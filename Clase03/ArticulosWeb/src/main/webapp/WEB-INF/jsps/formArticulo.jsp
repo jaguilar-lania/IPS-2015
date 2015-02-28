@@ -9,10 +9,14 @@
     <body>
         <h2>Nuevo Artículo</h2>
         <sf:form action="agregarArticulo" method="POST" commandName="articulo">
+        <div id="errores">
+            <sf:errors path="nombre"/>
+        </div>
             <table>
                 <tr>
                     <td>Nombre:</td>
                     <td><sf:input path="nombre" type="text"/></td>
+                    <sf:hidden path="idArticulo"/>
                 </tr>
                 <tr>
                     <td>Descripción:</td>
