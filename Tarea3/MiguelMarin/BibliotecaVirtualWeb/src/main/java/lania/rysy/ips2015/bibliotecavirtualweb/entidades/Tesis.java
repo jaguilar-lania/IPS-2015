@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -86,6 +88,19 @@ public class Tesis implements Serializable {
     @Column(name = "FECHA_REG")
     @Temporal(TemporalType.DATE)
     private Date fechaReg;
+    
+//    @JoinColumn(name = "IDDISCIPLINA", referencedColumnName = "IDDISCIPLINA")
+//    @ManyToOne(optional = false)
+//    private Disciplina disciplina;
+//    @JoinColumn(name = "IDINSTITUCION_ADSCRIPCION", referencedColumnName = "IDINSTITUCION_ADSCRIPCION")
+//    @ManyToOne(optional = true)
+//    private InstitucionAdscripcion institucionAdscripcion;
+//    @JoinColumn(name = "IDSUBDISCIPLINA", referencedColumnName = "IDSUBDISCIPLINA")
+//    @ManyToOne(optional = false)
+//    private Subdisciplina subdisciplina;
+    
+//   
+//    private EspecieTesis especieTesis;
 
     public Tesis() {
     }
@@ -120,7 +135,7 @@ public class Tesis implements Serializable {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        this.titulo = titulo.toUpperCase();
     }
 
     public String getAutorTesis() {
@@ -128,7 +143,7 @@ public class Tesis implements Serializable {
     }
 
     public void setAutorTesis(String autorTesis) {
-        this.autorTesis = autorTesis;
+        this.autorTesis = autorTesis.toUpperCase();
     }
 
     public Integer getGradoObtenido() {
@@ -160,7 +175,7 @@ public class Tesis implements Serializable {
     }
 
     public void setDirectorTesis(String directorTesis) {
-        this.directorTesis = directorTesis;
+        this.directorTesis = directorTesis.toUpperCase();
     }
 
     public String getCondicionSitio() {
@@ -168,7 +183,7 @@ public class Tesis implements Serializable {
     }
 
     public void setCondicionSitio(String condicionSitio) {
-        this.condicionSitio = condicionSitio;
+        this.condicionSitio = condicionSitio.toUpperCase();
     }
 
     public Integer getIdestado() {
@@ -218,6 +233,39 @@ public class Tesis implements Serializable {
     public void setFechaReg(Date fechaReg) {
         this.fechaReg = fechaReg;
     }
+    
+//    public Disciplina getDisciplina() {
+//        return disciplina;
+//    }
+//
+//    public void setDisciplina(Disciplina disciplina) {
+//        this.disciplina = disciplina;
+//    }
+//
+//    public InstitucionAdscripcion getInstitucionAdscripcion() {
+//        return institucionAdscripcion;
+//    }
+//
+//    public void setInstitucionAdscripcion(InstitucionAdscripcion institucionAdscripcion) {
+//        this.institucionAdscripcion = institucionAdscripcion;
+//    }
+//
+//    public Subdisciplina getSubdisciplina() {
+//        return subdisciplina;
+//    }
+//
+//    public void setSubdisciplina(Subdisciplina subdisciplina) {
+//        this.subdisciplina = subdisciplina;
+//    }
+    
+//     public EspecieTesis getEspecieTesis() {
+//        return especieTesis;
+//    }
+//
+//    public void setEspecieTesis(EspecieTesis especieTesis) {
+//        this.especieTesis = especieTesis;
+//    }
+
 
     @Override
     public int hashCode() {

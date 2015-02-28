@@ -134,6 +134,11 @@ color: #fff;
 	background-color: #dde7f5;
 }
 
+#tabla .tdagregar2 {
+    background-color: #dde7f5;
+    TEXT-ALIGN: LEFT;
+}
+
 tr {
 display: table-row;
 vertical-align: inherit;
@@ -156,14 +161,14 @@ vertical-align: inherit;
 
 
 input{
-	width:150px;
+	width:250px;
 }
 
 .inputs{
-	width:150px;
+	width:250px;
 }
 
 #datos #formulario tr td
 {
-	width:180px;
+	width:250px;
 }

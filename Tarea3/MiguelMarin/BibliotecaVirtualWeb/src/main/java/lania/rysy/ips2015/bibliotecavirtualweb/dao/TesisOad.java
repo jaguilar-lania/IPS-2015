@@ -5,6 +5,7 @@
  */
 package lania.rysy.ips2015.bibliotecavirtualweb.dao;
 
+import java.util.List;
 import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Tesis;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,5 +14,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author miguel
  */
 public interface TesisOad extends JpaRepository<Tesis,Integer> {
+
+    public List<Tesis> findBytituloContaining(String cadena);
     
 }
