@@ -90,8 +90,8 @@ public class BuscadorCadenaTest {
     @Test
     public void testBuscarCadenaComoSubsecuenciaConExito() {
         System.out.println("buscarCadenaComoSubsecuenciaConExito");
-        String agujas = "super";
-        String pajar = "supercalifragisiticoespiralidoso";
+        String agujas = "cota";
+        String pajar = "comisionista";
         BuscadorCadena instance = new BuscadorCadena();
         boolean expResult = true;
         boolean result = instance.buscarCadenaComoSubsecuencia(agujas, pajar);
@@ -101,8 +101,8 @@ public class BuscadorCadenaTest {
     @Test
     public void testBuscarCadenaComoSubsecuenciaConExito2() {
         System.out.println("buscarCadenaComoSubsecuenciaConExito2");
-        String agujas = "lateral";
-        String pajar = "daño colateral";
+        String agujas = "hora";
+        String pajar = "zanahoria";
         BuscadorCadena instance = new BuscadorCadena();
         boolean expResult = true;
         boolean result = instance.buscarCadenaComoSubsecuencia(agujas, pajar);
@@ -113,9 +113,9 @@ public class BuscadorCadenaTest {
     public void testBuscarCadenaComoSubsecuenciaNoEncontrada() {
         System.out.println("buscarCadenaComoSubsecuenciaNoEncontrada");
         String agujas = "error";
-        String pajar = "Generalizar herramientas";
+        String pajar = "herramientas";
         BuscadorCadena instance = new BuscadorCadena();
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.buscarCadenaComoSubsecuencia(agujas, pajar);
         assertEquals(expResult, result);
     }
@@ -123,10 +123,10 @@ public class BuscadorCadenaTest {
     @Test
     public void testBuscarCadenaComoSubsecuenciaNoEncontrada2() {
         System.out.println("buscarCadenaComoSubsecuenciaNoEncontrada2");
-        String agujas = "estar";
-        String pajar = "es respetar";
+        String agujas = "hora";
+        String pajar = "juegos mentales";
         BuscadorCadena instance = new BuscadorCadena();
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.buscarCadenaComoSubsecuencia(agujas, pajar);
         assertEquals(expResult, result);
     }
@@ -137,7 +137,7 @@ public class BuscadorCadenaTest {
         String agujas = null;
         String pajar = "Supercalifragilistico";
         BuscadorCadena instance = new BuscadorCadena();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.buscarCadenaComoSubsecuencia(agujas, pajar);
     }
     
@@ -147,7 +147,7 @@ public class BuscadorCadenaTest {
         String agujas = "Super";
         String pajar = null;
         BuscadorCadena instance = new BuscadorCadena();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.buscarCadenaComoSubsecuencia(agujas, pajar);
     }
 }
