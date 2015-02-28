@@ -15,7 +15,7 @@
                 background-color: #666600;
                 border: 1px solid black;
                 float: left;
-                width: 80px;
+                width: 105px;
                 height: 600px;
             }
             #body {
