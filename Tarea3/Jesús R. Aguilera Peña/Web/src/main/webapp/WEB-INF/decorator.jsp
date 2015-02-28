@@ -26,8 +26,8 @@
         </style>
     </head>
     <body>
-        <div id='encabezado'>ENCABEZADO</div>
-        <div id='menu'>MENU</div>
+        <div id='encabezado'>Sistema de Administración de Tesis</div>
+        <div id='menu'>Implementación de un producto de Software</div>
         <div id='body'><sitemesh:write property='body'/></div>
     </body>
 </html>
