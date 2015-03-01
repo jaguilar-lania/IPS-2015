@@ -5,11 +5,17 @@
  */
 package lania.rysy.ips2015.bibliotecavirtualweb.control;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.DisciplinaOad;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.EspecieOad;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.EstadoOad;
@@ -31,6 +37,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -83,6 +90,13 @@ public class TesisControlador {
             estados.put(doc.getIdestado().toString(), doc.getNombre());
         }
         mav.addObject("estados", estados);
+        
+        Collections.sort(listaDis, new Comparator<Disciplina>(){
+        public int compare(Disciplina s1, Disciplina s2) {
+            return s1.getDisciplina().compareToIgnoreCase(s2.getDisciplina());
+        }
+        });
+        
         Map<String,String> disciplinas = new LinkedHashMap<String,String>();
         for (Disciplina doc : listaDis){
             disciplinas.put(doc.getIddisciplina().toString(), doc.getDisciplina());
@@ -139,6 +153,8 @@ public class TesisControlador {
         try{
             
             nuevaTesis.setFechaReg(new Date());
+            if(nuevaTesis.getArchivoTesis() == null)
+                nuevaTesis.setArchivoTesis("");
             tesisOad.save(nuevaTesis);
         }catch(Exception e)
         {
@@ -159,6 +175,8 @@ public class TesisControlador {
         return "redirect:/tesis";
     }
     
+    
+    
      @RequestMapping(value="/editarTesis")
     public ModelAndView editarTesis(@RequestParam("idtesis") int idtesis  ) {
         ModelAndView mav = new ModelAndView("listarTesis");
@@ -166,6 +184,8 @@ public class TesisControlador {
         List<Tesis> lista = tesisOad.findAll();
         List<Especie> listaEsp = especieOad.findAll();
         List<Estado> listaEst = estadoOad.findAll();
+        
+        
         List<InstitucionAdscripcion> listaIns = institucionOad.findAll();
         List<Disciplina> listaDis = disciplinaOad.findAll();
         List<Subdisciplina> listaSub = subDisciplinaOad.findAll();
@@ -195,6 +215,7 @@ public class TesisControlador {
         mav.addObject("tesis", lista);
         return mav;
     }
+   
    
    
     

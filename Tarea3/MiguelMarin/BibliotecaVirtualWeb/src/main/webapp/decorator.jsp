@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/css/styles.css'/>" /> 
          
         <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+         
         
     </head>
     <body>

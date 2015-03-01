@@ -24,6 +24,8 @@
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"  
           p:prefix="/WEB-INF/css/" 
           />
+    <mvc:view-controller path="/subirArchivo" view-name="formArchivo"/>
+    
     <mvc:view-controller path="/"/>
    
 </beans>

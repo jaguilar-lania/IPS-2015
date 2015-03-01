@@ -76,7 +76,7 @@ public class Tesis implements Serializable {
     private Integer idsubdisciplina;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    //@Size(min = 1, max = 50)
     @Column(name = "ARCHIVO_TESIS")
     private String archivoTesis;
     @Basic(optional = false)

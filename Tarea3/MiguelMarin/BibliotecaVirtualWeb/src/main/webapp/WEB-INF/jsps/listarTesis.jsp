@@ -16,8 +16,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tesis</title>
+      
     </head>
     <body>
+         <script type="text/javascript">
+            
+            function abrirPop()
+            {
+               var myWindow = window.open("subirArchivo", "_blanck", "width=400, height=400");
+            }
+        </script>
         <h1>ADMINISTRAR TESIS</h1>
         
         <form:form action="agregarTesis" method="POST" commandName="tesisEnt">
@@ -93,7 +101,11 @@
                      <form:input name="text322"  path="condicionSitio"   type="text" value=""/> 
                  </td>
                  <td>ARCHIVO:</td>
-                 <td> <form:input path="archivoTesis" name="text3222" type="text" value="" /></td>
+                 <td> 
+                     <form:hidden id="archivoTe"  path="archivoTesis"   /> 
+                     <input type="button"  onclick="abrirPop()" style="width: 90px;" value="Subir Tesis"/>
+                    
+                 </td>
                </tr>
               
                <tr> 
