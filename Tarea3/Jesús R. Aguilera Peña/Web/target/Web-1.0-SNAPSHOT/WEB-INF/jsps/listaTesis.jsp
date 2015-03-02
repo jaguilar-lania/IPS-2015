@@ -21,8 +21,8 @@
             
             <c:forEach items="${tesis}" var="tes">
                 <li>${tes.titulo} ${tes.disciplina}</li>
-                <a href="editarTesis?id=${tes.idtesis}">Editar </a>
-                <a href="eliminarTesis?id=${tes.idtesis}">Eliminar </a>
+                <a href="editarTesis?idtesis=${tes.idtesis}">Editar </a>
+                <a href="eliminarTesis?idtesis=${tes.idtesis}">Eliminar </a>
             </c:forEach>
         </ol>
     </body>

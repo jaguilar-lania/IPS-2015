@@ -1,6 +1,7 @@
 package mrysi.proyecto.web.controlador;
 
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import mrysi.proyecto.web.entidades.Tesis;
 import mrysi.proyecto.web.oad.WebTesisOad;
+import org.springframework.validation.BindingResult;
 
 /**
  *
@@ -38,7 +40,7 @@ public class TesisControlador {
         return mav;
     }
     
-    @RequestMapping(value="/agregarTesisF")
+    @RequestMapping("/agregarTesisF")
     public ModelAndView mostrarFormaAgregarTesis() {
         ModelAndView mav = new ModelAndView("formTesis");
         mav.addObject("tesis", new Tesis());
@@ -46,8 +48,11 @@ public class TesisControlador {
     }
     
     @RequestMapping(value="/agregarTesis", method = RequestMethod.POST)
-    public String agregarTesis(@ModelAttribute("tesis") Tesis nuevoTesis) {
-        tesOad.save(nuevoTesis);
+    public String agregarTesis(@Valid @ModelAttribute("tesis") Tesis tes, BindingResult resultado) {
+        if (resultado.hasErrors()) {
+            return "formDisciplina";
+        }
+        tesOad.save(tes);
         return "redirect:/tesisadmin";
     }
 
@@ -57,4 +62,11 @@ public class TesisControlador {
     public List<Tesis> buscarTesisComenzandoCon(@RequestParam("cadena") String cadena) {
         return tesOad.findByTituloStartingWith(cadena);
     }
+    
+    @RequestMapping("/editarTesis")
+    public ModelAndView mostrarFormaAgregarTesis(@RequestParam("idtesis") Integer idtesis) {
+        ModelAndView mav = new ModelAndView("editarTesis");
+        mav.addObject("tesis", tesOad.findOne(idtesis));
+        return mav;
+    }    
 }
