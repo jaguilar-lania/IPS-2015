@@ -11,11 +11,15 @@
         <sf:form action="agregarDisciplinaF" method="POST" commandName="disciplina">
             <table>
                 <tr>
+                    <td>IdDisciplina:</td>
+                    <td><sf:input path="iddisciplina" type="text"/></td>
+                </tr>
+                <tr>
                     <td>Disciplina:</td>
                     <td><sf:input path="disciplina" type="text"/></td>
                 </tr>
                 <tr>
-                    <td></td><td><input type="submit" value="Agregar"/></td>
+                    <td></td><td><input type="submit" value="Guardar"/></td>
                 </tr>
             </table>
         </sf:form>

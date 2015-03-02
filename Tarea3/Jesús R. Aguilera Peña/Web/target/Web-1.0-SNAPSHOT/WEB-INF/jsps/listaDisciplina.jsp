@@ -9,7 +9,7 @@
     <body>
         <h2>Lista de Disciplinas</h2>
         <div>
-            <a href="agregarDisciplinaF">Agregar</a>
+            <a href="agregarDisciplina">Agregar</a>
         </div>
         <div class="filtro">
             <form action="buscarDisciplina" method>
@@ -21,7 +21,8 @@
             
             <c:forEach items="${disciplina}" var="tes">
                 <li>${tes.disciplina}</li>
-                <a href="editarDisciplina?id=${tes.iddisciplina}">Editar </a>
+                <a href="editarDisciplinaF?iddisciplina=${tes.iddisciplina}">Editar </a>
+                <a href="eliminarDisciplina?iddisciplina=${tes.iddisciplina}">Eliminar </a>
             </c:forEach>
         </ol>
     </body>

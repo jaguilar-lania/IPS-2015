@@ -8,7 +8,7 @@
     </head>
     <body>
         <h2>Nueva Disciplina</h2>
-        <sf:form action="agregarDisciplina" method="POST" commandName="disciplina">
+        <sf:form action="agregarDisciplinaF" method="POST" commandName="disciplina">
             <table>
                 <tr>
                     <td>Disciplina:</td>
