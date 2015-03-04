@@ -68,5 +68,10 @@ public class DisciplinaControlador {
         mav.addObject("disciplina", disOad.findOne(iddisciplina));
         return mav;
     }
-    
+    @RequestMapping("/eliminarDisciplina")
+    public String mostrarFormaeliminarDisciplina(@RequestParam("iddisciplina") Integer iddisciplina) {
+        ModelAndView mav = new ModelAndView("eliminarDisciplina");
+        disOad.delete(iddisciplina);
+        return "redirect:/disciplinaadmin";
+    }
 }

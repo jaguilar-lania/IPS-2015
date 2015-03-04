@@ -68,5 +68,12 @@ public class TesisControlador {
         ModelAndView mav = new ModelAndView("editarTesis");
         mav.addObject("tesis", tesOad.findOne(idtesis));
         return mav;
-    }    
+    }
+    @RequestMapping("/eliminarTesis")
+    public String mostrarFormaeliminarTesis(@RequestParam("idtesis") Integer idtesis) {
+        ModelAndView mav = new ModelAndView("eliminarTesis");
+        tesOad.delete(idtesis);
+        return "redirect:/tesisadmin";
+    }
+    
 }
