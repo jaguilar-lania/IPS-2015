@@ -1,0 +1,16 @@
+mrysi\proyecto\web\oad\WebTesisOad.class
+mrysi\proyecto\web\entidades\Tesis_.class
+mrysi\proyecto\web\entidades\Visita.class
+mrysi\proyecto\web\entidades\Visita_.class
+mrysi\proyecto\web\entidades\Usuario_.class
+mrysi\proyecto\web\entidades\Disciplina.class
+mrysi\proyecto\web\entidades\Materialadicional.class
+mrysi\proyecto\web\entidades\Disciplina_.class
+mrysi\proyecto\web\entidades\Usuario.class
+mrysi\proyecto\web\entidades\Comentario.class
+mrysi\proyecto\web\entidades\Comentario_.class
+mrysi\proyecto\web\controlador\DisciplinaControlador.class
+mrysi\proyecto\web\controlador\TesisControlador.class
+mrysi\proyecto\web\entidades\Tesis.class
+mrysi\proyecto\web\entidades\Materialadicional_.class
+mrysi\proyecto\web\oad\WebDisciplinaOad.class
