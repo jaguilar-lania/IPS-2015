@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="BibliotecaVirtuaWeb1.0PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Comentario</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Especie</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.EspecieTesis</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Contador</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Permiso</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.MaterialAdicional</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Calificacion</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Estado</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Tesis</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Pais</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Rol</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Usuario</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Disciplina</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Subdisciplina</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.InstitucionAdscripcion</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Calificacion_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Especie_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.MaterialAdicional_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Permiso_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Pais_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Usuario_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.EspecieTesis_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Contador_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Comentario_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Tesis_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Bitacora_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Rol_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Estado_1</class>
+    <class>lania.rysy.ips2015.bibliotecavirtualweb.entidades.Bitacora</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/bibliotecavirtual"/>
+      <property name="javax.persistence.jdbc.user" value="mike"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.password" value="123"/>
+    </properties>
+  </persistence-unit>
+</persistence>
