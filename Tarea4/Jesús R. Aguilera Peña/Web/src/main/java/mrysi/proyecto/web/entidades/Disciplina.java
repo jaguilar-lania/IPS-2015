@@ -17,6 +17,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -35,7 +36,8 @@ public class Disciplina implements Serializable {
     private Integer iddisciplina;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 40)
+    @NotEmpty(message="Ingrese la Disciplina")
+    @Size(max = 40)
     @Column(name = "DISCIPLINA")
     private String disciplina;
 

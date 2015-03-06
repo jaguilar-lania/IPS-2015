@@ -9,6 +9,9 @@
     <body>
         <h2>Nueva Disciplina</h2>
         <sf:form action="agregarDisciplinaF" method="POST" commandName="disciplina">
+            <div id="errores">
+                <sf:errors path="disciplina"/>
+            </div>
             <table>
                 <tr>
                     <td>Disciplina:</td>
