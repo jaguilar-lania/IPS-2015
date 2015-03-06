@@ -4,6 +4,7 @@ import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,7 +51,7 @@ public class TesisControlador {
     @RequestMapping(value="/agregarTesis", method = RequestMethod.POST)
     public String agregarTesis(@Valid @ModelAttribute("tesis") Tesis tes, BindingResult resultado) {
         if (resultado.hasErrors()) {
-            return "formDisciplina";
+            return "formTesis";
         }
         tesOad.save(tes);
         return "redirect:/tesisadmin";

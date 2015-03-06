@@ -16,6 +16,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -28,6 +29,7 @@ import javax.validation.constraints.Size;
 public class Tesis implements Serializable {
     @Size(max = 40)
     @Column(name = "DISCIPLINA")
+    @NotEmpty(message="Ingrese la Disciplina de la Tesis")
     private String disciplina;
     private static final long serialVersionUID = 1L;
     @Id
@@ -37,9 +39,11 @@ public class Tesis implements Serializable {
     private Integer idtesis;
     @Size(max = 40)
     @Column(name = "AUTOR")
+    @NotEmpty(message="Ingrese el nombre del Autor de la Tesis")
     private String autor;
     @Size(max = 40)
     @Column(name = "TITULO")
+    @NotEmpty(message="Ingrese el Título de la Tesis")
     private String titulo;
 
     public Tesis() {

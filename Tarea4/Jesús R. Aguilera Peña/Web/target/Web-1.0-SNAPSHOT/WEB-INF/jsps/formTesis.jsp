@@ -9,10 +9,20 @@
     <body>
         <h2>Nueva Tesis</h2>
         <sf:form action="agregarTesis" method="POST" commandName="tesis">
+            <div id="errores">
+                <sf:errors path="autor"/>
+            </div>
+            <div id="errores">
+                <sf:errors path="titulo"/>                                
+            </div>
+            <div id="errores">
+                <sf:errors path="disciplina"/>                                
+            </div>
             <table>
                 <tr>
                     <td>Autor:</td>
                     <td><sf:input path="autor" type="text"/></td>
+                    <sf:hidden path="idtesis"/>
                 </tr>
                 <tr>
                     <td>Titulo:</td>
