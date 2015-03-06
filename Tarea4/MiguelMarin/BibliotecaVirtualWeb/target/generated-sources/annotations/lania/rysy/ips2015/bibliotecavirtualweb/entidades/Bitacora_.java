@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Pais;
 import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Usuario;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-01T01:16:45")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-05T18:35:38")
 @StaticMetamodel(Bitacora.class)
 public class Bitacora_ { 
 

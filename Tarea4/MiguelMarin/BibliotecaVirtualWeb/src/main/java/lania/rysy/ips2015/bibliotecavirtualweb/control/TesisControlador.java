@@ -7,6 +7,7 @@ package lania.rysy.ips2015.bibliotecavirtualweb.control;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.validation.ConstraintViolation;
+import javax.validation.Valid;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.DisciplinaOad;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.EspecieOad;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.EstadoOad;
@@ -54,6 +57,7 @@ public class TesisControlador {
     @Autowired
     EstadoOad estadoOad;
     
+    
     @Autowired
     EspecieOad especieOad;
     
@@ -78,12 +82,17 @@ public class TesisControlador {
         List<Disciplina> listaDis = disciplinaOad.findAll();
         List<Subdisciplina> listaSub = subDisciplinaOad.findAll();
        
+        Map<String,String> especie = new LinkedHashMap<String,String>();
+        for (Especie doc : listaEsp){
+            especie.put(doc.getIdespecie().toString(), doc.getNombre());
+        }
+        mav.addObject("especie", especie);
         Map<String,String> institucion = new LinkedHashMap<String,String>();
         for (InstitucionAdscripcion doc : listaIns){
             institucion.put(doc.getIdinstitucionAdscripcion().toString(), doc.getNombre());
 	
         }
-         mav.addObject("institucionadscripcion", institucion);
+        mav.addObject("institucionadscripcion", institucion);
            
         Map<String,String> estados = new LinkedHashMap<String,String>();
         for (Estado doc : listaEst){
@@ -121,6 +130,13 @@ public class TesisControlador {
         List<InstitucionAdscripcion> listaIns = institucionOad.findAll();
         List<Disciplina> listaDis = disciplinaOad.findAll();
         List<Subdisciplina> listaSub = subDisciplinaOad.findAll();
+        
+         Map<String,String> especie = new LinkedHashMap<String,String>();
+        for (Especie doc : listaEsp){
+            especie.put(doc.getIdespecie().toString(), doc.getNombre());
+        }
+        mav.addObject("especie", especie);
+        
         Map<String,String> institucion = new LinkedHashMap<String,String>();
         for (InstitucionAdscripcion doc : listaIns){
             institucion.put(doc.getIdinstitucionAdscripcion().toString(), doc.getNombre());
@@ -149,12 +165,15 @@ public class TesisControlador {
     }
     
     @RequestMapping(value="/agregarTesis", method = RequestMethod.POST)
-    public String agregarTesis(@ModelAttribute("tesisEnt") Tesis nuevaTesis) {
+    public String agregarTesis(@Valid @ModelAttribute("tesisEnt") Tesis nuevaTesis, BindingResult resultado) {
         try{
-            
-            nuevaTesis.setFechaReg(new Date());
-            if(nuevaTesis.getArchivoTesis() == null)
-                nuevaTesis.setArchivoTesis("");
+             nuevaTesis.setFechaReg(new Date());
+            if (resultado.hasErrors()) {
+               
+                return "listarTesis";
+            }
+//            if(nuevaTesis.getArchivoTesis() == null)
+//                nuevaTesis.setArchivoTesis(Blob.class.newInstance());
             tesisOad.save(nuevaTesis);
         }catch(Exception e)
         {
@@ -189,6 +208,13 @@ public class TesisControlador {
         List<InstitucionAdscripcion> listaIns = institucionOad.findAll();
         List<Disciplina> listaDis = disciplinaOad.findAll();
         List<Subdisciplina> listaSub = subDisciplinaOad.findAll();
+        
+         Map<String,String> especie = new LinkedHashMap<String,String>();
+        for (Especie doc : listaEsp){
+            especie.put(doc.getIdespecie().toString(), doc.getNombre());
+        }
+        mav.addObject("especie", especie);
+        
         Map<String,String> institucion = new LinkedHashMap<String,String>();
         for (InstitucionAdscripcion doc : listaIns){
             institucion.put(doc.getIdinstitucionAdscripcion().toString(), doc.getNombre());
@@ -215,6 +241,8 @@ public class TesisControlador {
         mav.addObject("tesis", lista);
         return mav;
     }
+    
+    
    
    
    

@@ -172,3 +172,7 @@ input{
 {
 	width:250px;
 }
+
+span.campoConError {
+            color: red;
+        }

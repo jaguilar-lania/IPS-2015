@@ -20,6 +20,7 @@ lania\rysy\ips2015\bibliotecavirtualweb\entidades\MaterialAdicional_.class
 lania\rysy\ips2015\bibliotecavirtualweb\control\TesisControlador.class
 lania\rysy\ips2015\bibliotecavirtualweb\entidades\Subdisciplina.class
 lania\rysy\ips2015\bibliotecavirtualweb\entidades\Permiso_.class
+lania\rysy\ips2015\bibliotecavirtualweb\control\TesisControlador$1.class
 lania\rysy\ips2015\bibliotecavirtualweb\entidades\Rol.class
 lania\rysy\ips2015\bibliotecavirtualweb\entidades\Calificacion_.class
 lania\rysy\ips2015\bibliotecavirtualweb\entidades\InstitucionAdscripcion.class
@@ -31,6 +32,7 @@ lania\rysy\ips2015\bibliotecavirtualweb\dao\SubdisciplinaOad.class
 lania\rysy\ips2015\bibliotecavirtualweb\entidades\Comentario.class
 lania\rysy\ips2015\bibliotecavirtualweb\entidades\Especie.class
 lania\rysy\ips2015\bibliotecavirtualweb\dao\EspecieOad.class
+lania\rysy\ips2015\bibliotecavirtualweb\control\ArchivosControlador.class
 lania\rysy\ips2015\bibliotecavirtualweb\dao\EstadoOad.class
 lania\rysy\ips2015\bibliotecavirtualweb\entidades\EspecieTesis_.class
 lania\rysy\ips2015\bibliotecavirtualweb\control\DisciplinaControlador.class

@@ -29,14 +29,20 @@
         <h1>ADMINISTRAR TESIS</h1>
         
         <form:form action="agregarTesis" method="POST" commandName="tesisEnt">
+          
             <table border="0" align="center" bgcolor="#CCCCCC" id="formulario">
                <tr> 
                  <td width="250">TITULO TESIS:</td>
                  <td width="384">
                      <form:hidden path="idtesis" />
-                     <form:input path="titulo" type="text"/> </td>
+                     <form:input path="titulo" type="text"/>
+                     <form:errors  path="titulo" cssClass="campoConError"/>
+                 </td>
                  <td width="380">NOMBRE AUTOR : </td>
-                 <td width="380"> <form:input path="autorTesis" type="text"/></td>
+                 <td width="380"> 
+                     <form:input path="autorTesis" type="text"/>
+                     <form:errors path="autorTesis" cssClass="campoConError"/>
+                 </td>
                <tr> 
                  <td width="250">GRADO OBTENIDO:</td>
                  <td>
@@ -47,7 +53,10 @@
                      </form:select>
                 </td>
                  <td>AÑO TITULACION: </td>
-                 <td> <form:input  path="anioTitulacion" type="text" /></td>
+                 <td>
+                     <form:input  path="anioTitulacion" type="text" />
+                      <form:errors  path="anioTitulacion" cssClass="campoConError"/>
+                 </td>
                </tr>
                <tr> 
                  <td width="250">INSTITUCION ADSCRIPCION:</td>
@@ -59,7 +68,10 @@
                     
                 </td>
                  <td>DIRECTOR DE TESIS:</td>
-                 <td><form:input path="directorTesis" type="text"/></td>
+                 <td>
+                     <form:input path="directorTesis" type="text"/>
+                     <form:errors path="directorTesis" cssClass="campoConError"/>
+                 </td>
                </tr>
                <tr> 
                 <td width="250">ESTATUS</td>
@@ -99,13 +111,27 @@
                  <td width="250">CONDICION DE SITIO:</td>
                  <td>
                      <form:input name="text322"  path="condicionSitio"   type="text" value=""/> 
+                     <form:errors path="condicionSitio" cssClass="campoConError"/>
                  </td>
-                 <td>ARCHIVO:</td>
+                 <td>ESPECIE:</td>
                  <td> 
-                     <form:hidden id="archivoTe"  path="archivoTesis"   /> 
-                     <input type="button"  onclick="abrirPop()" style="width: 90px;" value="Subir Tesis"/>
-                    
+                     <form:select  class="inputs" path="idespecie">
+                        <form:option value="0" label="SELECCIONE UNA ESPECIE"/>
+                        <form:options items="${especie}" />
+                     </form:select>
                  </td>
+               </tr>
+               <tr>
+                   <td>ARCHIVO:</td>
+                    <td> 
+                        
+                       
+                            
+                           
+
+                    </td>
+                    <td></td>
+                    <td></td>
                </tr>
               
                <tr> 

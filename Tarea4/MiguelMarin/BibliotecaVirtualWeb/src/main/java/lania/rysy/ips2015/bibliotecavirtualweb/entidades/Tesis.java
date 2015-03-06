@@ -6,6 +6,7 @@
 package lania.rysy.ips2015.bibliotecavirtualweb.entidades;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -20,8 +21,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 /**
  *
@@ -38,52 +43,75 @@ public class Tesis implements Serializable {
     @Basic(optional = false)
     @Column(name = "IDTESIS")
     private Integer idtesis;
+    
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
+    @NotEmpty(message="El titulo de la tesis no debe estar vacio")
+    @Size(min = 1, max = 30, message = "El titulo debe tener desde {min} y {max} caracteres maximo")
     @Column(name = "TITULO")
     private String titulo;
+    
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 60)
+    @NotNull     @NotEmpty (message="El autor de la tesis no debe estar vacio")
+    @Size(min = 1, max = 60, message="El autor tener desde {min} y {max} caracteres maximo")
     @Column(name = "AUTOR_TESIS")
     private String autorTesis;
+    
     @Column(name = "GRADO_OBTENIDO")
     private Integer gradoObtenido;
+    
     @Basic(optional = false)
     @NotNull
+    @Range (message="El año de titulacion debe ser mayor que 0 y menor a 10000")
+    @Min(1)
+    @Max(9999)
     @Column(name = "ANIO_TITULACION")
     private int anioTitulacion;
+    
     @Column(name = "IDINSTITUCION_ADSCRIPCION")
     private Integer idinstitucionAdscripcion;
+    
     @Basic(optional = false)
     @NotNull
+    @NotEmpty (message="El director de la tesis no debe estar vacio")
     @Size(min = 1, max = 70)
     @Column(name = "DIRECTOR_TESIS")
     private String directorTesis;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
+    @NotEmpty (message="La condicion del sitio no puede estar vacia")
     @Column(name = "CONDICION_SITIO")
     private String condicionSitio;
+    
     @Column(name = "IDESTADO")
     private Integer idestado;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "IDDISCIPLINA")
     private int iddisciplina;
+    
     @Column(name = "IDSUBDISCIPLINA")
     private Integer idsubdisciplina;
+    
     @Basic(optional = false)
     @NotNull
+    @Column(name = "IDESPECIE")
+    private int idespecie;
+    @Basic(optional = false)
+    //@NotNull
     //@Size(min = 1, max = 50)
     @Column(name = "ARCHIVO_TESIS")
-    private String archivoTesis;
+    private Blob archivoTesis;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "ESTATUS")
     private int estatus;
     @Basic(optional = false)
+    
     @NotNull
     @Column(name = "FECHA_REG")
     @Temporal(TemporalType.DATE)
@@ -109,7 +137,7 @@ public class Tesis implements Serializable {
         this.idtesis = idtesis;
     }
 
-    public Tesis(Integer idtesis, String titulo, String autorTesis, int anioTitulacion, String directorTesis, String condicionSitio, int iddisciplina, String archivoTesis, int estatus, Date fechaReg) {
+    public Tesis(Integer idtesis, String titulo, String autorTesis, int anioTitulacion, String directorTesis, String condicionSitio, int iddisciplina, Blob archivoTesis, int estatus, Date fechaReg) {
         this.idtesis = idtesis;
         this.titulo = titulo;
         this.autorTesis = autorTesis;
@@ -197,9 +225,19 @@ public class Tesis implements Serializable {
     public int getIddisciplina() {
         return iddisciplina;
     }
+    
+   
 
     public void setIddisciplina(int iddisciplina) {
         this.iddisciplina = iddisciplina;
+    }
+    
+    public void setIdespecie(int idespecie) {
+        this.idespecie = idespecie;
+    }
+
+    public Integer getIdespecie() {
+        return idespecie;
     }
 
     public Integer getIdsubdisciplina() {
@@ -210,11 +248,11 @@ public class Tesis implements Serializable {
         this.idsubdisciplina = idsubdisciplina;
     }
 
-    public String getArchivoTesis() {
+    public Blob getArchivoTesis() {
         return archivoTesis;
     }
 
-    public void setArchivoTesis(String archivoTesis) {
+    public void setArchivoTesis(Blob archivoTesis) {
         this.archivoTesis = archivoTesis;
     }
 
