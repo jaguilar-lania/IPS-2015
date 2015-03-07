@@ -27,6 +27,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -53,26 +54,31 @@ public class Usuario implements Serializable {
     private Integer idUsuario;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty(message="Campo obligatorio")
     @Size(min = 1, max = 15)
     @Column(name = "NOMBRE")
     private String nombre;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty(message="Campo obligatorio")
     @Size(min = 1, max = 20)
     @Column(name = "APELLIDOS")
     private String apellidos;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty(message="Campo obligatorio")
     @Column(name = "FECHA_NAC")
     @Temporal(TemporalType.DATE)
     private Date fechaNac;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty(message="Campo obligatorio")
     @Size(min = 1, max = 15)
     @Column(name = "CONTRASE\u00d1A")
     private String contraseña;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty(message="Campo obligatorio")
     @Size(min = 1, max = 20)
     @Column(name = "CORREO")
     private String correo;

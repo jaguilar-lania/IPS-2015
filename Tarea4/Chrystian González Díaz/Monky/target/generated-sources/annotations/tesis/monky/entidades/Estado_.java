@@ -5,7 +5,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import tesis.monky.entidades.Pais;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-05T22:25:15")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-07T01:42:42")
 @StaticMetamodel(Estado.class)
 public class Estado_ { 
 

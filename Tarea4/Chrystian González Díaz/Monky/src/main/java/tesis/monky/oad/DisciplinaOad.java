@@ -19,4 +19,6 @@ public interface DisciplinaOad extends JpaRepository<Disciplina, Integer>{
     
     List<Disciplina> findByDescripcionStartingWith(String cadena);
     
+    @Override
+    List<Disciplina> findAll();
 }

@@ -35,10 +35,7 @@ import org.hibernate.validator.constraints.NotEmpty;
     @NamedQuery(name = "Tesis.findByIdTesis", query = "SELECT t FROM Tesis t WHERE t.idTesis = :idTesis"),
     @NamedQuery(name = "Tesis.findByTitulo", query = "SELECT t FROM Tesis t WHERE t.titulo = :titulo")})
 public class Tesis implements Serializable {
-    @Lob
-    @Column(name = "ARCHIVO")
-    private Serializable archivo;
-    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -46,18 +43,23 @@ public class Tesis implements Serializable {
     private Integer idTesis;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty(message="El titulo es obligatorio")
     @Size(min = 1, max = 30)
-    @NotEmpty
     @Column(name = "TITULO")
     private String titulo;
-    @NotEmpty
+    
     @JoinColumn(name = "ID_DISCIPLINA", referencedColumnName = "ID_DISCIPLINA")
     @ManyToOne(optional = false)
     private Disciplina idDisciplina;
-    @NotEmpty
+    
+    @NotNull
     @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO")
     @ManyToOne(optional = false)
     private Usuario idUsuario;
+    @Lob
+    @Column(name = "ARCHIVO")
+    private Serializable archivo;
+    private static final long serialVersionUID = 1L;
 
     public Tesis() {
     }

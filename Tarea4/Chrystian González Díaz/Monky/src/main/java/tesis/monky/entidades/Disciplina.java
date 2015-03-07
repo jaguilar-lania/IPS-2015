@@ -44,8 +44,8 @@ public class Disciplina implements Serializable {
     private Integer idDisciplina;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty(message="La disciplina es obligatoria")
     @Size(min = 1, max = 20)
-    @NotEmpty
     @Column(name = "DESCRIPCION")
     private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idDisciplina")

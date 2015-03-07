@@ -4,6 +4,12 @@
     Author     : Chrys
 --%>
 
+<%-- 
+    Document   : formTesis
+    Created on : 4/03/2015, 11:49:24 PM
+    Author     : Chrys
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -38,6 +44,29 @@
                         <input type="file" name="archivo"/>
                     </form></td>
                 </tr>
+                
+                <tr>
+                 <div class="form-gropu">
+                         <label>Usuario ...</label>
+                         <form:select class="form-control" path="idUsuario" >
+                             <form:option value="0" label="Seleccionar Usuario"></form:option>
+                             <form:options item="${listaUsuario}"></form:options>
+                         </form:select>    
+                     </div>
+               </tr>
+               <tr>
+                 <div class="form-gropu">
+                         <label>Disciplina ...</label>
+                         <form:select class="form-control" path="idDisciplina" >
+                             <form:option value="0" label="Seleccionar Disciplina"></form:option>
+                             <form:options item="${listaDisciplina}"></form:options>
+                         </form:select>    
+                     </div>
+               </tr>
+                 <!--<td> 
+                     
+                 </td>-->
+                
                 <tr>
                     <td></td><td><input type="submit" value="Agregar"/></td>
                 </tr>
@@ -45,3 +74,4 @@
         </sf:form>
     </body>
 </html>
+

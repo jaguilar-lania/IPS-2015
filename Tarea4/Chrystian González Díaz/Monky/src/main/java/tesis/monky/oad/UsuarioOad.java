@@ -5,16 +5,13 @@
  */
 package tesis.monky.oad;
 
-import java.util.List;
-import tesis.monky.entidades.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
+import tesis.monky.entidades.Usuario;
 
 /**
  *
  * @author Chrys
  */
 public interface UsuarioOad extends JpaRepository<Usuario, Integer>{
-       
-    List<Usuario> findAll(Usuario usuario);
     
 }

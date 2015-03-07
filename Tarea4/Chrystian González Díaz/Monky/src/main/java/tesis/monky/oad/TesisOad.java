@@ -17,6 +17,6 @@ public interface TesisOad extends JpaRepository<Tesis, Integer>{
     
     List<Tesis> findByTituloContaining(String cadena);
     
-    List<Tesis> findByTituloStartingWith(String cadena);    
+    List<Tesis> findByTituloStartingWith(String cadena);
     
 }
