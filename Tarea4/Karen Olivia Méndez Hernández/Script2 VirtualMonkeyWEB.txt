@@ -148,7 +148,7 @@ ALTER TABLE Condicion ADD CONSTRAINT PK_Condicion
 	PRIMARY KEY (idCondicion )
 ;
 ALTER TABLE Estado ADD CONSTRAINT PK_Estado  
-	PRIMARY KEY (idEstado)c
+	PRIMARY KEY (idEstado)
 ;
 
 ALTER TABLE CatalogoTesis ADD CONSTRAINT PK_CatalogoTesis 

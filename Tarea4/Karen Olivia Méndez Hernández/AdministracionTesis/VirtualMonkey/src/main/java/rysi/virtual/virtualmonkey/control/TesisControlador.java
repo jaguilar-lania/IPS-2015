@@ -156,7 +156,7 @@ ModelAndView mav1 = new ModelAndView("salir");
         return mav;
     }
     
-       @RequestMapping(value="/registrarTesis", method = RequestMethod.POST)
+          @RequestMapping(value="/registrarTesis", method = RequestMethod.POST)
     public ModelAndView agregarTesis(@Valid @ModelAttribute("tesisEntidad") Catalogotesis nuevaTesis, BindingResult resultado) {
         if (resultado.hasErrors()) {
         ModelAndView mav = new ModelAndView("registrarTesis"); 
@@ -177,12 +177,31 @@ ModelAndView mav1 = new ModelAndView("salir");
         
         return mav;
         }
-           ModelAndView mav1 = new ModelAndView("confirmacionDisciplina");  
-            artsOad.save(nuevaTesis);
+    if(( "0".equals(nuevaTesis.getEstado() ))||( "0".equals(nuevaTesis.getGrado()))||( "0".equals(nuevaTesis.getInstitucion()))||( "0".equals(nuevaTesis.getDisciplina()))||( "0".equals(nuevaTesis.getSubdisciplina()))||( "0".equals(nuevaTesis.getEspecie()))){
+    ModelAndView mav = new ModelAndView("registrarTesis"); 
+        List<Especie> listaEspecie = especieOad.findAll();
+        List<Estado> listaEstado = estadoOad.findAll();
+        List<Institucion> listaInstitucion = institucionOad.findAll();
+        List<Disciplina> listaDisciplina = disciplinaOad.findAll();
+        List<Grado> listagrado = gradoOad.findAll();
+        List<Subdisciplina> listaSubdisciplina = subDisciplinaOad.findAll();
+        
+        
+         mav.addObject("grado", listagrado);        
+         mav.addObject("institucion", listaInstitucion);
+         mav.addObject("especie", listaEspecie); 
+         mav.addObject("estados", listaEstado);
+         mav.addObject("disciplina", listaDisciplina);
+        mav.addObject("subdisciplina", listaSubdisciplina);
+        
+        return mav;
+        
+    }
+        ModelAndView mav1 = new ModelAndView("confirmacionDisciplina");  
+        artsOad.save(nuevaTesis);
         
         return mav1;
     }
-
     
  
     
