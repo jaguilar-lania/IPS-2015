@@ -27,7 +27,7 @@
     </head>
     <body>
         <div id='encabezado'>ENCABEZADO</div>
-        <div id='menu'>MENU</div>
+        <div id='menu'>Monkys</div>
         <div id='body'><sitemesh:write property='body'/></div>
     </body>
 </html>

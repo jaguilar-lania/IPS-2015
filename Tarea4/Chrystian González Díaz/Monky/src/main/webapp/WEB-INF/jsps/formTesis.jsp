@@ -48,9 +48,18 @@
                 <tr>
                  <div class="form-gropu">
                          <label>Usuario ...</label>
-                         <form:select class="form-control" path="idusuario" >
+                         <form:select class="form-control" path="idUsuario" >
                              <form:option value="0" label="Seleccionar Usuario"></form:option>
                              <form:options item="${listaUsuario}"></form:options>
+                         </form:select>    
+                     </div>
+               </tr>
+               <tr>
+                 <div class="form-gropu">
+                         <label>Disciplina ...</label>
+                         <form:select class="form-control" path="idDisciplina" >
+                             <form:option value="0" label="Seleccionar Disciplina"></form:option>
+                             <form:options item="${listaDisciplina}"></form:options>
                          </form:select>    
                      </div>
                </tr>
