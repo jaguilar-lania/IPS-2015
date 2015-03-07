@@ -1,12 +1,12 @@
 package lania.rysy.ips2015.bibliotecavirtualweb.entidades;
 
-import java.sql.Blob;
+import java.io.Serializable;
 import java.util.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-05T18:35:38")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-06T17:29:05")
 @StaticMetamodel(Tesis.class)
 public class Tesis_ { 
 
@@ -18,7 +18,7 @@ public class Tesis_ {
     public static volatile SingularAttribute<Tesis, String> titulo;
     public static volatile SingularAttribute<Tesis, Integer> iddisciplina;
     public static volatile SingularAttribute<Tesis, Integer> idestado;
-    public static volatile SingularAttribute<Tesis, Blob> archivoTesis;
+    public static volatile SingularAttribute<Tesis, Serializable> archivoTesis;
     public static volatile SingularAttribute<Tesis, Integer> idinstitucionAdscripcion;
     public static volatile SingularAttribute<Tesis, Integer> idespecie;
     public static volatile SingularAttribute<Tesis, Integer> idtesis;

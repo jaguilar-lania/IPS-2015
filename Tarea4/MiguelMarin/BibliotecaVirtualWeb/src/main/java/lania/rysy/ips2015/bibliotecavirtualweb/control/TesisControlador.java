@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.DisciplinaOad;
@@ -35,6 +37,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,13 +47,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.AbstractController;
 
 /**
  *
  * @author miguel
  */
 @Controller
-public class TesisControlador {
+public class TesisControlador  extends AbstractController{
     
     
     @Autowired
@@ -69,6 +75,50 @@ public class TesisControlador {
     
     @Autowired
     SubdisciplinaOad subDisciplinaOad;
+    
+//    public TesisControlador()
+//    {
+//                ModelAndView mav = new ModelAndView("listarTesis");
+//                List<Tesis> lista = tesisOad.findAll();
+//                List<Especie> listaEsp = especieOad.findAll();
+//                List<Estado> listaEst = estadoOad.findAll();
+//                List<InstitucionAdscripcion> listaIns = institucionOad.findAll();
+//                List<Disciplina> listaDis = disciplinaOad.findAll();
+//                List<Subdisciplina> listaSub = subDisciplinaOad.findAll();
+//
+//                 Map<String,String> especie = new LinkedHashMap<String,String>();
+//                for (Especie doc : listaEsp){
+//                    especie.put(doc.getIdespecie().toString(), doc.getNombre());
+//                }
+//                mav.addObject("especie", especie);
+//
+//                Map<String,String> institucion = new LinkedHashMap<String,String>();
+//                for (InstitucionAdscripcion doc : listaIns){
+//                    institucion.put(doc.getIdinstitucionAdscripcion().toString(), doc.getNombre());
+//
+//                }
+//                 mav.addObject("institucionadscripcion", institucion);
+//
+//                Map<String,String> estados = new LinkedHashMap<String,String>();
+//                for (Estado doc : listaEst){
+//                    estados.put(doc.getIdestado().toString(), doc.getNombre());
+//                }
+//                mav.addObject("estados", estados);
+//                Map<String,String> disciplinas = new LinkedHashMap<String,String>();
+//                for (Disciplina doc : listaDis){
+//                    disciplinas.put(doc.getIddisciplina().toString(), doc.getDisciplina());
+//                }
+//                mav.addObject("disciplinas", disciplinas);
+//                 Map<String,String> subdisciplinas = new LinkedHashMap<String,String>();
+//                for (Subdisciplina doc : listaSub){
+//                    subdisciplinas.put(doc.getIdsubdisciplina().toString(), doc.getNombre());
+//                }
+//                mav.addObject("subdisciplinas", subdisciplinas);
+//                mav.addObject("tesisEnt", new Tesis());
+//                mav.addObject("tesis", lista);
+//               
+//        
+//    }
     
     
     
@@ -165,21 +215,74 @@ public class TesisControlador {
     }
     
     @RequestMapping(value="/agregarTesis", method = RequestMethod.POST)
-    public String agregarTesis(@Valid @ModelAttribute("tesisEnt") Tesis nuevaTesis, BindingResult resultado) {
+    public ModelAndView agregarTesis(@Valid @ModelAttribute("tesisEnt") Tesis nuevaTesis, BindingResult resultado,ModelAndView model) {
+        ModelAndView mav = new ModelAndView("listarTesis");
         try{
              nuevaTesis.setFechaReg(new Date());
             if (resultado.hasErrors()) {
-               
-                return "listarTesis";
+//                 Map<String> errores = new LinkedHashMap<String,String>();
+//                 for (FieldError error : resultado.getFieldErrors() ) {
+//                     errores.put(error.getField(),error.getDefaultMessage());
+//                 }
+                 mav.addObject("errors", resultado.getFieldErrors());
+                //return "listarTesis";
+            }else
+            {
+                tesisOad.save(nuevaTesis);
             }
 //            if(nuevaTesis.getArchivoTesis() == null)
 //                nuevaTesis.setArchivoTesis(Blob.class.newInstance());
-            tesisOad.save(nuevaTesis);
         }catch(Exception e)
         {
             System.out.println("Error- " + e.getMessage());
         }
-        return "redirect:/tesis";
+        //return "redirect:/tesis";
+        
+        List<Tesis> lista = tesisOad.findAll();
+        List<Especie> listaEsp = especieOad.findAll();
+        List<Estado> listaEst = estadoOad.findAll();
+        List<InstitucionAdscripcion> listaIns = institucionOad.findAll();
+        List<Disciplina> listaDis = disciplinaOad.findAll();
+        List<Subdisciplina> listaSub = subDisciplinaOad.findAll();
+       
+        Map<String,String> especie = new LinkedHashMap<String,String>();
+        for (Especie doc : listaEsp){
+            especie.put(doc.getIdespecie().toString(), doc.getNombre());
+        }
+        mav.addObject("especie", especie);
+        Map<String,String> institucion = new LinkedHashMap<String,String>();
+        for (InstitucionAdscripcion doc : listaIns){
+            institucion.put(doc.getIdinstitucionAdscripcion().toString(), doc.getNombre());
+	
+        }
+        mav.addObject("institucionadscripcion", institucion);
+           
+        Map<String,String> estados = new LinkedHashMap<String,String>();
+        for (Estado doc : listaEst){
+            estados.put(doc.getIdestado().toString(), doc.getNombre());
+        }
+        mav.addObject("estados", estados);
+        
+        Collections.sort(listaDis, new Comparator<Disciplina>(){
+        public int compare(Disciplina s1, Disciplina s2) {
+            return s1.getDisciplina().compareToIgnoreCase(s2.getDisciplina());
+        }
+        });
+        
+        Map<String,String> disciplinas = new LinkedHashMap<String,String>();
+        for (Disciplina doc : listaDis){
+            disciplinas.put(doc.getIddisciplina().toString(), doc.getDisciplina());
+        }
+        mav.addObject("disciplinas", disciplinas);
+         Map<String,String> subdisciplinas = new LinkedHashMap<String,String>();
+        for (Subdisciplina doc : listaSub){
+            subdisciplinas.put(doc.getIdsubdisciplina().toString(), doc.getNombre());
+        }
+        mav.addObject("subdisciplinas", subdisciplinas);
+        mav.addObject("tesisEnt",nuevaTesis );
+        mav.addObject("tesis", lista);
+        return mav;
+       
     }
     
     @RequestMapping(value="/borrarTesis")
@@ -289,4 +392,9 @@ public class TesisControlador {
 //    public List<Tesis> buscarArticulosComenzandoCon(@RequestParam("cadena") String cadena) {
 //        return tesisOad.findByNombreStartingWith(cadena);
 //    }
+
+    @Override
+    protected ModelAndView handleRequestInternal(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -15,7 +15,13 @@
     </head>
     <body>
         <h1>ADMINISTRAR DISCIPLINA</h1>
-        
+        <div id="errores">
+            <c:if test="${not empty errors}">
+                  <c:forEach items="${errors}" var="err">
+                      <span class="campoConError">${err.getDefaultMessage()}</span><br>
+                  </c:forEach>
+            </c:if>
+        </div>
         <form:form action="agregarDisciplina" method="POST" commandName="disciplinaEnt">
             <table border="0" align="center" bgcolor="#CCCCCC" id="formulario">
                <tr> 

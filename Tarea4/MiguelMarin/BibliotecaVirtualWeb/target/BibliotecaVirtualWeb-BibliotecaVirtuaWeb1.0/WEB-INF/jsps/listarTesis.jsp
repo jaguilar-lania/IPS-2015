@@ -27,7 +27,14 @@
             }
         </script>
         <h1>ADMINISTRAR TESIS</h1>
-        
+        <div id="errores">
+          
+            <c:if test="${not empty errors}">
+                  <c:forEach items="${errors}" var="err">
+                      <span class="campoConError">${err.getDefaultMessage()}</span><br>
+                  </c:forEach>
+            </c:if>
+        </div>
         <form:form action="agregarTesis" method="POST" commandName="tesisEnt">
           
             <table border="0" align="center" bgcolor="#CCCCCC" id="formulario">
@@ -35,27 +42,27 @@
                  <td width="250">TITULO TESIS:</td>
                  <td width="384">
                      <form:hidden path="idtesis" />
-                     <form:input path="titulo" type="text"/>
-                     <form:errors  path="titulo" cssClass="campoConError"/>
+                     <form:input path="titulo" type="text" size="60"/>
+                    
                  </td>
                  <td width="380">NOMBRE AUTOR : </td>
                  <td width="380"> 
                      <form:input path="autorTesis" type="text"/>
-                     <form:errors path="autorTesis" cssClass="campoConError"/>
+                    
                  </td>
                <tr> 
                  <td width="250">GRADO OBTENIDO:</td>
                  <td>
                      <form:select class="inputs" path="gradoObtenido" name="select">
-                        <option value="1">LICENCIATURA</option>
-                        <option value="2">MAESTRIA</option>
-                        <option value="3">DOCTORADO</option>
+                        <form:option value="1">LICENCIATURA</form:option>
+                        <form:option value="2">MAESTRIA</form:option>
+                        <form:option value="3">DOCTORADO</form:option>
                      </form:select>
                 </td>
                  <td>AÑO TITULACION: </td>
                  <td>
-                     <form:input  path="anioTitulacion" type="text" />
-                      <form:errors  path="anioTitulacion" cssClass="campoConError"/>
+                     <form:input  path="anioTitulacion" type="text"  size="4"/>
+                    
                  </td>
                </tr>
                <tr> 
@@ -66,18 +73,19 @@
                         <form:options items="${institucionadscripcion}" />
                      </form:select>
                     
+                    
                 </td>
                  <td>DIRECTOR DE TESIS:</td>
                  <td>
                      <form:input path="directorTesis" type="text"/>
-                     <form:errors path="directorTesis" cssClass="campoConError"/>
+                    
                  </td>
                </tr>
                <tr> 
                 <td width="250">ESTATUS</td>
-                 <td><form:select class="inputs" path="estatus"  name="select3">
-                        <option value="1">ACTIVA</option>
-                        <option value="2">INACTIVA</option>
+                 <td><form:select class="inputs" path="estatus" >
+                        <form:option value="1">ACTIVA</form:option>
+                        <form:option value="2">INACTIVA</form:option>
                     </form:select> 
                 </td>
                  <td>ESTADO:</td>
@@ -111,7 +119,7 @@
                  <td width="250">CONDICION DE SITIO:</td>
                  <td>
                      <form:input name="text322"  path="condicionSitio"   type="text" value=""/> 
-                     <form:errors path="condicionSitio" cssClass="campoConError"/>
+                     
                  </td>
                  <td>ESPECIE:</td>
                  <td> 
@@ -124,11 +132,9 @@
                <tr>
                    <td>ARCHIVO:</td>
                     <td> 
-                        
-                       
-                            
-                           
-
+                         <form method="post" action="subir" enctype="multipart/form-data">
+                            <form:input name="archivoTesis"   path="archivoTesis"   type="file" value=""/>
+                       </form>
                     </td>
                     <td></td>
                     <td></td>

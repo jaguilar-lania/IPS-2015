@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,6 +25,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
@@ -62,25 +64,24 @@ public class Tesis implements Serializable {
     
     @Basic(optional = false)
     @NotNull
-    @Range (message="El año de titulacion debe ser mayor que 0 y menor a 10000")
-    @Min(1)
-    @Max(9999)
+    @Min(value=1, message="El año de titulacion debe ser mayor que 0 y menor a 10000")
     @Column(name = "ANIO_TITULACION")
     private int anioTitulacion;
     
+    @Min(value=1, message="Debe seleccionar por lo menos una area de adscripcion")
     @Column(name = "IDINSTITUCION_ADSCRIPCION")
     private Integer idinstitucionAdscripcion;
     
     @Basic(optional = false)
     @NotNull
     @NotEmpty (message="El director de la tesis no debe estar vacio")
-    @Size(min = 1, max = 70)
+    @Size(min = 1, max = 70, message="El director de tesis tener desde {min} y {max} caracteres maximo")
     @Column(name = "DIRECTOR_TESIS")
     private String directorTesis;
     
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 150)
+    @Size(min = 1, max = 150, message="La condicion  tener desde {min} y {max} caracteres maximo")
     @NotEmpty (message="La condicion del sitio no puede estar vacia")
     @Column(name = "CONDICION_SITIO")
     private String condicionSitio;
@@ -90,29 +91,32 @@ public class Tesis implements Serializable {
     
     @Basic(optional = false)
     @NotNull
+    @Min(value=1, message="Debe seleccionar por lo menos una disciplina")
     @Column(name = "IDDISCIPLINA")
     private int iddisciplina;
     
+    @Min(value=1, message="Debe seleccionar por lo menos una subdisciplina")
     @Column(name = "IDSUBDISCIPLINA")
     private Integer idsubdisciplina;
     
     @Basic(optional = false)
     @NotNull
+    @Min(value=1, message="Debe seleccionar por lo menos una especie")
     @Column(name = "IDESPECIE")
     private int idespecie;
     @Basic(optional = false)
     //@NotNull
     //@Size(min = 1, max = 50)
+    @Lob
     @Column(name = "ARCHIVO_TESIS")
-    private Blob archivoTesis;
+    private Serializable archivoTesis;
     
     @Basic(optional = false)
     @NotNull
     @Column(name = "ESTATUS")
     private int estatus;
-    @Basic(optional = false)
+    @Basic(optional = true)
     
-    @NotNull
     @Column(name = "FECHA_REG")
     @Temporal(TemporalType.DATE)
     private Date fechaReg;
@@ -137,7 +141,7 @@ public class Tesis implements Serializable {
         this.idtesis = idtesis;
     }
 
-    public Tesis(Integer idtesis, String titulo, String autorTesis, int anioTitulacion, String directorTesis, String condicionSitio, int iddisciplina, Blob archivoTesis, int estatus, Date fechaReg) {
+    public Tesis(Integer idtesis, String titulo, String autorTesis, int anioTitulacion, String directorTesis, String condicionSitio, int iddisciplina, Serializable archivoTesis, int estatus, Date fechaReg) {
         this.idtesis = idtesis;
         this.titulo = titulo;
         this.autorTesis = autorTesis;
@@ -248,11 +252,11 @@ public class Tesis implements Serializable {
         this.idsubdisciplina = idsubdisciplina;
     }
 
-    public Blob getArchivoTesis() {
+    public Serializable getArchivoTesis() {
         return archivoTesis;
     }
 
-    public void setArchivoTesis(Blob archivoTesis) {
+    public void setArchivoTesis(Serializable archivoTesis) {
         this.archivoTesis = archivoTesis;
     }
 

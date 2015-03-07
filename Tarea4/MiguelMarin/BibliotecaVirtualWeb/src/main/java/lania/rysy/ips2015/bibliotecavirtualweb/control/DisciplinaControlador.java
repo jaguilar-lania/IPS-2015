@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import javax.validation.Valid;
 import lania.rysy.ips2015.bibliotecavirtualweb.dao.DisciplinaOad;
 import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Disciplina;
 import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Especie;
@@ -18,6 +19,7 @@ import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Subdisciplina;
 import lania.rysy.ips2015.bibliotecavirtualweb.entidades.Tesis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,14 +57,25 @@ public class DisciplinaControlador {
     }
     
     @RequestMapping(value="/agregarDisciplina", method = RequestMethod.POST)
-    public String agregarDisciplina(@ModelAttribute("disciplinaEnt") Disciplina nuevaDisciplina) {
+    public ModelAndView agregarDisciplina(@Valid @ModelAttribute("disciplinaEnt") Disciplina nuevaDisciplina, BindingResult resultado) {
+         ModelAndView mav = new ModelAndView("listarDisciplina");
         try{
-            disciplinaAOad.save(nuevaDisciplina);
+             if (resultado.hasErrors()) {
+                mav.addObject("errors", resultado.getFieldErrors());
+             }
+             else{
+                disciplinaAOad.save(nuevaDisciplina);
+             }
         }catch(Exception e)
         {
             System.out.println("Error- " + e.getMessage());
         }
-        return "redirect:/disciplina";
+        
+        List<Disciplina> listaDis = disciplinaAOad.findAll();
+        mav.addObject("disciplinaEnt", nuevaDisciplina);
+        mav.addObject("disciplinas", listaDis);
+        return mav;
+        //return "redirect:/disciplina";
     }
     
     @RequestMapping(value="/borrarDisciplina")
