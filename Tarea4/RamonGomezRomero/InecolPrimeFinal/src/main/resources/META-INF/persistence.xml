@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="Inecol_PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>rgomez.articulos.inecolprimefinal.Sugerencia</class>
+    <class>rgomez.articulos.inecolprimefinal.Rol</class>
+    <class>rgomez.articulos.inecolprimefinal.Permiso</class>
+    <class>rgomez.articulos.inecolprimefinal.Autor</class>
+    <class>rgomez.articulos.inecolprimefinal.Tesis</class>
+    <class>rgomez.articulos.inecolprimefinal.Persona</class>
+    <class>rgomez.articulos.inecolprimefinal.Especie</class>
+    <class>rgomez.articulos.inecolprimefinal.Profesion</class>
+    <class>rgomez.articulos.inecolprimefinal.DocumentoMultimedia</class>
+    <class>rgomez.articulos.inecolprimefinal.Usuario</class>
+    <class>rgomez.articulos.inecolprimefinal.EntidadFederativa</class>
+    <class>rgomez.articulos.inecolprimefinal.Director</class>
+    <class>rgomez.articulos.inecolprimefinal.Catalogo</class>
+    <class>rgomez.articulos.inecolprimefinal.Comentario</class>
+    <class>rgomez.articulos.inecolprimefinal.Subdisciplina</class>
+    <class>rgomez.articulos.inecolprimefinal.ContadorVisitas</class>
+    <class>rgomez.articulos.inecolprimefinal.Disciplina</class>
+    <class>rgomez.articulos.inecolprimefinal.Calificacion</class>
+    <class>rgomez.articulos.inecolprimefinal.Pais</class>
+    <class>rgomez.articulos.inecolprimefinal.GradoAcademico</class>
+    <class>rgomez.articulos.inecolprimefinal.Institucion</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/InecolPrimeBD"/>
+      <property name="javax.persistence.jdbc.password" value="00000"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>
