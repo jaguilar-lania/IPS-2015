@@ -5,8 +5,9 @@
  */
 package tesis.monky.control;
 
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,8 @@ public class TesisControlador {
     
     @Autowired
     TesisOad tesOad;
+    
+    @Autowired
     UsuarioOad usOad;
 
     @RequestMapping("/tesis")
@@ -54,6 +57,14 @@ public class TesisControlador {
     public ModelAndView mostrarFormaAgregarDisciplina() {
         ModelAndView mav = new ModelAndView("formTesis");
         mav.addObject("tesis", new Tesis());
+        
+        List<Usuario> usuarioLista = usOad.findAll();
+        Map<String, String> usuario = new HashMap<>();
+        for(Usuario usu : usuarioLista){
+            usuario.put(usu.getIdUsuario().toString(),usu.getNombre());
+        }
+        mav.addObject("listaUsuario", usuario);
+        
         return mav;
     }
     
@@ -70,10 +81,8 @@ public class TesisControlador {
         if (resultado.hasErrors()) {
             return "formTesis";
         }
-        
         tesOad.save(dis);
         return "redirect:/tesis";
     }
-    
     
 }

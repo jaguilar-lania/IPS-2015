@@ -8,7 +8,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import tesis.monky.entidades.Pais;
 import tesis.monky.entidades.Tesis;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-05T22:25:15")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-06T22:47:13")
 @StaticMetamodel(Usuario.class)
 public class Usuario_ { 
 
