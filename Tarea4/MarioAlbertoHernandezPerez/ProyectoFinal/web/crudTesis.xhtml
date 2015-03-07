@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Inecol prime</title>
+    </h:head>
+    <h:form id="f1">
+        <p:growl id="growl" showDetail="true" sticky="true" />
+        <h:link outcome="principal"><img src="resources/logo.jpg" alt=""/></h:link>
+        <p:toolbar>
+            <f:facet name="right">
+                <p:menuButton value="Navegación">
+                    <p:menuitem value="Página principal" outcome="principal"/>
+                    <p:menuitem value="Administrar catálogos" outcome="crudCatalogos"/>
+                </p:menuButton>
+            </f:facet>
+        </p:toolbar>
+        <p:panel id="p03" header="Buscar" rendered="#{tesisBean.defaultview eq 0}">
+            <h:panelGrid id="searchgrid" columns="6" cellpadding="5">
+                <p:outputLabel for="fil01" value="Título:" />
+                <p:inputText id="fil01" value="#{tesisBean.filtro_tes.titulo}"/>
+                
+                <p:outputLabel for="filsom2" value="Institución:" />
+                <p:selectOneMenu id="filsom2" value="#{tesisBean.filtro_tes.idinstitucion}" style="width:250px">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo05}" />
+                </p:selectOneMenu>
+                
+                <p:commandButton value="Buscar" action="#{tesisBean.executeSearch}" ajax="false"/>
+                <p:commandButton value="Limpiar" action="#{tesisBean.cleanFilters}" ajax="false" immediate="true"/>
+            </h:panelGrid>
+        </p:panel>
+        <p:panel id="p01" header="Administración de Tesis" rendered="#{tesisBean.defaultview eq 0}">
+            <p:commandButton value="Nueva tesis" action="#{tesisBean.initNew}" ajax="false"/>
+            <p:commandButton value="Editar" action="#{tesisBean.initEdit}" ajax="false"/>
+            <p:commandButton value="Eliminar" action="#{tesisBean.initDelete}" ajax="false"/>
+            <p:separator/>
+            <p:dataTable var="tes" value="#{tesisBean.listTesis}" selectionMode="single" selection="#{tesisBean.tesis}" rowKey="#{tes.idtesis}">
+                <p:column headerText="Código">
+                    <h:outputText value="#{tes.idtesis}" />
+                </p:column>
+                <p:column headerText="Título">
+                    <h:outputText value="#{tes.titulo}" />
+                </p:column>
+                <p:column headerText="Año">
+                    <h:outputText value="#{tes.anio}" />
+                </p:column>
+                <p:column headerText="Institución">
+                    <p:selectOneMenu id="som1" value="#{tes.idinstitucion}" style="width:350px" disabled="true">
+                        <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                        <f:selectItems value="#{tesisBean.listCatalogo05}" />
+                    </p:selectOneMenu>
+                </p:column>
+            </p:dataTable>        
+            </p:panel>
+        <p:panel id="p02" header="Formulario de Tesis" rendered="#{tesisBean.defaultview eq 1}">
+            <h:panelGrid id="grid" columns="3" cellpadding="1">
+                <p:outputLabel for="txt01" value="Título:" />
+                <p:inputText id="txt01" value="#{tesisBean.tesis.titulo}" style="width:250px" required="true" />
+                <p:message for="txt01" display="text"/>
+
+                <p:outputLabel for="txt02" value="Año:" />
+                <p:spinner id="txt02" value="#{tesisBean.tesis.anio}" min="1900" max="2100" required="true"/>
+                <p:message for="txt02" display="text"/>
+                
+                <p:outputLabel for="txt03" value="Condiciones de estudio:" />
+                <p:inputText id="txt03" value="#{tesisBean.tesis.condiciones}" style="width:250px" required="true"/>
+                <p:message for="txt03" display="text"/>
+                
+                <p:outputLabel for="txt04" value="Sintesis:" />
+                <p:inputText id="txt04" value="#{tesisBean.tesis.sintesis}" style="width:350px" required="true"/>
+                <p:message for="txt04" display="text"/>
+                
+                <p:outputLabel for="fsom1" value="Pais" />
+                <p:selectOneMenu id="fsom1" value="#{tesisBean.tesis.idpais}" style="width:250px" required="true">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo01}" />
+                </p:selectOneMenu>
+                <p:message for="fsom1" display="text" />
+                
+                <p:outputLabel for="fsom2" value="Entidad Federativa:" />
+                <p:selectOneMenu id="fsom2" value="#{tesisBean.tesis.identidadfederativa}" style="width:250px" required="true">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo02}" />
+                </p:selectOneMenu>
+                <p:message for="fsom2" display="text" />
+                
+                <p:outputLabel for="fsom3" value="Disciplina:" />
+                <p:selectOneMenu id="fsom3" value="#{tesisBean.tesis.iddisciplina}" style="width:250px" required="true">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo03}" />
+                </p:selectOneMenu>
+                <p:message for="fsom3" display="text" />
+                
+                <p:outputLabel for="fsom4" value="Subdisciplina:" />
+                <p:selectOneMenu id="fsom4" value="#{tesisBean.tesis.idsubdisciplina}" style="width:250px" required="true">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo04}" />
+                </p:selectOneMenu>
+                <p:message for="fsom4" display="text" />
+                
+                <p:outputLabel for="fsom5" value="Institución:" />
+                <p:selectOneMenu id="fsom5" value="#{tesisBean.tesis.idinstitucion}" style="width:250px" required="true">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo05}" />
+                </p:selectOneMenu>
+                <p:message for="fsom5" display="text" />
+                
+                <p:outputLabel for="fsom6" value="Grado obtenido:" />
+                <p:selectOneMenu id="fsom6" value="#{tesisBean.tesis.idgrado}" style="width:250px" required="true">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo06}" />
+                </p:selectOneMenu>
+                <p:message for="fsom6" display="text" />
+                
+                <p:outputLabel for="fsom7" value="Especie de primate:" />
+                <p:selectOneMenu id="fsom7" value="#{tesisBean.tesis.idespecie}" style="width:250px" required="true">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo07}" />
+                </p:selectOneMenu>
+                <p:message for="fsom7" display="text" />
+                
+                <p:outputLabel for="fsom8" value="Director:" />
+                <p:selectOneMenu id="fsom8" value="#{tesisBean.tesis.iddirector}" style="width:250px" required="true">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo08}" />
+                </p:selectOneMenu>
+                <p:message for="fsom8" display="text" />
+                
+                <p:outputLabel for="fsom9" value="Autor:" />
+                <p:selectOneMenu id="fsom9" value="#{tesisBean.tesis.idautor}" style="width:250px" required="true">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{tesisBean.listCatalogo09}" />
+                </p:selectOneMenu>
+                <p:message for="fsom9" display="text" />
+                
+                <p:commandButton value="Cancelar" action="#{tesisBean.cancel}" ajax="false" immediate="true"/>
+                <p:commandButton value="Guardar" action="#{tesisBean.save}" ajax="false"/>
+            </h:panelGrid>
+        </p:panel>
+        
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+    </h:form>
+</html>
+

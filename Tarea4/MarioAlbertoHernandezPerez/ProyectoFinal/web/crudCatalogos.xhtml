@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Inecol prime</title>
+    </h:head>
+    <h:form id="f1">
+        <p:growl id="growl" showDetail="true" sticky="true" />
+        <h:link outcome="principal"><img src="resources/logo.jpg" alt=""/></h:link>
+        <p:toolbar>
+            <f:facet name="right">
+                <p:menuButton value="Navegación">
+                    <p:menuitem value="Página principal" outcome="principal"/>
+                    <p:menuitem value="Administrar tesis" outcome="crudTesis"/>
+                </p:menuButton>
+            </f:facet>
+        </p:toolbar>
+        <p:panel id="p03" header="Buscar" rendered="#{catalogoBean.defaultview eq 0}">
+            <h:panelGrid id="searchgrid" columns="6" cellpadding="5">
+                <p:outputLabel for="fil01" value="Nombre del catálogo:" />
+                <p:inputText id="fil01" value="#{catalogoBean.filtro_cat.nombre}"/>
+                
+                <p:outputLabel for="filsom2" value="Categoría:" />
+                <p:selectOneMenu id="filsom2" value="#{catalogoBean.filtro_cat.idcategoria}" style="width:250px">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{catalogoBean.listCategoriasCatalogo}" />
+                </p:selectOneMenu>
+                
+                <p:commandButton value="Buscar" action="#{catalogoBean.executeSearch}" ajax="false"/>
+                <p:commandButton value="Limpiar" action="#{catalogoBean.cleanFilters}" ajax="false" immediate="true"/>
+            </h:panelGrid>
+        </p:panel>
+        <p:panel id="p01" header="Administración de Catálogos" rendered="#{catalogoBean.defaultview eq 0}">
+            <p:commandButton value="Nuevo catálogo" action="#{catalogoBean.initNew}" ajax="false"/>
+            <p:commandButton value="Editar" action="#{catalogoBean.initEdit}" ajax="false"/>
+            <p:commandButton value="Eliminar" action="#{catalogoBean.initDelete}" ajax="false"/>
+            <p:separator/>
+            <p:dataTable var="cat" value="#{catalogoBean.listCatalogos}" selectionMode="single" selection="#{catalogoBean.catalogo}" rowKey="#{cat.idcatalogo}">
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{cat.nombre}" />
+                </p:column>
+                <p:column headerText="Categoría">
+                    <p:selectOneMenu id="som1" value="#{cat.idcategoria}" style="width:350px" disabled="true">
+                        <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                        <f:selectItems value="#{catalogoBean.listCategoriasCatalogo}" />
+                    </p:selectOneMenu>
+
+                </p:column>
+            </p:dataTable>        
+            </p:panel>
+        <p:panel id="p02" header="Formulario de catálogo" rendered="#{catalogoBean.defaultview eq 1}">
+            <h:panelGrid id="grid" columns="3" cellpadding="5">
+                <p:outputLabel for="txt01" value="Nombre del catálogo:" />
+                <p:inputText id="txt01" value="#{catalogoBean.catalogo.nombre}" required="true" />
+                <p:message for="txt01" display="text"/>
+
+                <p:outputLabel for="som2" value="Categoría:" />
+                <p:selectOneMenu id="som2" value="#{catalogoBean.catalogo.idcategoria}" style="width:250px">
+                    <f:selectItem itemLabel="(No seleccionado)" itemValue=""/>
+                    <f:selectItems value="#{catalogoBean.listCategoriasCatalogo}" />
+                </p:selectOneMenu>
+                <p:message for="som2" display="som2" />
+                <p:commandButton value="Cancelar" action="#{catalogoBean.cancel}" ajax="false" immediate="true"/>
+                <p:commandButton value="Guardar" action="#{catalogoBean.save}" ajax="false"/>
+            </h:panelGrid>
+        </p:panel>
+        
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+    </h:form>
+</html>
+
