@@ -42,7 +42,7 @@
 
             <div id="derecha" align="left">   
             <form:form action="registrarTesis" method="POST" commandName="tesisEntidad">
-                <h2 align="center">Agregar Tesis</h2><br>
+             <h2 align="center">Agregar Tesis</h2><br>
             <table border="0" align="center"  id="">
                <tr> 
                  <td width="150">TITULO TESIS:</td>
@@ -58,28 +58,32 @@
                
                <tr>
                  <td width="150">NOMBRE AUTOR : </td>
-                 <td width="380"> <form:input path="autor" size="50" type="text" /></td>
+                 <td width="380"> <form:input path="autor" size="50" type="text" />
+                  <form:errors path="autor"/></td>
                </tr>
                
                <tr><td>&nbsp;</td></tr>
 
                <tr>
                  <td width="150">AÑO TITULACION: </td>
-                 <td> <form:input  path="anio" size="50" type="text" /></td>
+                 <td> <form:input  path="anio" size="50" type="text" />
+                 <form:errors path="anio"/></td>
                </tr>
                
                <tr><td>&nbsp;</td></tr>
                  
                 <tr>
                  <td width="150">DIRECTOR DE TESIS:</td>
-                 <td><form:input path="director" size="50" type="text" /></td>
+                 <td><form:input path="director" size="50" type="text" />
+                 <form:errors path="director"/></td>
                </tr>
                
                <tr><td>&nbsp;</td></tr>
                
                <tr> 
                  <td width="150">CONDICIÓN DE SITIO:</td>
-                 <td><form:input name="condicion" size="50"  path="condicion"   type="text" value="" /></td>
+                 <td><form:input name="condicion" size="50"  path="condicion"   type="text" value="" />
+                 <form:errors path="condicion"/></td>
                </tr>
                
                <tr><td>&nbsp;</td></tr>
@@ -87,14 +91,13 @@
                <tr> 
                  <td width="150">GRADO OBTENIDO:</td>
                  <td>
-                   
+                   <form:errors path="grado"/>
                     <form:select class="inputs" path="grado" name="select">
                         <form:option value="0" label="SELECCIONE UN GRADO"/>
                         <c:forEach items="${grado}" var="art">
-                        
                         <form:option value="${art.grado}" />
-
                         </c:forEach>
+                        <form:errors path="grado"/>
                     </form:select>  
                 </td>
                </tr>
@@ -180,6 +183,7 @@
                <tr> 
                    <td>   <form method="post" action="subir" enctype="multipart/form-data">
                         <form:input name="archivo" size="50"  path="archivo"   type="file" value=""/>
+                        <form:errors path="archivo"/>
                        </form></td>
                </tr>
                

@@ -46,13 +46,15 @@
                              <td width="384">
                                  <form:hidden path="iddisciplina" />
                                  <form:input size="50" path="nombre" type="text"/>
+                                 <form:errors path="nombre"/>
                             </td>
                            </tr>
                             <tr><td>&nbsp;</td></tr>
                             <br>
                            <tr> 
                             <td width="150">DESCRIPCIÓN:</td>
-                            <td ><form:input size="50" path="descripcion"/></td>
+                            <td ><form:input size="50" path="descripcion"/>
+                             <form:errors path="descripcion"/></td>
                            </tr>
                            <tr><td>&nbsp;</td></tr>
                            <tr> 

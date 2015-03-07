@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -34,11 +35,13 @@ public class Disciplina implements Serializable {
     private Integer iddisciplina;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty
     @Size(min = 1, max = 100)
     @Column(name = "NOMBRE")
     private String nombre;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty
     @Size(min = 1, max = 100)
     @Column(name = "DESCRIPCION")
     private String descripcion;

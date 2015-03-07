@@ -5,6 +5,8 @@
  */
 package rysi.virtual.virtualmonkey.control;
 
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -107,10 +109,16 @@ public class TesisControlador {
     
     @RequestMapping("/eliminar")
     public ModelAndView eliminarTesis(@RequestParam("idtesis") Integer idtesis) { 
-        System.out.println(idtesis);
         ModelAndView mav = new ModelAndView("confirmacion"); 
-        artsOad.delete(idtesis);
+ModelAndView mav1 = new ModelAndView("salir"); 
+        try{
+            artsOad.delete(idtesis);
+        }catch(Exception e)
+        {
+            return mav1;
+        }
         return mav;
+        
     }
     
     @RequestMapping("/regresar")
@@ -149,15 +157,30 @@ public class TesisControlador {
     }
     
        @RequestMapping(value="/registrarTesis", method = RequestMethod.POST)
-    public String agregarTesis(@ModelAttribute("tesisEntidad") Catalogotesis nuevaTesis) {
-        try{
-            
-            artsOad.save(nuevaTesis);
-        }catch(Exception e)
-        {
-            System.out.println("Error- " + e.getMessage());
+    public ModelAndView agregarTesis(@Valid @ModelAttribute("tesisEntidad") Catalogotesis nuevaTesis, BindingResult resultado) {
+        if (resultado.hasErrors()) {
+        ModelAndView mav = new ModelAndView("registrarTesis"); 
+        List<Especie> listaEspecie = especieOad.findAll();
+        List<Estado> listaEstado = estadoOad.findAll();
+        List<Institucion> listaInstitucion = institucionOad.findAll();
+        List<Disciplina> listaDisciplina = disciplinaOad.findAll();
+        List<Grado> listagrado = gradoOad.findAll();
+        List<Subdisciplina> listaSubdisciplina = subDisciplinaOad.findAll();
+        
+        
+         mav.addObject("grado", listagrado);        
+         mav.addObject("institucion", listaInstitucion);
+         mav.addObject("especie", listaEspecie); 
+         mav.addObject("estados", listaEstado);
+         mav.addObject("disciplina", listaDisciplina);
+        mav.addObject("subdisciplina", listaSubdisciplina);
+        
+        return mav;
         }
-        return "redirect:/tesis";
+           ModelAndView mav1 = new ModelAndView("confirmacionDisciplina");  
+            artsOad.save(nuevaTesis);
+        
+        return mav1;
     }
 
     

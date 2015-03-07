@@ -1,25 +1,25 @@
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Estado.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\GradoOad.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Usuario.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\DisciplinaOad.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Grado.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\InstitucionOad.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\control\TesisControlador.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Registroestadisticas.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Anio.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\EspecieOad.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Materialextra.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Condicion.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Comentario.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Disciplina.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Catalogotesis.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Roles.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Especie.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\SubdisciplinaOad.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Calificacion.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Institucion.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\EstadoOad.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\control\ArchivoControlador.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Subdisciplina.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\TesisOad.java
-C:\Users\user\Desktop\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\control\DisciplinaControlador.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Subdisciplina.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Comentario.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\DisciplinaOad.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\control\TesisControlador.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Usuario.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Calificacion.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\EspecieOad.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Anio.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\TesisOad.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\EstadoOad.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Materialextra.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\control\DisciplinaControlador.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Roles.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Condicion.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\SubdisciplinaOad.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Registroestadisticas.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\GradoOad.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Institucion.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Especie.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\oad\InstitucionOad.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Catalogotesis.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\control\ArchivoControlador.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Disciplina.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Estado.java
+C:\Users\user\Desktop\Karen Olivia Méndez Hernández\AdministracionTesis\VirtualMonkey\src\main\java\rysi\virtual\virtualmonkey\Grado.java

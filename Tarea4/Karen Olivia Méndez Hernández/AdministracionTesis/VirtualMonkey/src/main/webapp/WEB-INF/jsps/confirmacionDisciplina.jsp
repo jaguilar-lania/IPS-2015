@@ -21,7 +21,7 @@
         </header> 
         <section> 
             <fieldset id="f">
-                <legend>Administrar disciplina</legend>
+                <legend>Administrar tesis</legend>
                 <br>
                     <div>
                         <div id="izquierda">
@@ -46,7 +46,7 @@
                             <br />
                             <div>
                             
-                                DISCIPLINA ELIMINADA CORRECTAMENTE
+                                TESIS REGISTRADA CORRECTAMENTE
                                 
                                 <form action="regresar" method>
                                             <input type='submit' name='' value='Regresar'>

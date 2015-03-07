@@ -19,9 +19,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 /**
  *
@@ -32,55 +36,47 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Catalogotesis implements Serializable {
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @NotEmpty
     @Column(name = "DISCIPLINA")
     private String disciplina;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
     @Column(name = "ESPECIE")
     private String especie;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
     @Column(name = "SUBDISCIPLINA")
     private String subdisciplina;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @NotEmpty
     @Column(name = "GRADO")
     private String grado;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
     @Column(name = "INSTITUCION")
     private String institucion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @NotEmpty
     @Column(name = "CONDICION")
     private String condicion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
     @Column(name = "ESTADO")
     private String estado;
-   
-    
-    
+    @Max(9999)
+    @Min(1)
     @Column(name = "ANIO")
     private int anio;
     @Basic(optional = false)
     @NotNull
-    
-   
-   
     @Lob
     @Column(name = "ARCHIVO")
     private Serializable archivo;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @NotEmpty
     @Column(name = "DIRECTOR")
     private String director;
     private static final long serialVersionUID = 1L;
@@ -91,12 +87,12 @@ public class Catalogotesis implements Serializable {
     private Integer idtesis;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
+    @NotEmpty
     @Column(name = "TITULO")
     private String titulo;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
+    @NotEmpty
     @Column(name = "AUTOR")
     private String autor;
 

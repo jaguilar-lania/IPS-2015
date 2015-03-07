@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -38,35 +40,43 @@
                         </ul>
 
                     </div>
+                     <div id="derecha">
                     <%int contador=0;%>
                      <c:forEach items="${disciplina}" var="art">
                        
                     <% if ((contador)==0){%>
-                    <form action="registrarEditarDisciplina" method>
-                        <div id="derecha" align="left">                
-                            <h2 align="center">Editar Disciplina</h2><br>
-                                <br />
-                                <div>
-                                    <label>Nombre de la disciplina</label>
-                                    <input name="nombre" type="text" style="vertical-align:middle" value="${art.nombre}" size="80" maxlength="8" required/>
-                                    <input name="iddisciplina" type="hidden" style="vertical-align:middle" value="${art.iddisciplina}" size="80" maxlength="80" required/>
+                    <form:form action="registrarDisciplina" method="POST" commandName="discEntidad">
+                        <h2 align="center">Editar Disciplina</h2><br>
+                        <table border="0" align="center"  id="">
+                           <tr> 
+                             <td width="150">NOMBRE:</td>
+                             <td width="384">
+                                <form:input path="iddisciplina"  value="${art.iddisciplina}" size="50" type="hidden"/> 
+                                <form:errors path="nombre"/>
+                                 <form:input path="nombre" value="${art.nombre}" size="50" type="text" />
+                             </td>
+                           </tr>
+                             
+                             <tr> 
+                             <td width="150">DESCRIPCIÓN:</td>
+                             <td width="384">
+                                  <form:errors path="descripcion"/>
+                                <form:input path="descripcion"  value="${art.descripcion}" size="50" type="text"/> 
 
-                                    <br />
-                                    <br />
-                                    <label>Descripcion</label>
-                                    <input name="descripcion" type="text" style="vertical-align:middle" value="${art.descripcion}" size="80" maxlength="80" required/>
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
+                             </td>
+                           </tr>
+                                <tr> 
+                                    <td>
                                     <input name="registrarEditarDisciplina" type="submit" value="Guardar" />
-
-                                </div>
-                        </div>
-                    </form>
+                                    </td>
+                                </tr>
+                        </table>
+                    
+                    </form:form>
                     <%} else {%>
                     <%} contador+=1;%>
                     </c:forEach>
+                     </div>
             </fieldset>
         </section>
         <p>&nbsp;</p>

@@ -9,8 +9,10 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -97,7 +99,7 @@ public class DisciplinaControlador {
     
     @RequestMapping("/salirDisciplina")
     public ModelAndView salirDisciplina() { 
-        ModelAndView mav = new ModelAndView("salirDisciplina"); 
+        ModelAndView mav = new ModelAndView("salir"); 
         return mav;
     }
     
@@ -113,14 +115,15 @@ public class DisciplinaControlador {
 
     
      @RequestMapping(value="/registrarDisciplina", method = RequestMethod.POST)
-    public String agregarDisciplina(@ModelAttribute("discEntidad") Disciplina nuevaDisciplina) {
-        try{
-            artsOad.save(nuevaDisciplina);
-        }catch(Exception e)
-        {
-            System.out.println("Error- " + e.getMessage());
+    public String agregarDisciplina(@Valid @ModelAttribute("discEntidad") Disciplina nuevaDisciplina, BindingResult resultado) {
+        if (resultado.hasErrors()) {
+            return "registrarDisciplina";
         }
+            
+            artsOad.save(nuevaDisciplina);
+        
         return "redirect:/disciplina";
+        
     }
    
 }

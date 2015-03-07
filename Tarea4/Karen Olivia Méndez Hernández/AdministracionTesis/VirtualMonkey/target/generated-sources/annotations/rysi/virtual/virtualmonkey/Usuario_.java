@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import rysi.virtual.virtualmonkey.Registroestadisticas;
 import rysi.virtual.virtualmonkey.Roles;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-05T21:27:11")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-03-07T01:51:58")
 @StaticMetamodel(Usuario.class)
 public class Usuario_ { 
 
