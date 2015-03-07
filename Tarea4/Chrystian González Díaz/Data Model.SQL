@@ -1,0 +1,106 @@
+CREATE TABLE Adicional ( 
+	id_material INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+	ruta VARCHAR(50) NOT NULL,
+	id_tesis INTEGER NOT NULL
+)
+;
+
+CREATE TABLE Comentarios ( 
+	id_comentario INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+	id_usuario INTEGER NOT NULL,
+	id_tesis INTEGER NOT NULL,
+	descripcion VARCHAR(50) NOT NULL
+)
+;
+
+CREATE TABLE Disciplina ( 
+	id_disciplina INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+	descripcion VARCHAR(20) NOT NULL
+)
+;
+
+CREATE TABLE Estado (
+ 	id_pais INTEGER NOT NULL,
+	id_estado INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+	nom_estado VARCHAR(20) NOT NULL
+)
+;
+
+CREATE TABLE Pais (
+ 	id_pais INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+	nom_pais VARCHAR(10) NOT NULL
+)
+;
+
+CREATE TABLE Tesis ( 
+	id_tesis INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+	id_usuario INTEGER NOT NULL,
+	titulo VARCHAR(30) NOT NULL,
+	id_disciplina INTEGER NOT NULL
+)
+;
+
+CREATE TABLE Usuario ( 
+	id_usuario INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+	nombre VARCHAR(15) NOT NULL,
+	apellidos VARCHAR(20) NOT NULL,
+	fecha_nac DATE NOT NULL,
+	contraseña VARCHAR(15) NOT NULL,
+	correo VARCHAR(20) NOT NULL,
+	facebook VARCHAR(30),
+	id_pais INTEGER
+)
+;
+
+
+ALTER TABLE Adicional ADD CONSTRAINT PK_Adicional 
+	PRIMARY KEY (id_material)
+;
+
+
+ALTER TABLE Comentarios ADD CONSTRAINT PK_Comentarios 
+	PRIMARY KEY (id_comentario)
+;
+
+
+ALTER TABLE Disciplina ADD CONSTRAINT PK_Diciplina 
+	PRIMARY KEY (id_disciplina)
+;
+
+
+ALTER TABLE Estado ADD CONSTRAINT PK_Estado 
+	PRIMARY KEY (id_estado)
+;
+
+
+ALTER TABLE Pais ADD CONSTRAINT PK_Pais 
+	PRIMARY KEY (id_pais)
+;
+
+
+ALTER TABLE Tesis ADD CONSTRAINT PK_Tesis 
+	PRIMARY KEY (id_tesis)
+;
+
+
+ALTER TABLE Usuario ADD CONSTRAINT PK_Usuario 
+	PRIMARY KEY (id_usuario)
+;
+
+
+
+ALTER TABLE Estado ADD CONSTRAINT FK_Estado_Pais 
+	FOREIGN KEY (id_pais) REFERENCES Pais (id_pais)
+;
+
+ALTER TABLE Tesis ADD CONSTRAINT FK_Tesis_Disciplina 
+	FOREIGN KEY (id_disciplina) REFERENCES Disciplina (id_disciplina)
+;
+
+ALTER TABLE Tesis ADD CONSTRAINT FK_Tesis_Usuario 
+	FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario)
+;
+
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_Pais 
+	FOREIGN KEY (id_pais) REFERENCES Pais (id_pais)
+;
