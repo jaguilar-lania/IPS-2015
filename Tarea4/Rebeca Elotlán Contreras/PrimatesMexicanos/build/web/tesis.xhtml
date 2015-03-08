@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:form>
+        
+        <p:panel id="p1" header="Nuevo" rendered="#{tesisBean.vistaformulario}">
+            <h:panelGrid id="grid" columns="3" cellpadding="2">
+                
+                <p:outputLabel value="Nombre de Tesis" for="tx1" />
+                <p:inputText id="tx1" value="#{tesisBean.formuladioTes.nombre}" required="true" />
+                <p:message for="tx1" display="text"/>
+                
+                <p:outputLabel value="Nombre de Autor" for="tx2" />
+                <p:inputText id="tx2" value="#{tesisBean.formuladioTes.autor}" required="true" />
+                <p:message for="tx2" display="text"/>
+                
+                <p:outputLabel value="Fecha" for="tx3" />
+                <p:inputText id="tx3" value="#{tesisBean.formuladioTes.fechaed}" required="true" />
+                <p:message for="tx3" display="text"/>
+                
+                <p:outputLabel value="País" for="tx4" />
+                <p:inputText id="tx4" value="#{tesisBean.formuladioTes.pais}" required="true" />
+                <p:message for="tx4" display="text"/>
+                
+                <p:outputLabel value="Tipo de primate" for="cb2" />
+                <p:selectOneMenu id="cb2" value="#{tesisBean.formuladioTes.idPrimate}" required="true">
+                    <f:selectItem itemLabel="Vacio" itemValue=""/> 
+                    <f:selectItems value="#{tesisBean.listEspecieprimate}"/>
+                </p:selectOneMenu>
+                <p:message for="tx1" display="text"/>
+                
+                <p:outputLabel value="Disciplina" for="cb1" />
+                <p:selectOneMenu id="cb1" value="#{tesisBean.formuladioTes.idDisciplina}" required="true">
+                    <f:selectItem itemLabel="Vacio" itemValue=""/> 
+                    <f:selectItems value="#{tesisBean.listDisciplinas}"/>
+                </p:selectOneMenu>
+                <p:message for="tx1" display="text"/>
+                
+                
+                <p:commandButton value="Guardar" action="#{tesisBean.guardar}" ajax="false"/>
+                <p:commandButton value="Actualizar" action="#{tesisBean.actualizar}" ajax="false"/>
+                <p:commandButton value="Cancelar" action="#{tesisBean.cancelar}" ajax="false" immediate="true" />
+            </h:panelGrid>
+        </p:panel>
+        <p:panel id="p2" rendered="#{!tesisBean.vistaformulario}">
+            <p:commandButton value="Agregar" action="#{tesisBean.agregar}" ajax="false"/>
+            <p:commandButton value="Editar" action="#{tesisBean.editar}" ajax="false"/>
+             <p:commandButton value="Eliminar" action="#{tesisBean.eliminar}" ajax="false"/>
+             <p:dataTable var="tes" value="#{tesisBean.listaTesis}" selectionMode="single" selection="#{tesisBean.formuladioTes}" rowKey="#{tes.idTesis}">
+            <p:column headerText="Nombre">
+                <h:outputText value="#{tes.nombre}" />
+            </p:column>
+                 
+            <p:column headerText="País">
+                <h:outputText value="#{tes.pais}" />
+            </p:column>     
+
+            <p:column headerText="Fecha">
+                <h:outputText value="#{tes.fechaed}" >
+                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                </h:outputText>
+            </p:column>
+
+         </p:dataTable>
+        </p:panel>
+    </h:form>
+</html>
+

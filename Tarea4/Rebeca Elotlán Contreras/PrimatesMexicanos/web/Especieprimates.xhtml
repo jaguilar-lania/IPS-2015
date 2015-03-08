@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+     <h:form>
+        
+         <p:panel id="p1" header="Nuevo" rendered="#{primatesBeans.vistaformulario}">
+            
+            <h:panelGrid id="grid" columns="3" cellpadding="2">
+                <p:outputLabel value="Nombre de Primate" for="tx1" />
+                <p:inputText id="tx1" value="#{primatesBeans.formuladioPrim.nombre}" required="true" />
+                <p:message for="tx1" display="text"/>
+                
+                <p:outputLabel value="País" for="tx4" />
+                <p:inputText id="tx2" value="#{primatesBeans.formuladioPrim.pais}" required="true" />
+                <p:message for="tx2" display="text"/>
+                
+                <p:commandButton value="Guardar" action="#{primatesBeans.guardar}" ajax="false"/>
+                <p:commandButton value="Actualizar" action="#{primatesBeans.actualizar}" ajax="false"/>
+                <p:commandButton value="Cancelar" action="#{primatesBeans.cancelar}" ajax="false" immediate="true" />
+            </h:panelGrid>
+        </p:panel>
+        <p:panel id="p2" rendered="#{!primatesBeans.vistaformulario}">
+            <p:commandButton value="Agregar" action="#{primatesBeans.agregar}" ajax="false"/>
+            <p:commandButton value="Editar" action="#{primatesBeans.editar}" ajax="false"/>
+             <p:commandButton value="Eliminar" action="#{primatesBeans.eliminar}" ajax="false"/>
+             <p:dataTable var="prim" value="#{primatesBeans.listaEspecieprimates}" selectionMode="single" selection="#{primatesBeans.formuladioPrim}" rowKey="#{prim.idPrimate}">
+            <p:column headerText="Clave">
+                <h:outputText value="#{prim.idPrimate}" />
+            </p:column>
+
+            <p:column headerText="Descripción">
+                <h:outputText value="#{prim.nombre}" />
+            </p:column>
+
+         </p:dataTable>
+        </p:panel>
+    </h:form>
+</html>
+
